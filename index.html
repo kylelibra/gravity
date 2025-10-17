@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Labs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem;
+            background: #fff;
+            color: #000;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 12vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(180deg, #fff 0%, #888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+        }
+
+        .hero-description {
+            max-width: 700px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Request for Startups Section */
+        .rfs-section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rfs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .rfs-card {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .rfs-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .rfs-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .rfs-card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .rfs-card-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .team-member-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-title {
+            font-size: 1.1rem;
+            opacity: 0.6;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .team-member-bio {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+
+        .team-social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* About Defy Section */
+        .about-defy-section {
+            padding: 6rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-defy-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .defy-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .defy-link:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.4;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Animated background gradient */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            background: radial-gradient(circle at 50% 50%, #333 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.15;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tagline {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .rfs-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .rfs-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .team-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-defy-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .cta-buttons {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    
+    <nav>
+        <div class="logo">Gravity Labs</div>
+        <ul class="nav-links">
+            <li><a href="#team">Team</a></li>
+            <li><a href="#about-defy">About Defy</a></li>
+            <li><a href="#rfs">Request for Startups</a></li>
+        </ul>
+        <a href="mailto:intro@gravity-labs.xyz" class="nav-cta">Get in Touch</a>
+    </nav>
+
+    <section class="hero">
+        <div class="tagline">building the future of finance</div>
+        
+        <h1 class="hero-title">GRAVITY LABS</h1>
+
+        <p class="hero-description">
+            We incubate early-stage ideas into successful companies. Backed by Defy, we recruit exceptional founders, provide initial funding, and support our startups from concept to market. Our hands-on approach combines deep industry expertise with strategic capital to build the next generation of disruptive finance startups.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="mailto:intro@gravity-labs.xyz" class="btn-primary">Partner With Us</a>
+        </div>
+    </section>
+
+    <section id="team" class="team-section">
+        <h2 class="section-title">Team</h2>
+        <p class="section-subtitle">Meet the leaders building the future</p>
+        
+        <div class="team-grid">
+            <div class="team-card">
+                <h3 class="team-member-name">Bartek Ringwelski</h3>
+                <div class="team-member-title">Partner</div>
+                <p class="team-member-bio">
+                    Bartek Ringwelski is a venture capital investor and entrepreneur based in the New York City area. Previously, Bartek was a Product Manager at Facebook, where he incubated and launched payments on Instagram Direct and led Messenger Business Payments for the APAC market. His earlier experience includes serving as COO of bitFlyer USA, helping launch the US operations of Japan's largest crypto exchange, and working as a Partner at Core Innovation Capital, an early-stage fintech venture firm. Bartek holds an MBA from The Wharton School and a BA in Economics from Columbia University. Previously, he founded SkillSlate, which was acquired by TaskRabbit in 2013. He also <a href="https://fortune.com/2023/07/18/bear-stearns-2-bill-gag-pranksters-revealed/" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline; opacity: 0.9;">taped a $2 bill to Bear Stearns HQ</a> at the start of the financial crisis.
+                </p>
+                <div class="team-social-links">
+                    <a href="https://www.linkedin.com/in/bartekringwelski/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <h3 class="team-member-name">Kyle Libra</h3>
+                <div class="team-member-title">Operating Partner</div>
+                <p class="team-member-bio">
+                    Kyle Libra is a seasoned operator with nearly 20 years of experience at early and growth-stage startups and based in the New York City area. He has experienced multiple exits and brings deep product and engineering expertise from building and launching products that have reached hundreds of millions of users. Prior to Gravity, Kyle led the Crypto Brokerage business at blockchain infrastructure provider Paxos. His work there focused on building the regulatory first infrastructure that made digital assets accessible to mainstream audiences via partners like PayPal, Venmo, Interactive Brokers, Mercado Pago, Nubank and others. He also supported the company's efforts around blockchain based settlement infrastructure, tokenizing real world assets and stablecoins. On nights and weekends, he can be found building personal projects or watching Formula 1.
+                </p>
+                <div class="team-social-links">
+                    <a href="https://www.linkedin.com/in/kylelibra/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="https://twitter.com/kylelibra" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="https://kylelibra.substack.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Substack">S</a>
+                    <a href="https://kylelibra.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Website">→</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-defy" class="about-defy-section">
+        <h2 class="section-title">About Defy</h2>
+        <div class="about-defy-content">
+            <p>
+                Gravity Labs is backed by Defy, a Silicon Valley–based early-stage venture capital firm, currently investing out of Defy III. With $700M under management across its funds, Defy takes an artisanal approach to company building—backing founders with conviction and providing hands-on support from inception through exit. The team blends decades of venture experience with entrepreneurial and operating expertise, partnering with the boldest founders shaping the future.
+            </p>
+        </div>
+        <a href="https://defy.vc/" target="_blank" rel="noopener noreferrer" class="defy-link">Learn More About Defy →</a>
+    </section>
+
+    <section id="rfs" class="rfs-section">
+        <h2 class="section-title">Request for Startups</h2>
+        <p class="section-subtitle">We transform promising ideas into successful companies. Great ideas come from many places.</p>
+        
+        <div class="rfs-grid">
+            <div class="rfs-card">
+                <div class="rfs-number">01</div>
+                <h3 class="rfs-card-title">Partner-Led Innovation</h3>
+                <p class="rfs-card-description">
+                    Our partners bring deep crypto expertise, ecosystem pattern recognition and unique insights. They spot market gaps before they become obvious, giving our companies first-mover advantage.
+                </p>
+            </div>
+
+            <div class="rfs-card">
+                <div class="rfs-number">02</div>
+                <h3 class="rfs-card-title">Founder-Initiated Ideas</h3>
+                <p class="rfs-card-description">
+                    Exceptional entrepreneurs come to us with ideas they're passionate about building. When we find the right founder with the right idea, we move fast. And when we find great founders with still evolving nascent ideas? We work together to pivot to bigger opportunities.
+                </p>
+            </div>
+
+            <div class="rfs-card">
+                <div class="rfs-number">03</div>
+                <h3 class="rfs-card-title">Venture Partnerships</h3>
+                <p class="rfs-card-description">
+                    Leading venture capital firms approach us when they've identified gaps in their thesis but can't find the right company to invest in. We build these companies from scratch, creating pre-validated paths to future funding.
+                </p>
+            </div>
+
+            <div class="rfs-card">
+                <div class="rfs-number">04</div>
+                <h3 class="rfs-card-title">Ecosystem Requests</h3>
+                <p class="rfs-card-description">
+                    Blockchain foundations and Layer 1/Layer 2 protocols partner with us to build critical applications that strengthen their ecosystems. These partnerships provide our companies with technical resources, grants, distribution channels, and built-in user bases.
+                </p>
+            </div>
+
+            <div class="rfs-card">
+                <div class="rfs-number">05</div>
+                <h3 class="rfs-card-title">Enterprise Collaboration</h3>
+                <p class="rfs-card-description">
+                    Financial institutions and crypto platforms identify capabilities they need but prefer to partner with rather than build in-house. We create standalone companies that solve these problems while building platform businesses that serve entire markets—not just a single customer.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                nav.style.padding = '1rem 3rem';
+            } else {
+                nav.style.padding = '1.5rem 3rem';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
