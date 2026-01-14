@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crypto Venture Landscape | Gravity Labs</title>
-  <meta name="description" content="The comprehensive directory of 91 crypto venture capital firms, blockchain accelerators, and web3 venture studios. Find investors for your DeFi, NFT, or blockchain project.">
+  <meta name="description" content="The comprehensive directory of 171 crypto venture capital firms, blockchain accelerators, and web3 venture studios. Find investors for your DeFi, NFT, or blockchain project.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -32,104 +32,184 @@
     );
 
     const data = [
-      { name: "Gravity Labs", category: "Venture Studio", url: "https://gravity-labs.xyz/", location: "Brooklyn, NY", leaders: [{ name: "Kyle Libra", linkedin: "https://www.linkedin.com/in/kylelibra/", twitter: "https://x.com/kylelibra" }] },
-      { name: "Dlab", category: "Venture Studio", url: "https://dlab.vc/", location: "Boston, MA", leaders: [{ name: "Shawn Broderick", linkedin: "https://www.linkedin.com/in/shawnbroderick/", twitter: "https://x.com/sbroderick" }] },
-      { name: "SuperLayer", category: "Venture Studio", url: "https://superlayer.io/", location: "San Francisco, CA", leaders: [{ name: "Renee Wong", linkedin: "https://www.linkedin.com/in/renee-wong-340ba91/", twitter: null }] },
-      { name: "Draper Goren Blockchain", category: "Venture Studio", url: "https://www.dgb.vc/", location: "Troy, MI", leaders: [{ name: "Tim Draper", linkedin: "https://www.linkedin.com/in/timothydraper/", twitter: "https://x.com/TimDraper" }] },
-      { name: "Thesis", category: "Venture Studio", url: "https://thesis.co/", location: "San Mateo, CA", leaders: [{ name: "Matt Luongo", linkedin: "https://www.linkedin.com/in/mattluongo/", twitter: "https://x.com/mhluongo" }] },
-      { name: "ConsenSys Mesh", category: "Venture Studio", url: "https://www.mesh.xyz/", location: "Washington, DC", leaders: [{ name: "Joseph Lubin", linkedin: "https://www.linkedin.com/in/joseph-lubin-48406489/", twitter: "https://x.com/ethereumJoseph" }] },
-      { name: "BDE Ventures", category: "Venture Studio", url: "https://bde.io/", location: "Singapore", leaders: [{ name: "Brian D. Evans", linkedin: "https://www.linkedin.com/in/briandevansla/", twitter: "https://x.com/BrianDEvans" }] },
-      { name: "Kreatorverse", category: "Venture Studio", url: "https://kreatorverse.com/", location: "Bengaluru, India", leaders: [{ name: "Yuvaraj Thanikachalam", linkedin: "https://www.linkedin.com/in/yuvarajthanikachalam/", twitter: "https://x.com/YuvarajT" }] },
-      { name: "Moonsonglabs", category: "Venture Studio", url: "https://moonsonglabs.com/", location: "Burlington, MA", leaders: [{ name: "Derek Yoo", linkedin: "https://www.linkedin.com/in/derek-yoo-8a050/", twitter: "https://x.com/derekyoo" }] },
-      { name: "Protofire", category: "Venture Studio", url: "https://protofire.io/", location: "San Juan, Puerto Rico", leaders: [{ name: "Renat Khasanshyn", linkedin: "https://www.linkedin.com/in/renatco/", twitter: "https://x.com/renatco" }] },
-      { name: "Blockchain Laboratories", category: "Venture Studio", url: "https://blockchainlaboratories.com/", location: "Sheridan, WY", leaders: [{ name: "Boone Bergsma", linkedin: "https://www.linkedin.com/in/boonebergsma/", twitter: "https://x.com/BooneBergsma" }] },
-      { name: "Highline Beta", category: "Venture Studio", url: "https://www.highlinebeta.com/", location: "Toronto, Canada", leaders: [{ name: "Marcus Daniels", linkedin: "https://www.linkedin.com/in/marcusdaniels/", twitter: "https://x.com/marcusdaniels" }] },
-      { name: "X Wave Labs", category: "Venture Studio", url: "https://xwavelabs.io/", location: "Remote", leaders: [] },
-      { name: "NPC Group", category: "Venture Studio", url: "https://npcgroup.xyz/", location: "Remote", leaders: [{ name: "Omkar Daud", linkedin: "https://www.linkedin.com/in/omkardaud/", twitter: "https://x.com/OmkarDaud" }] },
-      { name: "Holdex", category: "Venture Studio", url: "https://holdex.io/", location: "Hong Kong", leaders: [{ name: "Vadim Zolotokrylin", linkedin: "http://linkedin.com/in/zolotokrylin/", twitter: "https://x.com/zolotokrylin" }] },
-      { name: "The Blox", category: "Accelerator", url: "https://theblox.co/", location: "Toronto, Canada", leaders: [{ name: "Ben Constanty", linkedin: "https://www.linkedin.com/in/ben-constanty/", twitter: "https://x.com/benconstanty" }] },
-      { name: "Borderless Capital", category: "Accelerator", url: "https://borderlesscapital.io/", location: "Atlanta, GA", leaders: [{ name: "David Garcia", linkedin: "https://www.linkedin.com/in/dglnkd/", twitter: null }] },
-      { name: "Defy", category: "VC", url: "https://defy.vc/", location: "Woodside, CA", leaders: [{ name: "Brian Rothenberg", linkedin: "https://www.linkedin.com/in/brianrothenberg/", twitter: "https://x.com/bmrothenberg" }] },
-      { name: "Dragonfly", category: "VC", url: "https://www.dragonfly.xyz/", location: "Oakland, CA", leaders: [{ name: "Haseeb Qureshi", linkedin: "https://www.linkedin.com/in/april-li-b06a29259/", twitter: "https://x.com/hosseeb" }] },
-      { name: "a16z Crypto", category: "VC", url: "https://a16zcrypto.com/", location: "Menlo Park, CA", leaders: [{ name: "Chris Dixon", linkedin: "https://www.linkedin.com/in/chris-dixon-9599b127b/", twitter: "https://x.com/cdixon" }] },
-      { name: "Coinbase Ventures", category: "VC", url: "https://www.coinbase.com/ventures", location: "Oakland, CA", leaders: [{ name: "Hoolie Tejwani", linkedin: "https://www.linkedin.com/in/hoolietejwani/", twitter: "https://x.com/HoolieG" }] },
-      { name: "Pantera", category: "VC", url: "https://panteracapital.com/", location: "Menlo Park, CA", leaders: [{ name: "Dan Morehead", linkedin: "https://www.linkedin.com/in/dmorehead/", twitter: "https://x.com/dan_pantera" }] },
-      { name: "Founders Fund", category: "VC", url: "https://foundersfund.com/", location: "San Francisco, CA", leaders: [{ name: "Neil Ruthven", linkedin: "https://www.linkedin.com/in/neil-ruthven-b7a6121/", twitter: null }] },
-      { name: "Jump Crypto", category: "VC", url: "https://jumpcrypto.com/", location: "Chicago, IL", leaders: [{ name: "Saurabh Sharma", linkedin: "https://www.linkedin.com/in/zsparta/", twitter: "https://x.com/zsparta" }] },
-      { name: "Multicoin Capital", category: "VC", url: "https://multicoin.capital/", location: "Austin, TX", leaders: [{ name: "Kyle Samani", linkedin: "https://www.linkedin.com/in/kylesamani/", twitter: "https://x.com/KyleSamani" }] },
-      { name: "Solana Ventures", category: "VC", url: "https://solana.ventures/", location: "San Francisco, CA", leaders: [{ name: "Matthew Beck", linkedin: "https://www.linkedin.com/in/matthewlsbeck/", twitter: "https://x.com/matthewabeck1" }] },
-      { name: "Paradigm", category: "VC", url: "https://www.paradigm.xyz/", location: "San Francisco, CA", leaders: [{ name: "Matthew Huang", linkedin: "https://www.linkedin.com/in/kmhuang/", twitter: "https://x.com/matthuang" }] },
-      { name: "Polychain Capital", category: "VC", url: "https://polychain.capital/", location: "San Francisco, CA", leaders: [{ name: "Olaf Carlson-Wee", linkedin: "https://www.linkedin.com/in/olaf-carlson-wee-b9796662/", twitter: "https://x.com/zxocw" }] },
-      { name: "Defiance Capital", category: "VC", url: "https://defiance.capital/", location: "Singapore", leaders: [{ name: "Arthur Cheong", linkedin: "https://www.linkedin.com/in/arthur-cheong-8270a25b/", twitter: "https://x.com/Arthur_0x" }] },
-      { name: "Mechanism Capital", category: "VC", url: "https://www.mechanism.capital/", location: "Liberty Hill, TX", leaders: [{ name: "Marc Weinstein", linkedin: "https://www.linkedin.com/in/marc-weinstein-look-up/", twitter: "https://x.com/WarcMeinstein" }] },
-      { name: "The Spartan Group", category: "VC", url: "https://www.spartangroup.io/", location: "Singapore", leaders: [{ name: "Melody He", linkedin: "https://www.linkedin.com/in/melody-he-497a5b25/", twitter: "https://x.com/melmelmelting" }] },
-      { name: "Tribe Capital", category: "VC", url: "https://www.crypto.tribecap.co/", location: "Menlo Park, CA", leaders: [{ name: "Arjun Sethi", linkedin: "https://www.linkedin.com/in/asethi/", twitter: "https://x.com/arjunsethi" }] },
-      { name: "Founders Inc", category: "VC", url: "https://f.inc/", location: "San Francisco, CA", leaders: [{ name: "Hubert Thieblot", linkedin: "https://www.linkedin.com/in/hubertthieblot/", twitter: "https://x.com/hthieblot" }] },
-      { name: "South Park Commons", category: "VC", url: "https://www.southparkcommons.com/", location: "San Francisco, CA", leaders: [{ name: "Aditya Agarwal", linkedin: "https://www.linkedin.com/in/aditya-agarwal-1550841/", twitter: "https://x.com/adityaag" }] },
-      { name: "Chapter One", category: "VC", url: "https://chapterone.com/", location: "Los Angeles, CA", leaders: [{ name: "Jeffrey Morris Jr.", linkedin: "https://www.linkedin.com/in/jeffmorrisjr/", twitter: "https://x.com/jmj" }] },
-      { name: "P2 Ventures", category: "VC", url: "https://www.p2v.ventures/", location: "British Virgin Islands", leaders: [{ name: "Yvette Tao", linkedin: "https://www.linkedin.com/in/yvettetkh/", twitter: null }] },
-      { name: "M1 Capital", category: "VC", url: "https://m1-capital.com/", location: "Amsterdam, Netherlands", leaders: [{ name: "David van Goudoever", linkedin: "https://www.linkedin.com/in/david-van-goudoever-297096b1/", twitter: "https://x.com/DGoudoever" }] },
-      { name: "Outlier Ventures", category: "VC", url: "https://outlierventures.io/", location: "London, UK", leaders: [{ name: "Aron Van Ammers", linkedin: "https://www.linkedin.com/in/aronvanammers/", twitter: "https://x.com/aronvanammers" }] },
-      { name: "Blizzard Fund", category: "VC", url: "https://www.blizzard.fund/", location: "New York, NY", leaders: [{ name: "Vera Im", linkedin: "https://www.linkedin.com/in/vera-im/", twitter: "https://x.com/veritaim" }] },
-      { name: "Foundation Capital", category: "VC", url: "https://foundationcapital.com/", location: "Palo Alto, CA", leaders: [{ name: "David Armstrong JD", linkedin: "https://www.linkedin.com/in/david-armstrong-aaab0514/", twitter: null }] },
-      { name: "Verda Ventures", category: "VC", url: "https://verda.ventures/", location: "Incline Village, NV", leaders: [{ name: "Alex Witt", linkedin: "https://www.linkedin.com/in/alexwitt/", twitter: "https://x.com/AlexLWitt" }] },
-      { name: "Digital Currency Group", category: "VC", url: "https://dcg.co/", location: "Stamford, CT", leaders: [{ name: "Jason Yacavone", linkedin: "https://www.linkedin.com/in/jason-y-8255a411/", twitter: null }] },
-      { name: "Mirana Ventures", category: "VC", url: "https://www.mirana.xyz/", location: "British Virgin Islands", leaders: [{ name: "Zixi Wang", linkedin: null, twitter: null }] },
-      { name: "Animoca Brands", category: "VC", url: "https://www.animocabrands.com/", location: "Hong Kong", leaders: [{ name: "Robby Yung", linkedin: "https://www.linkedin.com/in/robyung/", twitter: "https://x.com/viewfromhk" }] },
-      { name: "YZi Labs", category: "VC", url: "https://www.yzilabs.com/", location: "Hong Kong", leaders: [{ name: "Alex Odagiu", linkedin: "https://www.linkedin.com/in/odagiu/", twitter: "https://x.com/odagius" }] },
-      { name: "Robot Ventures", category: "VC", url: "https://robvc.com/", location: "New York, NY", leaders: [{ name: "Robert Leshner", linkedin: "https://linkedin.com/in/rleshner/", twitter: "https://x.com/rleshner" }] },
-      { name: "Hashkey Capital", category: "VC", url: "https://hashkey.capital/", location: "Singapore", leaders: [{ name: "Ryan Chen", linkedin: "https://www.linkedin.com/in/ryan-chen-313a20273/", twitter: null }] },
-      { name: "MH Ventures", category: "VC", url: "https://www.mhventures.io/", location: "Cayman Islands", leaders: [{ name: "Kamran Iqbal", linkedin: null, twitter: "https://x.com/0xKDOT" }] },
-      { name: "Hashed", category: "VC", url: "https://www.hashed.com/", location: "Seoul, South Korea", leaders: [{ name: "Seojoon Kim", linkedin: "https://www.linkedin.com/in/seojoonkim/", twitter: "https://x.com/simonkim_nft" }] },
-      { name: "Sora Ventures", category: "VC", url: "https://sora.vc/", location: "Taipei, Taiwan", leaders: [{ name: "Jason Fang", linkedin: "https://www.linkedin.com/in/jason-fang-7801b2101/", twitter: "https://x.com/JasonSoraVC" }] },
-      { name: "New Form Capital", category: "VC", url: "https://www.newformcap.com/", location: "New York, NY", leaders: [{ name: "Alex Marinier", linkedin: "https://www.linkedin.com/in/alex-marinier-003a1954/", twitter: null }] },
-      { name: "3cubed VC", category: "VC", url: "https://www.3cubed.vc/", location: "San Francisco, CA", leaders: [{ name: "Marco Buhlmann", linkedin: "https://www.linkedin.com/in/marcobuhlmann/", twitter: "https://x.com/MBuhlmann" }] },
-      { name: "Nascent", category: "VC", url: "https://www.nascent.xyz/", location: "Montreal, Canada", leaders: [{ name: "Dan Elitzer", linkedin: "https://www.linkedin.com/in/delitzer/", twitter: "https://x.com/delitzer" }] },
-      { name: "Delta Blockchain Fund", category: "VC", url: "https://deltafund.io/", location: "New York, NY", leaders: [{ name: "Kavita Gupta", linkedin: "https://www.linkedin.com/in/kavita-gupta-71a4352/", twitter: "https://x.com/KavitaGupta19" }] },
-      { name: "Streamlined Ventures", category: "VC", url: "https://www.streamlined.vc/", location: "Palo Alto, CA", leaders: [{ name: "Ullas Naik", linkedin: "https://www.linkedin.com/in/ullasnaik/", twitter: "https://x.com/ullastweets" }] },
-      { name: "Nibiru Ventures", category: "VC", url: "https://nibiru.fi/venture", location: "Palo Alto, CA", leaders: [{ name: "Unique Divine", linkedin: "https://www.linkedin.com/in/unique-divine/", twitter: "https://x.com/UniqueDivine" }] },
-      { name: "Tensor Ventures", category: "VC", url: "https://tensor.ventures/", location: "Luxembourg", leaders: [{ name: "Martin Drdul", linkedin: "https://www.linkedin.com/in/martindrdul/", twitter: "https://x.com/mdrdul" }] },
-      { name: "Cyber.Fund", category: "VC", url: "https://cyber.fund/", location: "Cayman Islands", leaders: [{ name: "Vasiliy Shapovalov", linkedin: "https://www.linkedin.com/in/vasiliy-shapovalov-91716491/", twitter: "https://x.com/_vshapovalov" }] },
-      { name: "Signum Capital", category: "VC", url: "https://www.signum.capital/", location: "Singapore", leaders: [{ name: "John Pangilinan Ng", linkedin: "https://www.linkedin.com/in/johnngp/", twitter: "https://x.com/john_ng_p" }] },
-      { name: "Two Hop Ventures", category: "VC", url: "https://twohop.ventures/", location: "Amsterdam, Netherlands", leaders: [{ name: "Alexander Louis Fauvel", linkedin: "https://www.linkedin.com/in/alexfauvel/", twitter: null }] },
-      { name: "Reciprocal Ventures", category: "VC", url: "https://recvc.com/", location: "New York, NY", leaders: [{ name: "Craig Burel", linkedin: "https://www.linkedin.com/in/craigburel/", twitter: "https://x.com/CraigBurel" }] },
-      { name: "Kosmos Ventures", category: "VC", url: "https://www.kosmos.vc/", location: "Perth, Australia", leaders: [{ name: "Sheridan Hammond", linkedin: "https://www.linkedin.com/in/sheridanhammond/", twitter: "https://x.com/sheridanhammond" }] },
-      { name: "UDHC", category: "VC", url: "https://www.udhc.com/", location: "Sheridan, CA", leaders: [{ name: "Steven Becker", linkedin: "https://www.linkedin.com/in/steven-becker/", twitter: "https://x.com/altSdbecker" }] },
-      { name: "Graph Ventures", category: "VC", url: "https://www.graphventures.com/", location: "San Francisco, CA", leaders: [{ name: "Matthew Wyndowe", linkedin: "https://www.linkedin.com/in/wyndowe/", twitter: "https://x.com/mattwyndowe" }] },
-      { name: "Youbi Capital", category: "VC", url: "https://youbicapital.com/", location: "Cayman Islands", leaders: [{ name: "Li Gong", linkedin: "https://www.linkedin.com/in/li-gong-77614a7/", twitter: null }] },
-      { name: "RockawayX", category: "VC", url: "https://rockawayx.com/", location: "Prague, Czech Republic", leaders: [{ name: "Viktor Fischer", linkedin: "https://www.linkedin.com/in/viktorfischer/", twitter: "https://x.com/viktorfischer" }] },
-      { name: "LeadBlock Partners", category: "VC", url: "https://leadblockpartners.com/", location: "London, UK", leaders: [{ name: "David Chreng", linkedin: "https://www.linkedin.com/in/dcm07/", twitter: null }] },
-      { name: "Inception Capital", category: "VC", url: "https://www.inception.capital/", location: "British Virgin Islands", leaders: [{ name: "David Gan", linkedin: "https://www.linkedin.com/in/davidgancheng/", twitter: "https://x.com/davidgan1818" }] },
-      { name: "Amino Capital", category: "VC", url: "https://www.aminocapital.com/", location: "Palo Alto, CA", leaders: [{ name: "Qiang Li", linkedin: "http://linkedin.com/in/larryli/", twitter: null }] },
-      { name: "Foresight Ventures", category: "VC", url: "https://www.foresightventures.com/", location: "Singapore", leaders: [{ name: "Forest Bai", linkedin: "http://linkedin.com/in/forest-bai-63154110a/", twitter: "https://x.com/ForestBai1" }] },
-      { name: "ArkStream Capital", category: "VC", url: "https://www.arkstream.capital/", location: "Singapore", leaders: [{ name: "Warren Fang", linkedin: "https://www.linkedin.com/in/warren-fang-ba5344152/", twitter: null }] },
-      { name: "1kx", category: "VC", url: "https://1kx.network/", location: "New York, NY", leaders: [{ name: "Lasse Clausen", linkedin: "https://www.linkedin.com/in/lasseclausen/", twitter: "https://x.com/lalleclausen" }] },
-      { name: "Bloccelerate", category: "VC", url: "https://bloccelerate.vc/", location: "Seattle, WA", leaders: [{ name: "Kate Laurence", linkedin: "https://www.linkedin.com/in/kate-mitselmakher/", twitter: "https://x.com/K_Laurence_" }] },
-      { name: "Maven 11", category: "VC", url: "https://www.maven11.com/", location: "Amsterdam, Netherlands", leaders: [{ name: "Balder Bomans", linkedin: "https://www.linkedin.com/in/balder-bomans-85a2b331/", twitter: "https://x.com/BalderBomans" }] },
-      { name: "Njordis Ventures", category: "VC", url: "https://njordis.com/", location: "Oslo, Norway", leaders: [{ name: "Robin Weninger", linkedin: "https://www.linkedin.com/in/robinweninger/", twitter: null }] },
-      { name: "X Ventures", category: "VC", url: "https://www.xventures.de/", location: "Monheim, Germany", leaders: [{ name: "Zohair Dehnadi", linkedin: "https://www.linkedin.com/in/zdehnadi/", twitter: "https://x.com/pathofz" }] },
-      { name: "Arcanum Capital", category: "VC", url: "https://www.arcanum.capital/", location: "Hamilton, Bermuda", leaders: [{ name: "James McDowall", linkedin: "https://www.linkedin.com/in/james-mcdowall/", twitter: null }] },
-      { name: "EV3", category: "VC", url: "https://ev3.xyz/", location: "New York, NY", leaders: [{ name: "Mahesh Ramakrishnan", linkedin: "https://www.linkedin.com/in/mahesh-ramakrishnan-62b39a76/", twitter: "https://x.com/MoneroMahesh" }] },
-      { name: "Arcanum Ventures", category: "VC", url: "https://www.arcanum.ventures/", location: "Panama City, Panama", leaders: [{ name: "Carmelo Giuliano", linkedin: "https://www.linkedin.com/in/carmelo-giuliano-3866a81b3/", twitter: "https://x.com/MELOWILD" }] },
-      { name: "CitizenX", category: "VC", url: "https://www.citizenx.co/", location: "New York, NY", leaders: [{ name: "Emilio DiSanluciano", linkedin: null, twitter: "https://x.com/edisanluciano" }] },
-      { name: "Primitive Ventures", category: "VC", url: "https://primitive.ventures/", location: "San Francisco, CA", leaders: [{ name: "Dovey Wan", linkedin: "https://www.linkedin.com/in/doveywan/", twitter: "https://x.com/DoveyWan" }] },
-      { name: "Fulgur Ventures", category: "VC", url: "https://fulgur.ventures/", location: "Wilmington, DE", leaders: [{ name: "Oleg Michalski", linkedin: "https://www.linkedin.com/in/olegmikh/", twitter: null }] },
-      { name: "Protofund", category: "VC", url: "https://www.protofund.com/", location: "Los Angeles, CA", leaders: [{ name: "Jonathan Chu", linkedin: "https://www.linkedin.com/in/jonathanwchu/", twitter: "https://x.com/jonathanwchu" }] },
-      { name: "XVC Tech", category: "VC", url: "https://www.xvc.tech/", location: "Dubai, UAE", leaders: [{ name: "Johan Lundberg", linkedin: "https://www.linkedin.com/in/johan-lundberg-a3620b4/", twitter: "https://x.com/TechXvc" }] },
-      { name: "Contango Digital Assets", category: "VC", url: "https://www.contango.digital/", location: "British Virgin Islands", leaders: [{ name: "Joshua Field", linkedin: "http://linkedin.com/in/joshuafieldcontango/", twitter: "https://x.com/contangojosh" }] },
-      { name: "The Fintech Fund", category: "VC", url: "https://www.thefintechfund.com/", location: "New York, NY", leaders: [{ name: "Nik Milanovic", linkedin: "https://www.linkedin.com/in/nikm/", twitter: "https://x.com/NikMilanovic" }] },
-      { name: "Matrix Capital", category: "VC", url: "https://matrix.capital/", location: "Limassol, Cyprus", leaders: [{ name: "Dmitry Alpatkin", linkedin: "https://www.linkedin.com/in/dmitry-alpatkin-43474223/", twitter: null }] },
-      { name: "Woodstock Fund", category: "VC", url: "https://woodstockfund.com/", location: "Cayman Islands", leaders: [{ name: "Pranav Sharma", linkedin: "https://www.linkedin.com/in/pranav-sharma-7a05b13/", twitter: "https://x.com/pransharma" }] },
-      { name: "BitRock Capital", category: "VC", url: "http://www.bitrockpartners.com/", location: "Singapore", leaders: [{ name: "Alfred Shang Ph.D", linkedin: "https://www.linkedin.com/in/alfred-shang-69b77771/", twitter: null }] },
-      { name: "Outpost Capital", category: "VC", url: "https://www.outpostvc.com/", location: "San Francisco, CA", leaders: [{ name: "Ryan Wang", linkedin: "https://www.linkedin.com/in/ryanwangglobal/", twitter: "https://x.com/ryanwangny" }] },
-      { name: "Archetype Fund", category: "VC", url: "https://www.archetype.fund/", location: "New York, NY", leaders: [{ name: "Ash Egan", linkedin: "https://www.linkedin.com/in/aaegan/", twitter: "https://x.com/AshAEgan" }] }
+      { name: "Gravity Labs", categories: ["Venture Studio", "Incubator"], url: "https://gravity-labs.xyz/", location: "Brooklyn, NY", leaders: [{ name: "Kyle Libra", linkedin: "https://www.linkedin.com/in/kylelibra/", twitter: "https://x.com/kylelibra" }] },
+      { name: "defy.vc", categories: ["VC"], url: "https://defy.vc/", location: "Woodside, CA", leaders: [{ name: "Brian Rothenberg", linkedin: "https://www.linkedin.com/in/brianrothenberg/", twitter: "https://x.com/bmrothenberg" }] },
+      { name: "RockTree Capital", categories: ["VC", "Accelerator"], url: "https://rocktreecapital.com/", location: "New York, NY", leaders: [{ name: "Kevin O\'Brien", linkedin: "https://www.linkedin.com/in/blockchainkevinobrien/", twitter: null }] },
+      { name: "Dlab", categories: ["VC", "Venture Studio", "Accelerator"], url: "https://dlab.vc/", location: "Boston, MA", leaders: [{ name: "Shawn Broderick", linkedin: "https://www.linkedin.com/in/shawnbroderick/", twitter: "https://x.com/sbroderick?lang=en" }] },
+      { name: "SuperLayer", categories: ["Venture Studio", "Incubator"], url: "https://superlayer.io/", location: "San Francisco, CA", leaders: [{ name: "Renee Wong", linkedin: "https://www.linkedin.com/in/renee-wong-340ba91/", twitter: null }] },
+      { name: "Draper Goren Blockchain (DGB)", categories: ["VC", "Venture Studio", "Accelerator", "Incubator"], url: "https://www.dgb.vc/", location: "Troy, MI", leaders: [{ name: "Tim Draper", linkedin: "https://www.linkedin.com/in/timothydraper/", twitter: "https://x.com/TimDraper" }] },
+      { name: "Thesis", categories: ["Venture Studio"], url: "https://thesis.co/", location: "San Mateo, CA", leaders: [{ name: "Matt Luongo", linkedin: "https://www.linkedin.com/in/mattluongo/", twitter: "https://x.com/mhluongo" }] },
+      { name: "ConsenSys Mesh", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.mesh.xyz/", location: "Washington, DC", leaders: [{ name: "Joseph Lubin", linkedin: "https://www.linkedin.com/in/joseph-lubin-48406489/", twitter: "https://x.com/ethereumJoseph" }] },
+      { name: "BDE Ventures", categories: ["Venture Studio"], url: "https://bde.io/", location: "Singapore", leaders: [{ name: "Brian D. Evans", linkedin: "https://www.linkedin.com/in/briandevansla/", twitter: "https://x.com/BrianDEvans" }] },
+      { name: "Kreatorverse", categories: ["Venture Studio"], url: "https://kreatorverse.com/", location: "Bengaluru, India", leaders: [{ name: "Yuvaraj Thanikachalam", linkedin: "https://www.linkedin.com/in/yuvarajthanikachalam/?originalSubdomain=in", twitter: "https://x.com/YuvarajT" }] },
+      { name: "Moonsonglabs", categories: ["Venture Studio"], url: "https://moonsonglabs.com/", location: "Burlington, MA", leaders: [{ name: "Derek Yoo", linkedin: "https://www.linkedin.com/in/derek-yoo-8a050/", twitter: "https://x.com/derekyoo?lang=en" }] },
+      { name: "Protofire", categories: ["Venture Studio"], url: "https://protofire.io/", location: "San Juan, Puerto Rico", leaders: [{ name: "Renat Khasanshyn", linkedin: "https://www.linkedin.com/in/renatco/?originalSubdomain=pr", twitter: "https://x.com/renatco" }] },
+      { name: "Blockchain Laboratories", categories: ["Venture Studio"], url: "https://blockchainlaboratories.com/", location: "Sheridan, WY", leaders: [{ name: "Boone Bergsma", linkedin: "https://www.linkedin.com/in/boonebergsma/", twitter: "https://x.com/BooneBergsma" }] },
+      { name: "Highline Beta (ETH)", categories: ["VC", "Venture Studio", "Accelerator"], url: "https://www.highlinebeta.com/", location: "Toronto, Canada", leaders: [{ name: "Marcus Daniels", linkedin: "https://www.linkedin.com/in/marcusdaniels/", twitter: "https://x.com/marcusdaniels" }] },
+      { name: "NPC Group", categories: ["Venture Studio"], url: "https://npcgroup.xyz/", location: "Remote", leaders: [{ name: "Omkar Daud", linkedin: "https://www.linkedin.com/in/omkardaud/?originalSubdomain=ae", twitter: "https://x.com/OmkarDaud" }] },
+      { name: "Holdex", categories: ["Venture Studio"], url: "https://holdex.io/", location: "Hong Kong", leaders: [{ name: "Vadim Zolotokrylin", linkedin: "http://linkedin.com/in/zolotokrylin/?locale=en_US", twitter: "https://x.com/zolotokrylin?lang=en" }] },
+      { name: "Dragonfly", categories: ["VC"], url: "https://www.dragonfly.xyz/", location: "Oakland, CA", leaders: [{ name: "Haseeb Qureshi", linkedin: "https://www.linkedin.com/in/april-li-b06a29259/", twitter: "https://x.com/hosseeb" }] },
+      { name: "a16z", categories: ["VC"], url: "https://a16zcrypto.com/", location: "Menlo Park, CA", leaders: [{ name: "Chris Dixon", linkedin: "https://www.linkedin.com/in/chris-dixon-9599b127b/", twitter: "https://x.com/cdixon?lang=en" }] },
+      { name: "Coinbase Ventures", categories: ["VC"], url: "https://www.coinbase.com/ventures", location: "Oakland, CA", leaders: [{ name: "Hoolie Tejwani", linkedin: "https://www.linkedin.com/in/hoolietejwani/", twitter: "https://x.com/HoolieG" }] },
+      { name: "Pantera", categories: ["VC"], url: "https://panteracapital.com/", location: "Menlo Park, CA", leaders: [{ name: "Dan Morehead", linkedin: "https://www.linkedin.com/in/dmorehead/", twitter: "https://x.com/dan_pantera?lang=en" }] },
+      { name: "Founders Fund", categories: ["VC"], url: "https://foundersfund.com/", location: "San Francisco, CA", leaders: [{ name: "Neil Ruthven", linkedin: "https://www.linkedin.com/in/neil-ruthven-b7a6121/", twitter: null }] },
+      { name: "Jump Crypto", categories: ["VC"], url: "https://jumpcrypto.com/", location: "Chicago, IL", leaders: [{ name: "Saurabh Sharma", linkedin: "https://www.linkedin.com/in/zsparta/", twitter: "https://x.com/zsparta?lang=en" }] },
+      { name: "Multicoin Capital", categories: ["VC"], url: "https://multicoin.capital/", location: "Austin, TX", leaders: [{ name: "Kyle Samani", linkedin: "https://www.linkedin.com/in/kylesamani/", twitter: "https://x.com/KyleSamani" }] },
+      { name: "Solana Ventures", categories: ["VC"], url: "https://solana.ventures/", location: "San Francisco, CA", leaders: [{ name: "Matthew Beck", linkedin: "https://www.linkedin.com/in/matthewlsbeck/", twitter: "https://x.com/matthewabeck1?lang=en" }] },
+      { name: "Paradigm", categories: ["VC"], url: "https://www.paradigm.xyz/", location: "San Francisco, CA", leaders: [{ name: "Matthew Huang", linkedin: "https://www.linkedin.com/in/kmhuang/", twitter: "https://x.com/matthuang?lang=en" }] },
+      { name: "Polychain Capital", categories: ["VC"], url: "https://polychain.capital/", location: "San Francisco, CA", leaders: [{ name: "Olaf Carlson-Wee", linkedin: "https://www.linkedin.com/in/olaf-carlson-wee-b9796662/", twitter: "https://x.com/zxocw?lang=en" }] },
+      { name: "Definace Capital", categories: ["VC"], url: "https://defiance.capital/", location: "Singapore", leaders: [{ name: "Arthur Cheong", linkedin: "https://www.linkedin.com/in/arthur-cheong-8270a25b/", twitter: "https://x.com/Arthur_0x" }] },
+      { name: "Mechanism Capital", categories: ["VC"], url: "https://www.mechanism.capital/", location: "Liberty Hill, TX", leaders: [{ name: "Marc Weinstein", linkedin: "https://www.linkedin.com/in/marc-weinstein-look-up/", twitter: "https://x.com/WarcMeinstein" }] },
+      { name: "The Spartan Group", categories: ["VC"], url: "https://www.spartangroup.io/", location: "Singapore", leaders: [{ name: "Melody He", linkedin: "https://www.linkedin.com/in/melody-he-497a5b25/", twitter: "https://x.com/melmelmelting" }] },
+      { name: "Tribe Capital", categories: ["VC", "Incubator"], url: "https://www.crypto.tribecap.co/", location: "Menlo Park, CA", leaders: [{ name: "Arjun Sethi", linkedin: "https://www.linkedin.com/in/asethi/", twitter: "https://x.com/arjunsethi?lang=en" }] },
+      { name: "Founders Inc", categories: ["VC", "Venture Studio", "Accelerator", "Incubator"], url: "https://f.inc/", location: "San Francisco, CA", leaders: [{ name: "Hubert Thieblot", linkedin: "https://www.linkedin.com/in/hubertthieblot/", twitter: "https://x.com/hthieblot?lang=en" }] },
+      { name: "South Park Commons", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.southparkcommons.com/", location: "San Francisco, CA", leaders: [{ name: "Aditya Agarwal", linkedin: "https://www.linkedin.com/in/aditya-agarwal-1550841/", twitter: "https://x.com/adityaag?lang=en" }] },
+      { name: "Chapter One", categories: ["VC", "Venture Studio", "Incubator"], url: "https://chapterone.com/", location: "Los Angeles, CA", leaders: [{ name: "Jeffrey Morris Jr.", linkedin: "https://www.linkedin.com/in/jeffmorrisjr/", twitter: "https://x.com/jmj?lang=en" }] },
+      { name: "P2 ventures", categories: ["VC"], url: "https://www.p2v.ventures/", location: "British Virgin Islands", leaders: [{ name: "Yvette Tao", linkedin: "https://www.linkedin.com/in/yvettetkh/", twitter: null }] },
+      { name: "M1 Capital", categories: ["VC"], url: "https://m1-capital.com/", location: "Amsterdam, Netherlands", leaders: [{ name: "David van Goudoever", linkedin: "https://www.linkedin.com/in/david-van-goudoever-297096b1/", twitter: "https://x.com/DGoudoever" }] },
+      { name: "Outliers Ventures", categories: ["VC", "Accelerator", "Incubator"], url: "https://outlierventures.io/", location: "London, UK", leaders: [{ name: "Aron Van Ammers", linkedin: "https://www.linkedin.com/in/aronvanammers/", twitter: "https://x.com/aronvanammers?lang=en" }] },
+      { name: "Blizzard Fund", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.blizzard.fund/", location: "New York, NY", leaders: [{ name: "Vera Im", linkedin: "https://www.linkedin.com/in/vera-im/", twitter: "https://x.com/veritaim" }] },
+      { name: "Foundation Capital", categories: ["VC"], url: "https://foundationcapital.com/", location: "Palo Alto, CA", leaders: [{ name: "David Armstrong JD", linkedin: "https://www.linkedin.com/in/david-armstrong-aaab0514/", twitter: null }] },
+      { name: "Verda Ventures", categories: ["VC"], url: "https://verda.ventures/", location: "Incline Village, NV", leaders: [{ name: "Alex Witt", linkedin: "https://www.linkedin.com/in/alexwitt/", twitter: "https://x.com/AlexLWitt" }] },
+      { name: "Digital Currency Group", categories: ["VC"], url: "https://dcg.co/", location: "Stamford, CT", leaders: [{ name: "Jason Yacavone", linkedin: "https://www.linkedin.com/in/jason-y-8255a411/", twitter: null }] },
+      { name: "Mirana Ventures", categories: ["VC"], url: "https://www.mirana.xyz/", location: "British Virgin Islands", leaders: [{ name: "Zixi Wang", linkedin: null, twitter: null }] },
+      { name: "Animoca Brands", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.animocabrands.com/", location: "Hong Kong", leaders: [{ name: "Robby Yung", linkedin: "https://www.linkedin.com/in/robyung/?originalSubdomain=hk", twitter: "https://x.com/viewfromhk/with_replies" }] },
+      { name: "YZi Labs", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.yzilabs.com/", location: "Hong Kong", leaders: [{ name: "Alex Odagiu", linkedin: "https://www.linkedin.com/in/odagiu/", twitter: "https://x.com/odagius?lang=en" }] },
+      { name: "Robot Ventures", categories: ["VC"], url: "https://robvc.com/", location: "New York, NY", leaders: [{ name: "Robert Leshner", linkedin: "https://linkedin.com/in/rleshner/", twitter: "https://x.com/rleshner?lang=en" }] },
+      { name: "Hashkey Capital", categories: ["VC"], url: "https://hashkey.capital/", location: "Singapore", leaders: [{ name: "Ryan Chen", linkedin: "https://www.linkedin.com/in/ryan-chen-313a20273/?originalsubdomain=sg", twitter: null }] },
+      { name: "MH Ventures", categories: ["VC"], url: "https://www.mhventures.io/", location: "Cayman Islands", leaders: [{ name: "Kamran Iqbal", linkedin: null, twitter: "https://x.com/0xKDOT" }] },
+      { name: "Hashed", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.hashed.com/", location: "Seoul, South Korea", leaders: [{ name: "Seojoon Kim", linkedin: "https://www.linkedin.com/in/seojoonkim/", twitter: "https://x.com/simonkim_nft?lang=en" }] },
+      { name: "Sora Ventures", categories: ["VC"], url: "https://sora.vc/", location: "Taipei, Taiwan", leaders: [{ name: "Jason Fang", linkedin: "https://www.linkedin.com/in/jason-fang-7801b2101/", twitter: "https://x.com/JasonSoraVC" }] },
+      { name: "New Form Capital", categories: ["VC"], url: "https://www.newformcap.com/", location: "New York, NY", leaders: [{ name: "Alex Marinier", linkedin: "https://www.linkedin.com/in/alex-marinier-003a1954/", twitter: null }] },
+      { name: "3cubed VC", categories: ["VC"], url: "https://www.3cubed.vc/", location: "San Francisco, CA", leaders: [{ name: "Marco Buhlmann", linkedin: "https://www.linkedin.com/in/marcobuhlmann/", twitter: "https://x.com/MBuhlmann" }] },
+      { name: "Nascent", categories: ["VC"], url: "https://www.nascent.xyz/", location: "Montreal, Canada", leaders: [{ name: "Dan Elitzer", linkedin: "https://www.linkedin.com/in/delitzer/", twitter: "https://x.com/delitzer?lang=en" }] },
+      { name: "Delta Blockchain Fund", categories: ["VC"], url: "https://deltafund.io/", location: "New York, NY", leaders: [{ name: "Kavita Gupta", linkedin: "https://www.linkedin.com/in/kavita-gupta-71a4352/", twitter: "https://x.com/KavitaGupta19" }] },
+      { name: "Streamlined Ventures", categories: ["VC"], url: "https://www.streamlined.vc/", location: "Palo Alto, CA", leaders: [{ name: "Ullas Naik", linkedin: "https://www.linkedin.com/in/ullasnaik/", twitter: "https://x.com/ullastweets" }] },
+      { name: "Nibiru Ventures", categories: ["VC"], url: "https://nibiru.fi/venture", location: "Palo Alto, CA", leaders: [{ name: "Unique Divine", linkedin: "https://www.linkedin.com/in/unique-divine/", twitter: "https://x.com/UniqueDivine" }] },
+      { name: "Tensor Ventures", categories: ["VC"], url: "https://tensor.ventures/", location: "Luxembourg", leaders: [{ name: "Martin Drdul", linkedin: "https://www.linkedin.com/in/martindrdul/", twitter: "https://x.com/mdrdul" }] },
+      { name: "Cyber.Fund", categories: ["VC"], url: "https://cyber.fund/", location: "Cayman Islands", leaders: [{ name: "Vasiliy Shapovalov", linkedin: "https://www.linkedin.com/in/vasiliy-shapovalov-91716491/", twitter: "https://x.com/_vshapovalov?lang=en" }] },
+      { name: "Signum Capital", categories: ["VC"], url: "https://www.signum.capital/", location: "Singapore", leaders: [{ name: "John Pangilinan Ng", linkedin: "https://www.linkedin.com/in/johnngp/", twitter: "https://x.com/john_ng_p" }] },
+      { name: "Two Hop Ventures", categories: ["VC"], url: "https://twohop.ventures/", location: "Amsterdam, Netherlands", leaders: [{ name: "Alexander Louis Fauvel", linkedin: "https://www.linkedin.com/in/alexfauvel/", twitter: null }] },
+      { name: "Reciprocal Ventures", categories: ["VC"], url: "https://recvc.com/", location: "New York, NY", leaders: [{ name: "Craig Burel", linkedin: "https://www.linkedin.com/in/craigburel/", twitter: "https://x.com/CraigBurel" }] },
+      { name: "Kosmos Ventures", categories: ["VC"], url: "https://www.kosmos.vc/", location: "Perth, Australia", leaders: [{ name: "Sheridan Hammond", linkedin: "https://www.linkedin.com/in/sheridanhammond/", twitter: "https://x.com/sheridanhammond" }] },
+      { name: "UDHC", categories: ["VC"], url: "https://www.udhc.com/", location: "Sheridan, CA", leaders: [{ name: "Steven Becker", linkedin: "https://www.linkedin.com/in/steven-becker/", twitter: "https://x.com/altSdbecker" }] },
+      { name: "Graph Ventures", categories: ["VC"], url: "https://www.graphventures.com/", location: "San Francisco, CA", leaders: [{ name: "Matthew Wyndowe", linkedin: "https://www.linkedin.com/in/wyndowe/", twitter: "https://x.com/mattwyndowe?lang=en" }] },
+      { name: "Youbi Capital", categories: ["VC"], url: "https://youbicapital.com/", location: "Cayman Islands", leaders: [{ name: "Li Gong", linkedin: "https://www.linkedin.com/in/li-gong-77614a7/", twitter: null }] },
+      { name: "RockawayX", categories: ["VC"], url: "https://rockawayx.com/", location: "Prague, Czech Republic", leaders: [{ name: "Viktor Fischer", linkedin: "https://www.linkedin.com/in/viktorfischer/", twitter: "https://x.com/viktorfischer?lang=en" }] },
+      { name: "LeadBlock Partners", categories: ["VC"], url: "https://leadblockpartners.com/", location: "London, UK", leaders: [{ name: "David Chreng", linkedin: "https://www.linkedin.com/in/dcm07/?originalsubdomain=uk", twitter: null }] },
+      { name: "Inception Capital", categories: ["VC"], url: "https://www.inception.capital/", location: "British Virgin Islands", leaders: [{ name: "David Gan", linkedin: "https://www.linkedin.com/in/davidgancheng/", twitter: "https://x.com/davidgan1818?lang=en" }] },
+      { name: "Amino Capital", categories: ["VC"], url: "https://www.aminocapital.com/", location: "Palo Alto, CA", leaders: [{ name: "Qiang Li", linkedin: "http://linkedin.com/in/larryli/", twitter: null }] },
+      { name: "Foresight Ventures", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.foresightventures.com/about", location: "Singapore", leaders: [{ name: "Forest Bai", linkedin: "http://linkedin.com/in/forest-bai-63154110a/", twitter: "https://x.com/ForestBai1" }] },
+      { name: "ArkStream Capital", categories: ["VC"], url: "https://www.arkstream.capital/#/Home", location: "Singapore", leaders: [{ name: "Warren Fang", linkedin: "https://www.linkedin.com/in/warren-fang-ba5344152/", twitter: null }] },
+      { name: "1kx", categories: ["VC"], url: "https://1kx.network/", location: "New York, NY", leaders: [{ name: "Lasse Clausen", linkedin: "https://www.linkedin.com/in/lasseclausen/", twitter: "https://x.com/lalleclausen?lang=en" }] },
+      { name: "Bloccelerate", categories: ["VC"], url: "https://bloccelerate.vc/", location: "Seattle, WA", leaders: [{ name: "Kate Laurence", linkedin: "https://www.linkedin.com/in/kate-mitselmakher/", twitter: "https://x.com/K_Laurence_" }] },
+      { name: "Maven 11", categories: ["VC"], url: "https://www.maven11.com/", location: "Amsterdam, Netherlands", leaders: [{ name: "Balder Bomans", linkedin: "https://www.linkedin.com/in/balder-bomans-85a2b331/", twitter: "https://x.com/BalderBomans" }] },
+      { name: "The Blox", categories: ["Accelerator", "Incubator"], url: "https://theblox.co/", location: "Toronto, Canada", leaders: [{ name: "Ben Constanty", linkedin: "https://www.linkedin.com/in/ben-constanty/", twitter: "https://x.com/benconstanty" }] },
+      { name: "Njordis Ventures", categories: ["VC"], url: "https://njordis.com/", location: "Oslo, Norway", leaders: [{ name: "Robin Weninger", linkedin: "https://www.linkedin.com/in/robinweninger/?originalSubdomain=de", twitter: null }] },
+      { name: "X Ventures", categories: ["VC"], url: "https://www.xventures.de/", location: "Monheim, Germany", leaders: [{ name: "Zohair Dehnadi", linkedin: "https://www.linkedin.com/in/zdehnadi/", twitter: "https://x.com/pathofz" }] },
+      { name: "Arcanum Capital", categories: ["VC"], url: "https://www.arcanum.capital/", location: "Hamilton, Bermuda", leaders: [{ name: "James McDowall", linkedin: "https://www.linkedin.com/in/james-mcdowall/", twitter: null }] },
+      { name: "EV3", categories: ["VC"], url: "https://ev3.xyz/", location: "New York, NY", leaders: [{ name: "Mahesh Ramakrishnan", linkedin: "https://www.linkedin.com/in/mahesh-ramakrishnan-62b39a76/", twitter: "https://x.com/MoneroMahesh" }] },
+      { name: "Arcanum Ventures", categories: ["VC"], url: "https://www.arcanum.ventures/", location: "Panama City, Panama", leaders: [{ name: "Carmelo Giuliano", linkedin: "https://www.linkedin.com/in/carmelo-giuliano-3866a81b3/", twitter: "https://x.com/MELOWILD" }] },
+      { name: "CitizenX", categories: ["VC"], url: "https://www.citizenx.co/", location: "New York, NY", leaders: [{ name: "Emilio DiSanluciano", linkedin: null, twitter: "https://x.com/edisanluciano" }] },
+      { name: "Primitive Ventures", categories: ["VC"], url: "https://primitive.ventures/", location: "San Francisco, CA", leaders: [{ name: "Dovey Wan", linkedin: "https://www.linkedin.com/in/doveywan/", twitter: "https://x.com/DoveyWan" }] },
+      { name: "Fulgur Ventures", categories: ["VC"], url: "https://fulgur.ventures/", location: "Wilmington, DE", leaders: [{ name: "Oleg Michalski", linkedin: "https://www.linkedin.com/in/olegmikh/", twitter: null }] },
+      { name: "Protofund", categories: ["VC"], url: "https://www.protofund.com/", location: "Los Angeles, CA", leaders: [{ name: "Jonathan Chu", linkedin: "https://www.linkedin.com/in/jonathanwchu/", twitter: "https://x.com/jonathanwchu" }] },
+      { name: "XVC Tech", categories: ["VC"], url: "https://www.xvc.tech/index.html", location: "Dubai, UAE", leaders: [{ name: "Johan Lundberg", linkedin: "https://www.linkedin.com/in/johan-lundberg-a3620b4/", twitter: "https://x.com/TechXvc" }] },
+      { name: "Contango Digital Assets", categories: ["VC"], url: "https://www.contango.digital/", location: "British Virgin Islands", leaders: [{ name: "Joshua Field", linkedin: "http://linkedin.com/in/joshuafieldcontango/", twitter: "https://x.com/contangojosh" }] },
+      { name: "The Fintech Fund", categories: ["VC"], url: "https://www.thefintechfund.com/", location: "New York, NY", leaders: [{ name: "Nik Milanovic", linkedin: "https://www.linkedin.com/in/nikm/", twitter: "https://x.com/NikMilanovic?lang=en" }] },
+      { name: "Matrix Capital", categories: ["VC"], url: "https://matrix.capital/", location: "Limassol, Cyprus", leaders: [{ name: "Dmitry Alpatkin", linkedin: "https://www.linkedin.com/in/dmitry-alpatkin-43474223/", twitter: null }] },
+      { name: "Borderless Capital", categories: ["VC", "Accelerator"], url: "https://borderlesscapital.io/", location: "Atlanta, GA", leaders: [{ name: "David Garcia", linkedin: "https://www.linkedin.com/in/dglnkd/", twitter: null }] },
+      { name: "Woodstock Fund", categories: ["VC"], url: "https://woodstockfund.com/", location: "Cayman Islands", leaders: [{ name: "Pranav Sharma", linkedin: "https://www.linkedin.com/in/pranav-sharma-7a05b13/", twitter: "https://x.com/pransharma" }] },
+      { name: "BitRock Capital", categories: ["VC"], url: "http://www.bitrockpartners.com/", location: "Singapore", leaders: [{ name: "Alfred Shang Ph.D", linkedin: "https://www.linkedin.com/in/alfred-shang-69b77771/", twitter: null }] },
+      { name: "Outpost Capital", categories: ["VC"], url: "https://www.outpostvc.com/", location: "San Francisco, CA", leaders: [{ name: "Ryan Wang", linkedin: "https://www.linkedin.com/in/ryanwangglobal/", twitter: "https://x.com/ryanwangny" }] },
+      { name: "Archetype Fund", categories: ["VC"], url: "https://www.archetype.fund/", location: "New York, NY", leaders: [{ name: "Ash Egan", linkedin: "https://www.linkedin.com/in/aaegan/", twitter: "https://x.com/AshAEgan" }] },
+      { name: "Tembusu Partners", categories: ["VC"], url: "https://tembusupartners.com/", location: "Singapore", leaders: [{ name: "Brijesh Pande", linkedin: "https://www.linkedin.com/in/brijesh-pande-01a1b5238/", twitter: "https://x.com/PepriVentures" }] },
+      { name: "Blockwall Management", categories: ["VC"], url: "https://www.blockwall.vc/", location: "Frankfurt, Germany", leaders: [{ name: "Dominic Briggs", linkedin: "https://www.linkedin.com/in/dobriggs/", twitter: null }] },
+      { name: "Hive Ventures", categories: ["VC"], url: "https://www.hiveventures.io/", location: "Taipei, Taiwan", leaders: [{ name: "Yan Lee", linkedin: "https://www.linkedin.com/in/yanlee/", twitter: null }] },
+      { name: "Parallax Ventures", categories: ["VC"], url: "https://parallax.vc/", location: "Sao Paulo, Brazil", leaders: [{ name: "Azor Barros", linkedin: "https://www.linkedin.com/in/azorbdetoledobarros/", twitter: null }] },
+      { name: "IDEO CoLab Ventures", categories: ["VC", "Venture Studio", "Accelerator"], url: "https://ideocolab.com/", location: "Cambridge, MA", leaders: [{ name: "Joe Gerber", linkedin: "https://www.linkedin.com/in/gerberjoe/", twitter: "https://x.com/azor_barros" }] },
+      { name: "Alexia Ventures", categories: ["VC"], url: "https://alexia.vc/", location: "Sao Paulo, Brazil", leaders: [{ name: "Patrick Arippol", linkedin: "https://www.linkedin.com/in/parippol/?originalSubdomain=br", twitter: "https://x.com/0xGerber" }] },
+      { name: "Sancus Ventures", categories: ["VC"], url: "https://www.sancus.vc/", location: "San Francisco, CA", leaders: [{ name: "Lake Dai", linkedin: "https://www.linkedin.com/in/lakedai/", twitter: null }] },
+      { name: "LongHash Ventures", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.longhash.vc/", location: "Singapore", leaders: [{ name: "Emma Cui", linkedin: "https://www.linkedin.com/in/emmacui/?originalSubdomain=sg", twitter: "https://x.com/LakeDai" }] },
+      { name: "6th Man Ventures", categories: ["VC"], url: "https://6thman.ventures/", location: "New York, NY", leaders: [{ name: "Aaron Kern", linkedin: "https://www.linkedin.com/in/aaronmkern/", twitter: null }] },
+      { name: "CMT Digital Holdings", categories: ["VC"], url: "https://cmt.digital/", location: "Chicago, IL", leaders: [{ name: "Sam Hallene", linkedin: "https://www.linkedin.com/in/sam-hallene-353650bb/", twitter: "https://x.com/aaronmkern?lang=en" }] },
+      { name: "Tenzor Capital", categories: ["VC"], url: "https://www.tenzor.capital/", location: "Gibraltar, UK", leaders: [{ name: "Kirill Kovalev", linkedin: "https://www.linkedin.com/in/kirillkovaleff/?originalsubdomain=fi", twitter: "https://x.com/samiam2194?lang=en" }] },
+      { name: "Shima Capital", categories: ["VC"], url: "https://shima.capital/", location: "Irvine, CA", leaders: [{ name: "Yida Gao", linkedin: "https://www.linkedin.com/in/yida-gao-0174b417/", twitter: "https://x.com/LeslieisHODLing" }] },
+      { name: "Broom Ventures", categories: ["VC"], url: "https://www.broom.ventures/", location: "San Francisco, CA", leaders: [{ name: "Daniel Von Kohorn", linkedin: "https://www.linkedin.com/in/vonkohorn/", twitter: "https://x.com/danvk" }] },
+      { name: "OKX Ventures", categories: ["VC"], url: "https://www.okx.com/en-us/ventures", location: "Seychelles", leaders: [{ name: "Michelle Fang", linkedin: "https://www.linkedin.com/in/michelle-fang-1360581a7/?originalsubdomain=hk", twitter: null }] },
+      { name: "COINS GROUP", categories: ["VC"], url: "https://www.coinsgroup.io/", location: "Hong Kong", leaders: [{ name: "Virginia Lam", linkedin: "https://www.linkedin.com/in/lamvirginia/?originalSubdomain=hk", twitter: null }] },
+      { name: "Rule72", categories: ["VC"], url: "https://www.rule72.com/", location: "Singapore", leaders: [{ name: "Amrit Kumar Ph.D", linkedin: "https://www.linkedin.com/in/amrit-kumar-6aa66151/", twitter: "https://x.com/maqstik?lang=en" }] },
+      { name: "Primal Capital", categories: ["VC"], url: "https://primalcapital.io/", location: "Sydney, Australia", leaders: [{ name: "David Wills", linkedin: "https://www.linkedin.com/in/david-wills-0a299839/", twitter: "https://x.com/will_zie" }] },
+      { name: "GSR", categories: ["VC"], url: "https://www.gsr.io/", location: "Jersey City, NJ", leaders: [{ name: "Quynh Ho", linkedin: "https://www.linkedin.com/in/quynhho/", twitter: "https://x.com/Quynh__Ho" }] },
+      { name: "Haven Ventures", categories: ["VC"], url: "https://www.haven.vc/", location: "Los Angeles, CA", leaders: [{ name: "McLain Southworth", linkedin: "https://www.linkedin.com/in/mclainsouthworth/", twitter: "https://x.com/McLain" }] },
+      { name: "SevenX Ventures", categories: ["VC"], url: "https://www.7xvc.com/", location: "Singapore", leaders: [{ name: "Rongbin Li", linkedin: "https://www.linkedin.com/in/rongbin-li-3805b1225/", twitter: null }] },
+      { name: "Skyfall Ventures", categories: ["VC"], url: "https://www.skyfall.vc/", location: "Oslo, Norway", leaders: [{ name: "Espen Malmo", linkedin: "https://www.linkedin.com/in/espenmalmo/", twitter: "https://x.com/espen_malmo" }] },
+      { name: "Future\Perfect Ventures", categories: ["VC"], url: "https://www.futureperfectventures.com/", location: "New York, NY", leaders: [{ name: "Jalak Jobanputra", linkedin: "https://www.linkedin.com/in/jalak/", twitter: "https://x.com/jalak" }] },
+      { name: "w3.fund", categories: ["VC"], url: "https://w3.fund/", location: "Berlin, Germany", leaders: [{ name: "Henrik Bredenbals", linkedin: "https://www.linkedin.com/in/henrikbredenbals/", twitter: "https://x.com/bredi030" }] },
+      { name: "Tokentus", categories: ["VC"], url: "https://tokentus.com/", location: "Frankfurt, Germany", leaders: [{ name: "Benedikt Schulz", linkedin: "https://www.linkedin.com/in/schulzb/?originalsubdomain=de", twitter: "https://x.com/benediktschulz5" }] },
+      { name: "Eden Block", categories: ["VC"], url: "https://www.edenblock.com/", location: "London, UK", leaders: [{ name: "Yoann Douieb", linkedin: "https://www.linkedin.com/in/yoanndouieb", twitter: "https://x.com/yoanndouieb" }] },
+      { name: "Morningstar Ventures", categories: ["VC", "Incubator"], url: "https://morningstar.ventures/", location: "Dubai, UAE", leaders: [{ name: "Kevin Prediger", linkedin: null, twitter: null }] },
+      { name: "Caladan", categories: ["VC"], url: "https://caladan.xyz/", location: "Singapore", leaders: [{ name: "Stephany Zoo", linkedin: "https://www.linkedin.com/in/stephanyzoo/?originalsubdomain=ke", twitter: "https://x.com/curiouszoo?lang=en" }] },
+      { name: "Leland Ventures", categories: ["VC"], url: "https://www.leland.ventures/", location: "Denver, CO", leaders: [{ name: "Tia Wang", linkedin: "https://www.linkedin.com/in/tia-wang-2a5912247/?originalsubdomain=cn", twitter: null }] },
+      { name: "Blockchange Ventures", categories: ["VC"], url: "https://blockchange.vc/", location: "New York, NY", leaders: [{ name: "Kenneth Seiff", linkedin: "https://www.linkedin.com/in/seiff/", twitter: "https://x.com/seiff?lang=en" }] },
+      { name: "Laser Digital", categories: ["VC"], url: "https://www.laserdigital.com/", location: "Zürich, Switzerland", leaders: [{ name: "Mohamed Jezri Mohideen Ph.D", linkedin: "https://www.linkedin.com/in/dr-jez-mohideen-b5622522/", twitter: null }] },
+      { name: "Morph Capital", categories: ["VC"], url: "https://www.morph.vc/portfolio", location: "Copenhagen, Denmark", leaders: [{ name: "Yngvi Karlson", linkedin: "https://www.linkedin.com/in/ykarlson/", twitter: null }] },
+      { name: "G1 Ventures", categories: ["VC"], url: "https://www.g1.vc/", location: "London, UK", leaders: [{ name: "Arseny Klekovkin", linkedin: "https://www.linkedin.com/in/arseny-klekovkin/", twitter: "https://x.com/_imavericks/status/1506766222624538626" }] },
+      { name: "Puzzle Ventures", categories: ["VC"], url: "https://www.puzzle.ventures/", location: "Beijing, China", leaders: [{ name: "Qi Wang", linkedin: "https://www.linkedin.com/in/qi-wang-aa10b438/", twitter: null }] },
+      { name: "Kyros Ventures", categories: ["VC", "Incubator"], url: "https://kyros.ventures/", location: "Ho Chi Minh City, Vietnam", leaders: [{ name: "Thuat Nguyen", linkedin: "https://www.linkedin.com/in/thuat-nguyen/", twitter: null }] },
+      { name: "Moonrock Capital", categories: ["VC", "Accelerator", "Incubator"], url: "https://www.moonrockcapital.io/", location: "Munich, Germany", leaders: [{ name: "Leon Schleer", linkedin: "https://www.linkedin.com/in/leon-schleer-99bb9a12b/", twitter: "https://x.com/NicolasPriem" }] },
+      { name: "Tioga Capital Partners", categories: ["VC"], url: "https://tioga.capital/", location: "London, UK", leaders: [{ name: "Nicolas Priem", linkedin: "https://www.linkedin.com/in/nicolas-p-01648a58/", twitter: "https://x.com/collectionist?lang=en" }] },
+      { name: "Kenetic Capital", categories: ["VC", "Incubator"], url: "https://www.kenetic.capital/", location: "Hong Kong", leaders: [{ name: "Jehan Chu", linkedin: "https://www.linkedin.com/in/jehanchu/", twitter: null }] },
+      { name: "AU21 Capital", categories: ["VC"], url: "https://au21.capital/", location: "San Francisco, CA", leaders: [{ name: "Chandler Guo", linkedin: "https://www.linkedin.com/in/chandler-guo-151681b7?trk=profile_share_wechat", twitter: "https://x.com/ChandlerGuo?lang=en" }] },
+      { name: "Y2Z Ventures", categories: ["VC"], url: "https://www.y2z.io/about", location: "Shanghai, China", leaders: [{ name: "Isaac Lin", linkedin: "https://www.linkedin.com/in/jiabao-isaac-lin/", twitter: null }] },
+      { name: "Vibe Capital", categories: ["VC"], url: "https://vibecap.co/", location: "San Francisco, CA", leaders: [{ name: "Dave Goldblatt", linkedin: "https://www.linkedin.com/in/dave-goldblatt-40138129/", twitter: "https://x.com/davegoldblatt" }] },
+      { name: "Stake Capital", categories: ["VC"], url: "https://www.stake.capital/", location: "Luxembourg", leaders: [{ name: "Julien Bouteloup", linkedin: "https://www.linkedin.com/in/jbouteloup/", twitter: "https://x.com/bneiluj?lang=en" }] },
+      { name: "Artichoke Capital", categories: ["VC"], url: "https://www.artichoke.capital/", location: "Cayman Islands", leaders: [{ name: "Shawn Lim JD", linkedin: "http://linkedin.com/in/shawnlim1/", twitter: null }] },
+      { name: "Room40 Ventures", categories: ["VC"], url: "https://www.room40.xyz/", location: "New York, NY", leaders: [{ name: "Wesley Tang-Wymer", linkedin: "http://linkedin.com/in/wesleytangwymer/", twitter: null }] },
+      { name: "Maelstrom.", categories: ["VC"], url: "https://maelstrom.fund/", location: "Hong Kong", leaders: [{ name: "Akshat Vaidya", linkedin: "https://www.linkedin.com/in/akshatvaidya/", twitter: "https://x.com/akshat_hk?lang=en" }] },
+      { name: "Pragma Ventures", categories: ["VC"], url: "https://www.pragma.ooo/", location: "Seoul, South Korea", leaders: [{ name: "Yaroslav Hayduk Ph.D", linkedin: "https://www.linkedin.com/in/yarcoha/", twitter: "https://x.com/yarcoha" }] },
+      { name: "Miton C", categories: ["VC"], url: "https://mitonc.com/", location: "Prague, Czech Republic", leaders: [{ name: "David Bala", linkedin: "https://www.linkedin.com/in/david-bala-3456a3280/?originalSubdomain=cz", twitter: null }] },
+      { name: "Hutt Capital", categories: ["VC"], url: "https://www.huttcapital.com/", location: "Portland, OR", leaders: [{ name: "Brooke Pollack", linkedin: "https://www.linkedin.com/in/brookepollack/", twitter: "https://x.com/bhpollack" }] },
+      { name: "Matterblock", categories: ["VC"], url: "https://matterblock.com/", location: "Melbourne, Australia", leaders: [{ name: "Zia Word", linkedin: "https://www.linkedin.com/in/ziaword/", twitter: null }] },
+      { name: "Bollinger Investment Group", categories: ["VC"], url: "https://www.bollinger.xyz/", location: "Grapevine, TX", leaders: [{ name: "Branson Bollinger", linkedin: "https://www.linkedin.com/in/bkbollinger/", twitter: "https://x.com/bkbollinger" }] },
+      { name: "1PAR Research", categories: ["VC"], url: "https://1par.com/", location: "British Virgin Islands", leaders: [{ name: "Shawn Lin", linkedin: "https://www.linkedin.com/in/shawnxlin/?locale=en_us", twitter: "https://x.com/AnnaRRose" }] },
+      { name: "Zero Knowledge Validation", categories: ["VC"], url: "https://zkv.xyz/", location: "London, UK", leaders: [{ name: "Anna Rose", linkedin: "https://www.linkedin.com/in/annarrose/", twitter: null }] },
+      { name: "H7", categories: ["Accelerator"], url: "https://h-7.eu/programmes/web3/", location: "Lyon, France", leaders: [{ name: "Cédric Denoyel", linkedin: "https://www.linkedin.com/in/cedric-denoyel-9b2055128/", twitter: "https://x.com/CedDenoyel" }] },
+      { name: "The Open Platform", categories: ["Accelerator"], url: "https://top.co/", location: "Abu Dhabi, UAE", leaders: [{ name: "Andrew Rogozov", linkedin: "https://www.linkedin.com/in/andrew-rogozov-a27b1b3/?originalsubdomain=ru", twitter: "https://x.com/rogozov?lang=en" }] },
+      { name: "Hypra", categories: ["VC"], url: "https://hypra.fund/", location: "Lisbon, Portugal", leaders: [{ name: "Igor Pertsiya", linkedin: "https://www.linkedin.com/in/igor-pertsiya/", twitter: "https://x.com/igorpertsiya?lang=en" }] },
+      { name: "Global Millennial Capital", categories: ["VC"], url: "https://globalmillennialcapital.com/", location: "British Virgin Islands", leaders: [{ name: "Andreea Danila", linkedin: "https://www.linkedin.com/in/andreea-danila-4a241a40/?originalSubdomain=ae", twitter: null }] },
+      { name: "Block Dojo", categories: ["Venture Studio", "Accelerator", "Incubator"], url: "https://blockdojo.io/portfolio/", location: "London, UK", leaders: [{ name: "Alex Ball", linkedin: "https://www.linkedin.com/in/alexanderball/", twitter: "https://x.com/alexanderball" }] },
+      { name: "Web3.com Ventures", categories: ["VC"], url: "https://web3.com/", location: "Singapore", leaders: [{ name: "Stella Kung", linkedin: "https://www.linkedin.com/in/stella-kung-b81799a7/", twitter: "https://x.com/web3stellakung?lang=en" }] },
+      { name: "Olive Capital", categories: ["VC"], url: "https://olivecapital.vc/", location: "Geneva, Switzerland", leaders: [{ name: "Raphael Grieco", linkedin: "https://www.linkedin.com/in/rphgrc/", twitter: "https://x.com/RphGrc" }] },
+      { name: "NP-Hard Ventures", categories: ["VC"], url: "https://nphard.vc/", location: "Amsterdam, Netherlands", leaders: [{ name: "Anke Huiskes", linkedin: "https://www.linkedin.com/in/ankehuiskes/", twitter: "https://x.com/AnkeHuiskes" }] },
+      { name: "Seed Club Ventures", categories: ["VC", "Accelerator", "Incubator"], url: "https://seedclub.ventures/", location: "Cayman Islands", leaders: [{ name: "Nima Asghari", linkedin: "https://linkedin.com/in/nimaasghari?originalSubdomain=in", twitter: null }] },
+      { name: "Leonis Capital", categories: ["VC"], url: "https://www.leoniscap.com/", location: "San Francisco, CA", leaders: [{ name: "Jay Zhao", linkedin: "https://www.linkedin.com/in/jayzhaolinkedin/", twitter: "https://x.com/jzhaos" }] },
+      { name: "Very Early", categories: ["VC"], url: "https://www.veryearly.xyz/", location: "Cayman Islands", leaders: [{ name: "Denis Vuckovac", linkedin: "https://www.linkedin.com/in/denis-vuckovac-8963451/", twitter: "https://x.com/dnsvckvc?lang=en" }] },
+      { name: "PARC Capital", categories: ["VC"], url: "https://www.parc.capital/", location: "Singapore", leaders: [{ name: "Nat Yap", linkedin: "https://www.linkedin.com/in/nat-yap/?originalsubdomain=sg", twitter: null }] },
+      { name: "Fabric Ventures", categories: ["VC"], url: "https://www.fabric.vc/", location: "Luxembourg", leaders: [{ name: "Richard Muirhead", linkedin: "https://www.linkedin.com/in/richardmuirhead", twitter: "https://x.com/richardmuirhead?lang=en" }] },
+      { name: "100&100 Venture Capital", categories: ["VC"], url: "https://100and100ventures.com/", location: "Seoul, South Korea", leaders: [{ name: "Victor Jung", linkedin: "https://www.linkedin.com/in/victor-jung-36718415b/", twitter: null }] },
+      { name: "Framework Ventures", categories: ["VC"], url: "https://www.framework.ventures/", location: "San Francisco, CA", leaders: [{ name: "John DiCerbo", linkedin: "https://www.linkedin.com/in/john-dicerbo-a452883", twitter: null }] },
+      { name: "ID Theory", categories: ["VC"], url: "https://www.idtheory.io/", location: "British Virgin Islands", leaders: [{ name: "Graham Stanton", linkedin: "https://www.linkedin.com/in/graham-stanton-a5574113", twitter: null }] },
+      { name: "Longterm Ventures", categories: ["VC"], url: "https://longterm.ventures/", location: "Singapore", leaders: [{ name: "Baljit Singh", linkedin: "https://www.linkedin.com/in/baljit/", twitter: null }] },
+      { name: "Plaintext Capital", categories: ["VC"], url: "https://plaintextcapital.com/", location: "Brooklyn, NY", leaders: [{ name: "Philip Bonello", linkedin: "https://www.linkedin.com/in/philip-bonello-a356313b/", twitter: "https://x.com/PhilJBonello" }] },
+      { name: "Bitcoin Frontier Fund", categories: ["VC"], url: "https://btcfrontier.fund/", location: "New York, NY", leaders: [{ name: "Trevor Owens", linkedin: "http://linkedin.com/in/owenstrevor", twitter: "https://x.com/TO" }] },
+      { name: "Venturerock", categories: ["VC", "Venture Studio"], url: "https://venturerock.com/", location: "Amsterdam, Netherlands", leaders: [{ name: "Marc Wesselink", linkedin: "https://www.linkedin.com/in/marcwesselink1/?originalSubdomain=nl", twitter: "https://x.com/marcwes" }] },
+      { name: "First Star Ventures", categories: ["VC"], url: "https://www.firststar.vc/", location: "Cambridge, MA", leaders: [{ name: "Drew Volpe", linkedin: "https://www.linkedin.com/in/drewvolpe/", twitter: "https://x.com/drewvolpe?lang=en" }] },
+      { name: "Pointer Capital", categories: ["VC"], url: "https://www.pointer.capital/", location: "Lewes, DE", leaders: [{ name: "Maciek Ziolkowski", linkedin: "https://www.linkedin.com/in/maciejziolkowski/", twitter: "https://x.com/satoshipl" }] },
+      { name: "Good AI Capital", categories: ["VC"], url: "https://goodai.capital/", location: "Menlo Park, CA", leaders: [{ name: "Darwin Ling", linkedin: "https://www.linkedin.com/in/darwinling/", twitter: "https://x.com/darwinl" }] },
+      { name: "Reverie", categories: ["VC"], url: "https://www.reverie.ooo/", location: "New York, NY", leaders: [{ name: "Derek Hsue", linkedin: "https://www.linkedin.com/in/derekhsue/", twitter: "https://x.com/derek_hsue?lang=en" }] },
+      { name: "Stratos Technologies", categories: ["VC"], url: "https://www.stratos.xyz/", location: "Newport Beach, CA", leaders: [{ name: "Amanda Reiss", linkedin: "https://www.linkedin.com/in/amandadragomerreiss/", twitter: null }] },
+      { name: "Timechain", categories: ["VC"], url: "https://timechain.concentric.vc/", location: "London, UK", leaders: [{ name: "Alexander Mann", linkedin: "https://linkedin.com/in/alexandersmann", twitter: "https://x.com/alex_singh_mann" }] },
+      { name: "IOBC Capital", categories: ["VC"], url: "https://www.iobc.capital/#/", location: "Cupertino, CA", leaders: [{ name: "Alva Xu", linkedin: "https://www.linkedin.com/in/alva-xu-48bb9516a/", twitter: "https://x.com/tuzituzi0621?lang=en" }] },
+      { name: "NEAR Foundation", categories: ["VC", "Accelerator", "Incubator"], url: "https://near.foundation/", location: "Zug, Switzerland", leaders: [{ name: "Illia Polosukhin", linkedin: "https://www.linkedin.com/in/illia-polosukhin-77b6538/", twitter: "https://x.com/General_Illia" }] },
+      { name: "Ocular VC", categories: ["VC"], url: "https://www.ocular.vc/", location: "Singapore", leaders: [{ name: "Amy Zhao", linkedin: "https://linkedin.com/in/amy-zhao-caia-10770294?originalSubdomain=sg", twitter: null }] }
     ];
 
     function MarketMap() {
       const [search, setSearch] = useState('');
       const [categoryFilter, setCategoryFilter] = useState('All');
 
-      const categories = ['All', 'VC', 'Venture Studio', 'Accelerator'];
+      const categories = ['All', 'VC', 'Venture Studio', 'Accelerator', 'Incubator'];
 
       const filtered = useMemo(function() {
         return data.filter(function(item) {
@@ -137,7 +217,7 @@
           const matchesSearch = item.name.toLowerCase().includes(search.toLowerCase()) ||
                                item.location.toLowerCase().includes(search.toLowerCase()) ||
                                leaderNames.includes(search.toLowerCase());
-          const matchesCategory = categoryFilter === 'All' || item.category === categoryFilter;
+          const matchesCategory = categoryFilter === 'All' || item.categories.includes(categoryFilter);
           return matchesSearch && matchesCategory;
         });
       }, [search, categoryFilter]);
@@ -145,9 +225,10 @@
       const stats = useMemo(function() {
         return {
           total: filtered.length,
-          vcs: filtered.filter(function(i) { return i.category === 'VC'; }).length,
-          studios: filtered.filter(function(i) { return i.category === 'Venture Studio'; }).length,
-          accelerators: filtered.filter(function(i) { return i.category === 'Accelerator'; }).length
+          vcs: filtered.filter(function(i) { return i.categories.includes('VC'); }).length,
+          studios: filtered.filter(function(i) { return i.categories.includes('Venture Studio'); }).length,
+          accelerators: filtered.filter(function(i) { return i.categories.includes('Accelerator'); }).length,
+          incubators: filtered.filter(function(i) { return i.categories.includes('Incubator'); }).length
         };
       }, [filtered]);
 
@@ -219,20 +300,21 @@
                 <span>{stats.vcs} VCs</span>
                 <span>{stats.studios} venture studios</span>
                 <span>{stats.accelerators} accelerators</span>
+                <span>{stats.incubators} incubators</span>
               </div>
             </div>
           </div>
 
           <main className="max-w-6xl mx-auto px-6 py-8">
             <div className="flex items-center justify-between gap-4 px-4 pb-3 border-b border-gray-200 mb-2" style={{marginLeft: '-1rem', marginRight: '-1rem'}}>
-              <div className="flex items-baseline gap-3 w-48 flex-shrink-0">
+              <div className="flex items-baseline gap-3 w-64 flex-shrink-0">
                 <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">Name</span>
               </div>
-              <div className="flex-1">
+              <div className="w-52">
                 <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">Primary Contact</span>
               </div>
               <div className="flex items-center gap-4 flex-shrink-0">
-                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide w-36 text-right">Location</span>
+                <span className="text-xs font-medium text-gray-500 uppercase tracking-wide w-44 text-right">Location</span>
                 <span className="w-3"></span>
               </div>
             </div>
@@ -246,7 +328,7 @@
                     style={{marginLeft: '-1rem', marginRight: '-1rem'}}
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <div className="flex items-baseline gap-3 w-48 flex-shrink-0">
+                      <div className="flex items-baseline gap-3 w-64 flex-shrink-0">
                         <a
                           href={item.url}
                           target="_blank"
@@ -256,11 +338,11 @@
                           {item.name}
                         </a>
                         <span className="text-xs text-gray-300 flex-shrink-0">
-                          {item.category}
+                          {item.categories.join(", ")}
                         </span>
                       </div>
 
-                      <div className="flex items-center gap-4 flex-1">
+                      <div className="flex items-center gap-4 w-52">
                         {item.leaders.length > 0 ? item.leaders.slice(0, 2).map(function(leader, lidx) {
                           return (
                             <div key={lidx} className="flex items-center gap-2">
@@ -300,7 +382,7 @@
                       </div>
 
                       <div className="flex items-center gap-4 flex-shrink-0">
-                        <span className="text-xs text-gray-400 w-36 text-right">
+                        <span className="text-xs text-gray-400 w-44 text-right">
                           {item.location}
                         </span>
                         <a
@@ -338,7 +420,7 @@
                     Welcome to the most comprehensive directory of crypto venture capital firms, blockchain accelerators, and web3 venture studios. Whether you are a founder seeking funding for your next DeFi protocol, NFT marketplace, or blockchain infrastructure project, this curated database helps you identify the right investors for your stage and sector.
                   </p>
                   <p>
-                    Our database includes over 90 active crypto investors spanning seed-stage venture capital funds, growth equity firms, corporate venture arms, and specialized web3 accelerator programs. Each listing includes verified contact information, leadership details with LinkedIn and Twitter profiles, and geographic location to help you target investors in your region or timezone.
+                    Our database includes over 170 active crypto investors spanning seed-stage venture capital funds, growth equity firms, corporate venture arms, and specialized web3 accelerator programs. Each listing includes verified contact information, leadership details with LinkedIn and Twitter profiles, and geographic location to help you target investors in your region or timezone.
                   </p>
                   <p>
                     The crypto venture landscape has evolved significantly since Bitcoin's inception. Today's web3 investors specialize across multiple verticals including decentralized finance (DeFi), non-fungible tokens (NFTs), layer 1 and layer 2 blockchain protocols, decentralized autonomous organizations (DAOs), blockchain gaming and metaverse projects, real-world asset tokenization (RWA), decentralized physical infrastructure networks (DePIN), and artificial intelligence intersecting with crypto.
@@ -361,7 +443,7 @@
             <div className="max-w-6xl mx-auto px-6 py-8">
               <div className="flex items-center justify-between text-xs text-gray-400">
                 <span>Built by <a href="https://gravity-labs.xyz" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Gravity Labs</a> | maintained by <a href="https://www.linkedin.com/in/collin-brenton-rego-/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Brenton Rego</a></span>
-                <span>Data last updated: Jan 13, 2025</span>
+                <span>Data last updated: Jan 14, 2025</span>
               </div>
             </div>
           </footer>
