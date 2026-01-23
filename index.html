@@ -3,416 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravity Labs</title>
+    <title>Gravity Sphere</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow: hidden;
             background: #000;
-            color: #fff;
-            overflow-x: hidden;
         }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+        canvas {
+            display: block;
         }
-
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            text-align: center;
+            pointer-events: none;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #fff;
+        #info a {
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            font-size: 0.95rem;
-            transition: opacity 0.3s;
+            pointer-events: auto;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
         }
-
-        .nav-links a:hover {
-            opacity: 0.7;
+        #info a:hover {
+            color: rgba(180, 220, 255, 0.9);
+            text-decoration: underline;
         }
-
-        .nav-cta {
-            padding: 0.6rem 1.5rem;
-            background: #fff;
-            color: #000;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: transform 0.3s;
-        }
-
-        .nav-cta:hover {
-            transform: scale(1.05);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .tagline {
-            font-size: 1rem;
-            letter-spacing: 3px;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            opacity: 0.8;
+        #gravity-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(60px, 15vw, 200px);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 12vw, 10rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(180deg, #fff 0%, #888 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            white-space: nowrap;
-        }
-
-        .hero-description {
-            max-width: 700px;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-align: center;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .btn-primary {
-            padding: 1rem 2.5rem;
-            background: #fff;
-            color: #000;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Request for Startups Section */
-        .rfs-section {
-            padding: 6rem 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.7;
-            text-align: center;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .rfs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .rfs-card {
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .rfs-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .rfs-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            opacity: 0.3;
-        }
-
-        .rfs-card-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .rfs-card-description {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.7;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 6rem 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .team-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .team-member-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .team-member-title {
-            font-size: 1.1rem;
-            opacity: 0.6;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-        }
-
-        .team-member-bio {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.7;
-            margin-bottom: 2rem;
-        }
-
-        .team-social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* About Defy Section */
-        .about-defy-section {
-            padding: 6rem 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .about-defy-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
-        .defy-link {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 30px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .defy-link:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 3rem 2rem;
-            text-align: center;
-            font-size: 0.75rem;
-            opacity: 0.4;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .btn-secondary {
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        /* Animated background gradient */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-            background: radial-gradient(circle at 50% 50%, #333 0%, transparent 50%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.1;
-            }
-            50% {
-                opacity: 0.15;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .tagline {
-                font-size: 0.8rem;
-                letter-spacing: 2px;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-
-            .rfs-section {
-                padding: 4rem 1.5rem;
-            }
-
-            .rfs-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .team-section {
-                padding: 4rem 1.5rem;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-defy-section {
-                padding: 4rem 1.5rem;
-            }
-
-            .cta-buttons {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                text-align: center;
-            }
+            pointer-events: none;
+            z-index: 10;
+            user-select: none;
+            text-shadow: 
+                0 0 30px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(100, 200, 255, 0.3),
+                0 0 100px rgba(100, 200, 255, 0.2);
         }
     </style>
+
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LD054FNW17"></script>
@@ -424,155 +71,333 @@
   gtag('config', 'G-LD054FNW17');
 </script>
     
+    
 </head>
 <body>
-    <div class="gradient-bg"></div>
-    
-    <nav>
-        <div class="logo">Gravity Labs</div>
-        <ul class="nav-links">
-            <li><a href="#team">Team</a></li>
-            <li><a href="#about-defy">About Defy</a></li>
-            <li><a href="#rfs">Request for Startups</a></li>
-        </ul>
-        <a href="mailto:intro@gravity-labs.xyz" class="nav-cta">Get in Touch</a>
-    </nav>
-
-    <section class="hero">
-        <div class="tagline">building the future of finance</div>
-        
-        <h1 class="hero-title">GRAVITY LABS</h1>
-
-        <p class="hero-description">
-            We incubate early-stage ideas into successful companies. Backed by Defy, we recruit exceptional founders, provide initial funding, and support our startups from concept to market. Our hands-on approach combines deep industry expertise with strategic capital to build the next generation of disruptive finance startups.
-        </p>
-
-        <div class="cta-buttons">
-            <a href="mailto:intro@gravity-labs.xyz" class="btn-primary">Partner With Us</a>
-        </div>
-    </section>
-
-    <section id="team" class="team-section">
-        <h2 class="section-title">Team</h2>
-        <p class="section-subtitle">Meet the leaders building the future</p>
-        
-        <div class="team-grid">
-            <div class="team-card">
-                <h3 class="team-member-name">Bartek Ringwelski</h3>
-                <div class="team-member-title">Partner</div>
-                <p class="team-member-bio">
-                    Bartek Ringwelski is a venture capital investor and entrepreneur based in the New York City area. Previously, Bartek was a Product Manager at Facebook, where he incubated and launched payments on Instagram Direct and led Messenger Business Payments for the APAC market. His earlier experience includes serving as COO of bitFlyer USA, helping launch the US operations of Japan's largest crypto exchange, and working as a Partner at Core Innovation Capital, an early-stage fintech venture firm. Bartek holds an MBA from The Wharton School and a BA in Economics from Columbia University. Previously, he founded SkillSlate, which was acquired by TaskRabbit in 2013. He also <a href="https://fortune.com/2023/07/18/bear-stearns-2-bill-gag-pranksters-revealed/" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: underline; opacity: 0.9;">taped a $2 bill to Bear Stearns HQ</a> at the start of the financial crisis.
-                </p>
-                <div class="team-social-links">
-                    <a href="https://www.linkedin.com/in/bartekringwelski/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">in</a>
-                </div>
-            </div>
-
-            <div class="team-card">
-                <h3 class="team-member-name">Kyle Libra</h3>
-                <div class="team-member-title">Operating Partner</div>
-                <p class="team-member-bio">
-                    Kyle Libra is a seasoned operator with nearly 20 years of experience at early and growth-stage startups and based in the New York City area. He has experienced multiple exits and brings deep product and engineering expertise from building and launching products that have reached hundreds of millions of users. Prior to Gravity, Kyle led the Crypto Brokerage business at blockchain infrastructure provider Paxos. His work there focused on building the regulatory first infrastructure that made digital assets accessible to mainstream audiences via partners like PayPal, Venmo, Interactive Brokers, Mercado Pago, Nubank and others. He also supported the company's efforts around blockchain based settlement infrastructure, tokenizing real world assets and stablecoins. On nights and weekends, he can be found building personal projects or watching Formula 1.
-                </p>
-                <div class="team-social-links">
-                    <a href="https://www.linkedin.com/in/kylelibra/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">in</a>
-                    <a href="https://twitter.com/kylelibra" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">𝕏</a>
-                    <a href="https://kylelibra.substack.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Substack">S</a>
-                    <a href="https://kylelibra.com/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Website">→</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about-defy" class="about-defy-section">
-        <h2 class="section-title">About Defy</h2>
-        <div class="about-defy-content">
-            <p>
-                Gravity Labs is backed by Defy, a Silicon Valley–based early-stage venture capital firm, currently investing out of Defy III. With $700M under management across its funds, Defy takes an artisanal approach to company building—backing founders with conviction and providing hands-on support from inception through exit. The team blends decades of venture experience with entrepreneurial and operating expertise, partnering with the boldest founders shaping the future.
-            </p>
-        </div>
-        <a href="https://defy.vc/" target="_blank" rel="noopener noreferrer" class="defy-link">Learn More About Defy →</a>
-    </section>
-
-    <section id="rfs" class="rfs-section">
-        <h2 class="section-title">Request for Startups</h2>
-        <p class="section-subtitle">We transform promising ideas into successful companies. Great ideas come from many places.</p>
-        
-        <div class="rfs-grid">
-            <div class="rfs-card">
-                <div class="rfs-number">01</div>
-                <h3 class="rfs-card-title">Partner-Led Innovation</h3>
-                <p class="rfs-card-description">
-                    Our partners bring deep crypto expertise, ecosystem pattern recognition and unique insights. They spot market gaps before they become obvious, giving our companies first-mover advantage.
-                </p>
-            </div>
-
-            <div class="rfs-card">
-                <div class="rfs-number">02</div>
-                <h3 class="rfs-card-title">Founder-Initiated Ideas</h3>
-                <p class="rfs-card-description">
-                    Exceptional entrepreneurs come to us with ideas they're passionate about building. When we find the right founder with the right idea, we move fast. And when we find great founders with still evolving nascent ideas? We work together to pivot to bigger opportunities.
-                </p>
-            </div>
-
-            <div class="rfs-card">
-                <div class="rfs-number">03</div>
-                <h3 class="rfs-card-title">Venture Partnerships</h3>
-                <p class="rfs-card-description">
-                    Leading venture capital firms approach us when they've identified gaps in their thesis but can't find the right company to invest in. We build these companies from scratch, creating pre-validated paths to future funding.
-                </p>
-            </div>
-
-            <div class="rfs-card">
-                <div class="rfs-number">04</div>
-                <h3 class="rfs-card-title">Ecosystem Requests</h3>
-                <p class="rfs-card-description">
-                    Blockchain foundations and Layer 1/Layer 2 protocols partner with us to build critical applications that strengthen their ecosystems. These partnerships provide our companies with technical resources, grants, distribution channels, and built-in user bases.
-                </p>
-            </div>
-
-            <div class="rfs-card">
-                <div class="rfs-number">05</div>
-                <h3 class="rfs-card-title">Enterprise Collaboration</h3>
-                <p class="rfs-card-description">
-                    Financial institutions and crypto platforms identify capabilities they need but prefer to partner with rather than build in-house. We create standalone companies that solve these problems while building platform businesses that serve entire markets—not just a single customer.
-                </p>
-            </div>
-        </div>
-    </section>
-
+    <div id="gravity-text">GRAVITY</div>
+    <div id="info">Partners: <a href="https://www.linkedin.com/in/kylelibra/">Kyle Libra</a> and <a href="https://www.linkedin.com/in/bartekringwelski/">Bartek Ringwelski</a></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href && href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.body.appendChild(renderer.domElement);
+
+        // Camera position
+        camera.position.z = 5;
+
+        // Particle system configuration
+        const particleCount = 3000;
+        const sphereRadius = 2;
+        const particleSize = 0.0008;
+
+        // Create particle geometry
+        const particlesGeometry = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const originalPositions = new Float32Array(particleCount * 3);
+        const velocities = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        // Distribute particles on a sphere using fibonacci spiral
+        for (let i = 0; i < particleCount; i++) {
+            const phi = Math.acos(1 - 2 * (i + 0.5) / particleCount);
+            const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
+
+            const x = sphereRadius * Math.sin(phi) * Math.cos(theta);
+            const y = sphereRadius * Math.sin(phi) * Math.sin(theta);
+            const z = sphereRadius * Math.cos(phi);
+
+            positions[i * 3] = x;
+            positions[i * 3 + 1] = y;
+            positions[i * 3 + 2] = z;
+
+            originalPositions[i * 3] = x;
+            originalPositions[i * 3 + 1] = y;
+            originalPositions[i * 3 + 2] = z;
+
+            velocities[i * 3] = 0;
+            velocities[i * 3 + 1] = 0;
+            velocities[i * 3 + 2] = 0;
+
+            // Color gradient from cyan to magenta based on position
+            const hue = (Math.atan2(y, x) + Math.PI) / (2 * Math.PI);
+            const color = new THREE.Color().setHSL(hue * 0.3 + 0.5, 0.8, 0.6);
+            colors[i * 3] = color.r;
+            colors[i * 3 + 1] = color.g;
+            colors[i * 3 + 2] = color.b;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        // Custom shader material for particles
+        const particlesMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                pointSize: { value: particleSize * 100 },
+            },
+            vertexShader: `
+                attribute vec3 color;
+                varying vec3 vColor;
+                uniform float pointSize;
+                
+                void main() {
+                    vColor = color;
+                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                    gl_PointSize = pointSize * (300.0 / -mvPosition.z);
+                    gl_Position = projectionMatrix * mvPosition;
                 }
-            });
+            `,
+            fragmentShader: `
+                varying vec3 vColor;
+                
+                void main() {
+                    float dist = length(gl_PointCoord - vec2(0.5));
+                    if (dist > 0.5) discard;
+                    
+                    float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
+                    vec3 glow = vColor * (1.0 + 0.5 * (1.0 - dist * 2.0));
+                    gl_FragColor = vec4(glow, alpha);
+                }
+            `,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
         });
 
-        // Add scroll effect to navigation
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                nav.style.padding = '1rem 3rem';
-            } else {
-                nav.style.padding = '1.5rem 3rem';
-            }
-            
-            lastScroll = currentScroll;
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        // Mouse attractor sphere
+        const attractorGeometry = new THREE.SphereGeometry(0.08, 32, 32);
+        const attractorMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                time: { value: 0 },
+                color1: { value: new THREE.Color(0xff6b6b) },
+                color2: { value: new THREE.Color(0xffd93d) },
+            },
+            vertexShader: `
+                varying vec3 vNormal;
+                varying vec3 vPosition;
+                
+                void main() {
+                    vNormal = normalize(normalMatrix * normal);
+                    vPosition = position;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float time;
+                uniform vec3 color1;
+                uniform vec3 color2;
+                varying vec3 vNormal;
+                varying vec3 vPosition;
+                
+                void main() {
+                    float fresnel = pow(1.0 - abs(dot(vNormal, vec3(0.0, 0.0, 1.0))), 2.0);
+                    vec3 color = mix(color1, color2, fresnel + sin(time * 3.0) * 0.2);
+                    float glow = fresnel * 0.8 + 0.4;
+                    gl_FragColor = vec4(color * glow, 0.9);
+                }
+            `,
+            transparent: true,
         });
+
+        const attractor = new THREE.Mesh(attractorGeometry, attractorMaterial);
+        attractor.position.set(10, 10, 0); // Start off-screen
+        scene.add(attractor);
+
+        // Glow effect for attractor
+        const glowGeometry = new THREE.SphereGeometry(0.14, 32, 32);
+        const glowMaterial = new THREE.ShaderMaterial({
+            uniforms: {
+                time: { value: 0 },
+            },
+            vertexShader: `
+                varying vec3 vNormal;
+                
+                void main() {
+                    vNormal = normalize(normalMatrix * normal);
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float time;
+                varying vec3 vNormal;
+                
+                void main() {
+                    float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
+                    vec3 color = vec3(1.0, 0.5, 0.3) * intensity * (0.8 + 0.2 * sin(time * 5.0));
+                    gl_FragColor = vec4(color, intensity * 0.6);
+                }
+            `,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            side: THREE.BackSide,
+        });
+
+        const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+        attractor.add(glow);
+
+        // Mouse tracking
+        const mouse = new THREE.Vector2();
+        const mouseWorld = new THREE.Vector3();
+        const raycaster = new THREE.Raycaster();
+        const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+        const intersectPoint = new THREE.Vector3();
+
+        document.addEventListener('mousemove', (event) => {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, intersectPoint);
+            mouseWorld.copy(intersectPoint);
+        });
+
+        // Touch support
+        document.addEventListener('touchmove', (event) => {
+            event.preventDefault();
+            const touch = event.touches[0];
+            mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, intersectPoint);
+            mouseWorld.copy(intersectPoint);
+        }, { passive: false });
+
+        // Physics parameters
+        const gravityStrength = 0.8;
+        const returnStrength = 0.02;
+        const damping = 0.92;
+        const maxDisplacement = 1.5;
+
+        // Animation loop
+        let time = 0;
+        const tempVec = new THREE.Vector3();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+
+            // Update attractor position with smooth following
+            attractor.position.lerp(mouseWorld, 0.15);
+
+            // Update uniforms
+            attractorMaterial.uniforms.time.value = time;
+            glowMaterial.uniforms.time.value = time;
+
+            // Rotate the particle sphere slowly
+            particles.rotation.y += 0.001;
+            particles.rotation.x += 0.0005;
+
+            // Update particle positions
+            const posArray = particlesGeometry.attributes.position.array;
+            const colorArray = particlesGeometry.attributes.color.array;
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+
+                // Current position
+                const px = posArray[i3];
+                const py = posArray[i3 + 1];
+                const pz = posArray[i3 + 2];
+
+                // Original position (in world space considering rotation)
+                const origX = originalPositions[i3];
+                const origY = originalPositions[i3 + 1];
+                const origZ = originalPositions[i3 + 2];
+
+                // Transform attractor position to local particle space
+                tempVec.copy(attractor.position);
+                particles.worldToLocal(tempVec);
+
+                // Distance to attractor
+                const dx = tempVec.x - px;
+                const dy = tempVec.y - py;
+                const dz = tempVec.z - pz;
+                const distSq = dx * dx + dy * dy + dz * dz;
+                const dist = Math.sqrt(distSq);
+
+                // Gravity force (inverse square law with falloff)
+                if (dist > 0.1 && dist < 3) {
+                    const force = gravityStrength / (distSq + 0.5);
+                    velocities[i3] += (dx / dist) * force;
+                    velocities[i3 + 1] += (dy / dist) * force;
+                    velocities[i3 + 2] += (dz / dist) * force;
+                }
+
+                // Return force to original position
+                velocities[i3] += (origX - px) * returnStrength;
+                velocities[i3 + 1] += (origY - py) * returnStrength;
+                velocities[i3 + 2] += (origZ - pz) * returnStrength;
+
+                // Apply damping
+                velocities[i3] *= damping;
+                velocities[i3 + 1] *= damping;
+                velocities[i3 + 2] *= damping;
+
+                // Update position
+                let newX = px + velocities[i3];
+                let newY = py + velocities[i3 + 1];
+                let newZ = pz + velocities[i3 + 2];
+
+                // Limit displacement from original position
+                const dispX = newX - origX;
+                const dispY = newY - origY;
+                const dispZ = newZ - origZ;
+                const dispDist = Math.sqrt(dispX * dispX + dispY * dispY + dispZ * dispZ);
+
+                if (dispDist > maxDisplacement) {
+                    const scale = maxDisplacement / dispDist;
+                    newX = origX + dispX * scale;
+                    newY = origY + dispY * scale;
+                    newZ = origZ + dispZ * scale;
+                }
+
+                posArray[i3] = newX;
+                posArray[i3 + 1] = newY;
+                posArray[i3 + 2] = newZ;
+
+                // Update color based on velocity (more motion = brighter)
+                const speed = Math.sqrt(
+                    velocities[i3] * velocities[i3] +
+                    velocities[i3 + 1] * velocities[i3 + 1] +
+                    velocities[i3 + 2] * velocities[i3 + 2]
+                );
+                
+                const hue = (Math.atan2(origY, origX) + Math.PI) / (2 * Math.PI);
+                const brightness = Math.min(0.6 + speed * 5, 1.0);
+                const saturation = 0.8 + speed * 2;
+                
+                const color = new THREE.Color().setHSL(
+                    (hue * 0.3 + 0.5 + speed * 0.5) % 1,
+                    Math.min(saturation, 1.0),
+                    brightness
+                );
+                
+                colorArray[i3] = color.r;
+                colorArray[i3 + 1] = color.g;
+                colorArray[i3 + 2] = color.b;
+            }
+
+            particlesGeometry.attributes.position.needsUpdate = true;
+            particlesGeometry.attributes.color.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
     </script>
 </body>
 </html>
