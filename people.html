@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People – Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html" class="active">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="writing.html">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <section id="people">
+        <span class="section-label">People</span>
+        <h2>Our Team</h2>
+        <p class="section-intro">We've built products at scale, navigated complex regulatory environments, and experienced firsthand what it takes to turn ambitious ideas into successful companies.</p>
+        
+        <div class="team-bios">
+            <div class="bio">
+                <div class="bio-header">
+                    <h3>Bartek Ringwelski</h3>
+                    <span class="role">Partner, Gravity Labs</span>
+                </div>
+                <div class="bio-content">
+                    <p>Bartek is a venture capital investor and entrepreneur based in the New York City area with deep experience across payments, crypto infrastructure, and fintech.</p>
+                    <p>Previously, Bartek was a Product Manager at Facebook, where he incubated and launched payments on Instagram Direct and led Messenger Business Payments for the APAC market. Before Facebook, he served as COO of bitFlyer USA, helping launch the US operations of Japan's largest crypto exchange and navigating the complex regulatory landscape for digital asset businesses.</p>
+                    <p>Earlier in his career, Bartek was a Partner at Core Innovation Capital, an early-stage fintech venture firm where he developed expertise in identifying emerging opportunities at the intersection of finance and technology.</p>
+                    <p>Bartek holds an MBA from The Wharton School and a BA in Economics from Columbia University.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/bartekringwelski/" target="_blank">LinkedIn</a>
+                        <a href="https://x.com/bartekr" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bio">
+                <div class="bio-header">
+                    <h3>Kyle Libra</h3>
+                    <span class="role">Operating Partner, Gravity Labs</span>
+                </div>
+                <div class="bio-content">
+                    <p>Kyle is a seasoned operator with nearly 20 years of experience building and scaling products at early and growth-stage startups. Based in the New York City area, Kyle brings deep product and engineering expertise from launching products that have reached hundreds of millions of users.</p>
+                    <p>Prior to Gravity, Kyle led the Crypto Brokerage business at Paxos, a blockchain infrastructure provider focused on making digital assets accessible to mainstream audiences. His work at Paxos centered on building regulatory-first infrastructure that powered crypto access for major platforms including PayPal, Venmo, Interactive Brokers, Mercado Pago, and Nubank. He also supported Paxos's efforts in blockchain-based settlement infrastructure, tokenizing real-world assets, and stablecoins.</p>
+                    <p>Throughout his career, Kyle has experienced multiple exits and developed a strong track record of shipping products that balance innovation with regulatory compliance and user experience.</p>
+                    <p>On nights and weekends, Kyle can be found building personal projects or watching Formula 1.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kylelibra/" target="_blank">LinkedIn</a>
+                        <a href="https://x.com/KyleLibra" target="_blank">Twitter</a>
+                        <a href="https://kylelibra.substack.com/" target="_blank">Substack</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="advisor-section">
+            <h3>Advisor Network</h3>
+            <p>Gravity Labs companies benefit from a curated network of advisors across crypto, fintech, regulatory affairs, and go-to-market strategy. Our advisors are operators and investors who have built and scaled category-defining companies, and who actively support our portfolio through strategic guidance, introductions, and hands-on engagement.</p>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing – Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="writing.html" class="active">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <section id="writing">
+        <span class="section-label">Writing</span>
+        <h2>Research & Insights</h2>
+        <p class="section-intro">A digest of what our team is thinking, reading, and writing about crypto infrastructure, stablecoins, tokenization, and the latest conversations in DeFi and fintech. We select posts for founders in our network, but they're here for any builder navigating this space.</p>
+        <div class="reading-list">
+            <h3>What has inspired us lately:</h3>
+            <ul>
+                <li><a href="https://www.bitsaboutmoney.com/archive/perpetual-futures-explained/" target="_blank">Perpetual futures, explained - Patrick McKenzie</a></li>
+                <li><a href="https://docsend.com/view/8v8qrkrwbtfpjvta" target="_blank">Crypto Trends Report, 2025 Edition - Alana Levin</a></li>
+                <li><a href="https://a16zcrypto.com/posts/article/big-ideas-things-excited-about-crypto-2026/" target="_blank">17 things we’re excited about for crypto in 2026 - a16z crypto team</a></li>
+                <li><a href="https://substack.com/home/post/p-183999144" target="_blank">The AI revolution is here. Will the economy survive the transition?</a></li>
+            </ul>
+        </div>
+        
+        <div class="article-list">
+            <article class="article-card">
+                <div class="article-content">
+                    <h3>The Race to be the New Everything Bank</h3>
+                    <span class="article-meta">Kyle Libra · November 26, 2025</span>
+                    <p>Fintech platforms and legacy banks are locked in a $300B race to become the "everything bank" through tokenization. The battlefield? Stablecoins. The stakes? 54% of JPMorgan's quarterly revenue. Here's what you need to know if you're building in the crossfire.</p>
+                    <a href="https://kylelibra.substack.com/p/the-race-to-be-the-new-everything" target="_blank" class="read-more">Read More →</a>
+                </div>
+            </article>
+            <article class="article-card">
+                <div class="article-content">
+                    <h3>A Lot of What People Think About Stablecoins Is Wrong</h3>
+                    <span class="article-meta">Kyle Libra · September 16, 2025</span>
+                    <p>Circle and Tether haven't won—they've commoditized themselves. Here's why the real opportunity for founders is in distribution and infrastructure, not issuance.</p>
+                    <a href="https://kylelibra.substack.com/p/a-lot-of-what-people-think-about" target="_blank" class="read-more">Read More →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

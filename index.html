@@ -3,105 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravity Labs a defy.vc company</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <title>Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
+        .hero-visualization {
+            position: relative;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
             background: #000;
         }
-        canvas {
+        
+        .hero-visualization canvas {
             display: block;
-        }
-        #info {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 14px;
-            text-align: center;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
-        #info a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            pointer-events: auto;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-        #info a:hover {
-            color: rgba(180, 220, 255, 0.9);
-            text-decoration: underline;
-        }
-        #gravity-text {
+        
+        .gravity-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(60px, 15vw, 200px);
+            font-size: clamp(48px, 12vw, 180px);
             font-weight: 900;
             color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             pointer-events: none;
             z-index: 10;
             user-select: none;
+            text-align: center;
             text-shadow: 
                 0 0 30px rgba(255, 255, 255, 0.5),
                 0 0 60px rgba(100, 200, 255, 0.3),
                 0 0 100px rgba(100, 200, 255, 0.2);
         }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.6;
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator span {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+        
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: #ffffff;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
     </style>
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD054FNW17"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LD054FNW17');
-</script>
-    
-
 </head>
 <body>
-    <div id="gravity-text">GRAVITY</div>
-    <div id="info">Partners: <a href="https://www.linkedin.com/in/kylelibra/">Kyle Libra</a> and <a href="https://www.linkedin.com/in/bartekringwelski/">Bartek Ringwelski</a></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="writing.html">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <div class="hero-visualization" id="heroVisualization">
+        <div class="gravity-text">GRAVITY</div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </div>
+
+    <section id="home">
+        <h1>Building with Founders. From the Ground Up.</h1>
+        <p class="large">Gravity Labs is a venture studio incubating the next generation of financial technology companies. Fully backed by Defy, we give founders the capital, deep crypto and fintech expertise, and industry network they need to succeed. We support our talent from initial funding to market entry and beyond. Because great companies are built on solid ground.</p>
+        <a href="collaborate.html" class="cta-button">Build with Gravity</a>
+        
+        <div class="home-features">
+            <div class="feature">
+                <h3>The Defy Promise</h3>
+                <p>Gravity Labs is Defy's blockchain-focused incubator, bringing its deep capital resources, institutional credibility, and network of operators and investors to the crypto space.</p><br>
+                <div class="stats">
+                    <span class="stat">Assets Under Management: $700M</span>
+                    <span class="stat">Most Recent Fund: $300M</span>
+                </div>
+            </div>
+            <div class="feature">
+                <h3>A Founder-First Approach</h3>
+                <p>We recruit exceptional early-stage entrepreneurs for opportunities they're passionate about building. We foster founders with talent and grit, and match their experience with the right idea at the right time.</p>
+            </div>
+            <div class="feature">
+                <h3>The Gravity Labs Ecosystem</h3>
+                <p>Your company immediately joins an expert community of strategic partners, advisors, and fellow founders—creating competitive advantages from day one.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
     <script>
-        // Scene setup
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+
+        // Three.js Particle Sphere Visualization
+        const heroContainer = document.getElementById('heroVisualization');
+        
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        document.body.appendChild(renderer.domElement);
+        heroContainer.insertBefore(renderer.domElement, heroContainer.firstChild);
 
-        // Camera position
         camera.position.z = 5;
 
-        // Particle system configuration
         const particleCount = 3000;
         const sphereRadius = 2;
         const particleSize = 0.0008;
 
-        // Create particle geometry
         const particlesGeometry = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
         const originalPositions = new Float32Array(particleCount * 3);
         const velocities = new Float32Array(particleCount * 3);
         const colors = new Float32Array(particleCount * 3);
 
-        // Distribute particles on a sphere using fibonacci spiral
         for (let i = 0; i < particleCount; i++) {
             const phi = Math.acos(1 - 2 * (i + 0.5) / particleCount);
             const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
@@ -122,7 +218,6 @@
             velocities[i * 3 + 1] = 0;
             velocities[i * 3 + 2] = 0;
 
-            // Color gradient from cyan to magenta based on position
             const hue = (Math.atan2(y, x) + Math.PI) / (2 * Math.PI);
             const color = new THREE.Color().setHSL(hue * 0.3 + 0.5, 0.8, 0.6);
             colors[i * 3] = color.r;
@@ -133,7 +228,6 @@
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-        // Custom shader material for particles
         const particlesMaterial = new THREE.ShaderMaterial({
             uniforms: {
                 pointSize: { value: particleSize * 100 },
@@ -170,7 +264,6 @@
         const particles = new THREE.Points(particlesGeometry, particlesMaterial);
         scene.add(particles);
 
-        // Mouse attractor sphere
         const attractorGeometry = new THREE.SphereGeometry(0.08, 32, 32);
         const attractorMaterial = new THREE.ShaderMaterial({
             uniforms: {
@@ -206,10 +299,9 @@
         });
 
         const attractor = new THREE.Mesh(attractorGeometry, attractorMaterial);
-        attractor.position.set(10, 10, 0); // Start off-screen
+        attractor.position.set(10, 10, 0);
         scene.add(attractor);
 
-        // Glow effect for attractor
         const glowGeometry = new THREE.SphereGeometry(0.14, 32, 32);
         const glowMaterial = new THREE.ShaderMaterial({
             uniforms: {
@@ -241,7 +333,6 @@
         const glow = new THREE.Mesh(glowGeometry, glowMaterial);
         attractor.add(glow);
 
-        // Mouse tracking
         const mouse = new THREE.Vector2();
         const mouseWorld = new THREE.Vector3();
         const raycaster = new THREE.Raycaster();
@@ -257,9 +348,7 @@
             mouseWorld.copy(intersectPoint);
         });
 
-        // Touch support
         document.addEventListener('touchmove', (event) => {
-            event.preventDefault();
             const touch = event.touches[0];
             mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
@@ -267,15 +356,13 @@
             raycaster.setFromCamera(mouse, camera);
             raycaster.ray.intersectPlane(plane, intersectPoint);
             mouseWorld.copy(intersectPoint);
-        }, { passive: false });
+        }, { passive: true });
 
-        // Physics parameters
         const gravityStrength = 0.8;
         const returnStrength = 0.02;
         const damping = 0.92;
         const maxDisplacement = 1.5;
 
-        // Animation loop
         let time = 0;
         const tempVec = new THREE.Vector3();
 
@@ -283,46 +370,37 @@
             requestAnimationFrame(animate);
             time += 0.016;
 
-            // Update attractor position with smooth following
             attractor.position.lerp(mouseWorld, 0.15);
 
-            // Update uniforms
             attractorMaterial.uniforms.time.value = time;
             glowMaterial.uniforms.time.value = time;
 
-            // Rotate the particle sphere slowly
             particles.rotation.y += 0.001;
             particles.rotation.x += 0.0005;
 
-            // Update particle positions
             const posArray = particlesGeometry.attributes.position.array;
             const colorArray = particlesGeometry.attributes.color.array;
 
             for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3;
 
-                // Current position
                 const px = posArray[i3];
                 const py = posArray[i3 + 1];
                 const pz = posArray[i3 + 2];
 
-                // Original position (in world space considering rotation)
                 const origX = originalPositions[i3];
                 const origY = originalPositions[i3 + 1];
                 const origZ = originalPositions[i3 + 2];
 
-                // Transform attractor position to local particle space
                 tempVec.copy(attractor.position);
                 particles.worldToLocal(tempVec);
 
-                // Distance to attractor
                 const dx = tempVec.x - px;
                 const dy = tempVec.y - py;
                 const dz = tempVec.z - pz;
                 const distSq = dx * dx + dy * dy + dz * dz;
                 const dist = Math.sqrt(distSq);
 
-                // Gravity force (inverse square law with falloff)
                 if (dist > 0.1 && dist < 3) {
                     const force = gravityStrength / (distSq + 0.5);
                     velocities[i3] += (dx / dist) * force;
@@ -330,22 +408,18 @@
                     velocities[i3 + 2] += (dz / dist) * force;
                 }
 
-                // Return force to original position
                 velocities[i3] += (origX - px) * returnStrength;
                 velocities[i3 + 1] += (origY - py) * returnStrength;
                 velocities[i3 + 2] += (origZ - pz) * returnStrength;
 
-                // Apply damping
                 velocities[i3] *= damping;
                 velocities[i3 + 1] *= damping;
                 velocities[i3 + 2] *= damping;
 
-                // Update position
                 let newX = px + velocities[i3];
                 let newY = py + velocities[i3 + 1];
                 let newZ = pz + velocities[i3 + 2];
 
-                // Limit displacement from original position
                 const dispX = newX - origX;
                 const dispY = newY - origY;
                 const dispZ = newZ - origZ;
@@ -362,7 +436,6 @@
                 posArray[i3 + 1] = newY;
                 posArray[i3 + 2] = newZ;
 
-                // Update color based on velocity (more motion = brighter)
                 const speed = Math.sqrt(
                     velocities[i3] * velocities[i3] +
                     velocities[i3 + 1] * velocities[i3 + 1] +
@@ -390,7 +463,6 @@
             renderer.render(scene, camera);
         }
 
-        // Handle window resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();

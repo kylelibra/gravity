@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="writing.html">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <section id="portfolio">
+        <span class="section-label">Portfolio</span>
+        <h2>Companies We've Backed</h2>
+        <p class="section-intro">Gravity Labs partners with exceptional founders to build companies addressing critical needs in financial infrastructure, security, and access. Our portfolio reflects our thesis-driven approach—we identify opportunities before they become obvious, then recruit the teams who can bring them to market.</p>
+        
+        <div class="focus-areas">
+            <h3>Focus Areas</h3>
+            <p>We fuse specialized expertise and strategic flexibility, investing in blockchain-enabled infrastructure and financial services while remaining open to adjacent opportunities where our knowledge and network create real value.</p>
+            <p>Our companies address fundamental challenges in financial infrastructure, security, compliance, and access. Whether the solution is blockchain-native, blockchain-enabled, or simply laying the rails for the future of finance, we invest where we can add genuine value through our resources, expertise, and ecosystem.</p>
+        </div>
+        
+        <div class="spotlight">
+            <h3>Spotlight</h3>
+            
+            <div class="spotlight-grid">
+                <div class="spotlight-item">
+                    <div class="spotlight-header">
+                        <h4><a href="https://www.almanax.ai/" target="_blank">Almanax</a></h4>
+                        <span class="spotlight-tagline">AI-Powered Security for Web3</span>
+                    </div>
+                    <div class="spotlight-content">
+                        <p>Almanax is building an AI security engineer that continuously detects, triages, and patches vulnerabilities across codebases. Founded by industry veterans from Coinbase, AnChain.AI, and Ripple, Almanax addresses the critical security challenges facing Web3 development—where over $9 billion has been stolen in the past three years, and 90% of hacked contracts had already been audited.</p>
+                        <p>The platform uses large language models to analyze code, understand logic, and identify both classic exploits and subtle logic-level bugs that traditional static analysis tools miss. Integrated directly into CI/CD pipelines, Almanax functions like an automated security reviewer, catching vulnerabilities before they reach production.</p>
+                        <p>While initially focused on smart contract security, Almanax has expanded to scan broader software layers including off-chain code and third-party dependencies, positioning itself as essential infrastructure for any team building in high-stakes environments.</p>
+                    </div>
+                </div>
+                
+                <div class="spotlight-item">
+                    <div class="spotlight-header">
+                        <h4><a href="https://www.collateralvault.com/" target="_blank">Collateral Vault</a></h4>
+                        <span class="spotlight-tagline">DeFi Infrastructure for Institutional Capital</span>
+                    </div>
+                    <div class="spotlight-content">
+                        <p>Collateral Vault is building programmable vault infrastructure that enables institutional-grade capital deployment in DeFi. As the decentralized finance ecosystem matures beyond shared lending pools into modular, risk-controlled strategies, Collateral Vault provides the transparent, auditable infrastructure that bridges traditional finance expectations with on-chain innovation.</p>
+                        <p>The platform addresses a fundamental limitation that has kept institutions out of DeFi: the inability to maintain control, visibility, and risk management over digital assets while accessing yield opportunities. Collateral Vault's approach allows capital allocators to deploy assets across lending, liquidity provision, and tokenized real-world assets through smart contracts that enforce clear mandates, provide real-time transparency, and maintain strict access controls.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

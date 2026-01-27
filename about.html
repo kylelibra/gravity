@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html" class="active">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="writing.html">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <section id="about">
+        <span class="section-label">About</span>
+        <h2>Our Values</h2>
+        <p class="large">Gravity Labs invests in the future of financial technology infrastructure. In close collaboration with Defy, we combine venture capital resources with hands-on company building. Four beliefs drive what we do.</p>
+        
+        <div class="values-list">
+            <div class="value">
+                <h3>Exceptional founders build exceptional businesses.</h3>
+                <p>We are a founders-first venture studio. We believe people are paramount. When we invest in a project, we commit to finding and supporting the right leaders: operators with the vision, expertise, and determination to see ideas through to execution. If we can't find a match, we'll wait — even if it means missing a market. But when it clicks, we move fast.</p>
+            </div>
+            <div class="value">
+                <h3>The best companies are built on solid foundations.</h3>
+                <p>Gravity Labs empowers founders by providing the funding they need to turn bold ideas into market realities. We don't stop at writing checks. We provide the strategic grounding, technical expertise, and advisory infrastructure that give ambitious founders the stability they need to take calculated risks.</p>
+            </div>
+            <div class="value">
+                <h3>Community is currency.</h3>
+                <p>The companies we incubate become part of an interconnected system of future investors and partners, unlocking opportunities and opening doors from the moment we onboard.</p>
+            </div>
+            <div class="value">
+                <h3>Great ideas emerge from many places.</h3>
+                <p>Gravity Labs turns insights into successful companies. We source opportunities from individuals with deep domain expertise, enterprises identifying market gaps, and protocols seeking specialized capabilities. We don't just fund exceptional founders; we listen to them.</p>
+            </div>
+        </div>
+        
+        <div class="model-section">
+            <h2>Our Model</h2>
+            <p class="model-intro">We incubate ideas, build teams, and provide the resources and infrastructure needed to bring companies from concept to market. Here's how.</p>
+            
+            <div class="model-grid">
+                <div class="model-item">
+                    <h4>Opportunity Identification</h4>
+                    <p>We spot market gaps before they become obvious, giving our companies first-mover advantage. Then we stress-test them, rigorously.</p>
+                </div>
+                <div class="model-item">
+                    <h4>Validated Opportunities</h4>
+                    <p>We don't ask anyone to bet on unproven ideas. For every 30 ideas we go deep on, we fund one, and support from start to finish.</p>
+                </div>
+                <div class="model-item">
+                    <h4>Founder Matching</h4>
+                    <p>We understand you're making a significant career decision, and we structure partnerships to reduce risk while maximizing upside. When we match the right founder to the right idea, we provide the initial capital, market validation, and institutional backing you need to get started.</p>
+                </div>
+                <div class="model-item">
+                    <h4>Initial Funding</h4>
+                    <p>Gravity Labs companies receive meaningful initial capital, operational guidance, and access to our network of advisors, strategic partners, and founders. We remain actively involved as companies scale, helping navigate challenges and capitalize on opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

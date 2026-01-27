@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborate – Gravity Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="collaborate.html" class="active">Collaborate</a>
+            <a href="writing.html">Writing</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="writing.html">Writing</a>
+    </div>
+
+    <section id="collaborate">
+        <span class="section-label">Collaborate</span>
+        <h2>Let's Build Together</h2>
+        <p class="section-intro">Gravity Labs turns innovative ideas into market realities. We develop theses based on market research, ecosystem conversations, and strategic partner needs — and when we identify opportunities, we actively seek founders who can bring these ideas to life.</p>
+        <p>If you're an experienced operator, a domain expert, a first-time founder, or a serial entrepreneur passionate about solving challenges in financial infrastructure, we want to hear from you.</p>
+        
+        <div class="collab-section">
+            <h3>Who We're Looking For</h3>
+            <div class="collab-grid">
+                <div class="collab-item">
+                    <h4>Operators with domain expertise</h4>
+                    <p>You've built products, shipped code, or scaled operations in crypto, fintech, or infrastructure. You understand the technical complexities and regulatory landscape.</p>
+                </div>
+                <div class="collab-item">
+                    <h4>Strategic thinkers who spot gaps</h4>
+                    <p>You've identified problems others haven't noticed yet. You see where the market is heading and what infrastructure needs to exist to get there.</p>
+                </div>
+                <div class="collab-item">
+                    <h4>Builders ready to commit</h4>
+                    <p>You're prepared to dedicate years to turning an idea into a category-defining company. You value partnership over independence and understand that great companies are built collaboratively.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="collab-section">
+            <h3>Our Focus</h3>
+            <p class="focus-intro">Gravity Labs' expertise is in the future of financial infrastructure—and we strongly believe that future will be built onchain. While we remain opportunistic and thesis-flexible, we're particularly focused on incubating companies addressing these challenges.</p>
+            
+            <div class="focus-grid">
+                <div class="focus-category">
+                    <h4>Developer Tools</h4>
+                    <ul>
+                        <li>Smart contract frameworks</li>
+                        <li>Testing and security solutions</li>
+                        <li>Analytics and monitoring platforms</li>
+                    </ul>
+                </div>
+                <div class="focus-category">
+                    <h4>Enterprise Blockchain Solutions</h4>
+                    <ul>
+                        <li>Industry-specific applications</li>
+                        <li>Compliance and regulatory tools</li>
+                        <li>Enterprise integration frameworks</li>
+                    </ul>
+                </div>
+                <div class="focus-category">
+                    <h4>DeFi Infrastructure</h4>
+                    <ul>
+                        <li>Liquidity solutions</li>
+                        <li>Risk management tools</li>
+                        <li>Advanced trading infrastructure</li>
+                    </ul>
+                </div>
+                <div class="focus-category">
+                    <h4>Invisible Blockchain Technology</h4>
+                    <ul>
+                        <li>Consumer applications with crypto infrastructure "under the hood"</li>
+                        <li>Traditional finance products enhanced by blockchain</li>
+                        <li>Corporate systems leveraging blockchain without end-user visibility</li>
+                        <li>Trust and verification layers for conventional applications</li>
+                        <li>Embedded finance solutions with blockchain settlement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="collab-section match-section">
+            <h3>You're a match if</h3>
+            <div class="match-grid">
+                <div class="match-item">
+                    <span class="match-label">You've got an idea.</span>
+                    <p>You have a specific vision and want the capital and support to build it.</p>
+                </div>
+                <div class="match-item">
+                    <span class="match-label">You've got a direction.</span>
+                    <p>You've noticed a market gap, and you want to work together to fill it.</p>
+                </div>
+                <div class="match-item">
+                    <span class="match-label">You've got a need.</span>
+                    <p>You're missing a tool in your stack, but you're too busy innovating to build it yourself.</p>
+                </div>
+                <div class="match-item">
+                    <span class="match-label">You're looking for your next challenge.</span>
+                    <p>You're a strong operator looking for the right problem to solve — a first-time founder ready to be a part of the solution.</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="mailto:KyleREMOVETHISPARTORITGOESTOSPAM@gravity-labs.xyz" class="contact-link">Get in touch →</a>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBott
