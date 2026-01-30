@@ -941,4 +941,35 @@ footer nav a {
         flex-wrap: wrap;
         gap: 16px;
     }
+    
+    .advisor-logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 2rem 3rem;
+        margin-top: 2rem;
+        padding: 20px;
+    }
+
+    .advisor-logos img {
+        height: 50px;
+        width: auto;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+    }
+
+    .advisor-logos img:hover {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .advisor-logos {
+            gap: 1.5rem 2rem;
+            justify-content: center;
+        }
+        
+        .advisor-logos img {
+            height: 40px;
+        }
+    }
 }
