@@ -129,8 +129,7 @@
     <footer>
         <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
     </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         
@@ -152,4 +151,11 @@
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
-                header.style.borderBott
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
