@@ -429,6 +429,74 @@ p.large {
     margin-bottom: 0;
 }
 
+.advisor-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem 3rem;
+    margin-top: 2rem;
+    padding: 20px;
+}
+
+.advisor-logos img {
+    height: 50px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.advisor-logos img:hover {
+    opacity: 1;
+}
+
+/* Other Staff Section */
+.other-staff-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+}
+
+.other-staff-section h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.staff-member {
+    max-width: 600px;
+}
+
+.staff-name {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.staff-role {
+    font-size: 0.875rem;
+    color: #888;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.staff-bio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 0.75rem;
+}
+
+.staff-member .social-links {
+    margin-top: 0.5rem;
+}
+
+.staff-member .social-links a {
+    font-size: 0.8rem;
+}
+
 /* Portfolio Section */
 .focus-tags {
     display: flex;
@@ -943,33 +1011,11 @@ footer nav a {
     }
     
     .advisor-logos {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 2rem 3rem;
-        margin-top: 2rem;
-        padding: 20px;
+        gap: 1.5rem 2rem;
+        justify-content: center;
     }
-
+    
     .advisor-logos img {
-        height: 50px;
-        width: auto;
-        opacity: 0.7;
-        transition: opacity 0.2s ease;
-    }
-
-    .advisor-logos img:hover {
-        opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-        .advisor-logos {
-            gap: 1.5rem 2rem;
-            justify-content: center;
-        }
-        
-        .advisor-logos img {
-            height: 40px;
-        }
+        height: 40px;
     }
 }
