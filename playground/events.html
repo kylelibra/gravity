@@ -54,17 +54,17 @@
 
   .section-label {
     font-family: var(--font-mono); font-size: 12px; color: var(--gray);
-    letter-spacing: 0.05em; margin-bottom: 24px; text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 8px; text-transform: uppercase;
   }
 
   h1 {
     font-size: clamp(40px, 8vw, 72px); font-weight: 300;
-    letter-spacing: -0.03em; line-height: 1.1; max-width: 900px; margin-bottom: 32px;
+    letter-spacing: -0.03em; line-height: 1.1; max-width: 900px; margin-bottom: 10px;
   }
 
   .page-intro {
     font-size: 18px; line-height: 1.7; color: var(--gray-light);
-    max-width: 640px; margin-bottom: 24px;
+    max-width: 640px; margin-bottom: 6px;
   }
 
   .origin-info {
@@ -74,23 +74,23 @@
 
   /* Controls */
   .controls-section {
-    margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--gray-dark);
+    margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--gray-dark);
   }
 
   .search-input {
     width: 100%; background: transparent;
     border: none; border-bottom: 1px solid var(--gray-dark);
     color: var(--white); font-family: var(--font-sans);
-    font-size: 18px; font-weight: 300; padding: 12px 0;
+    font-size: 18px; font-weight: 300; padding: 8px 0;
     letter-spacing: -0.01em; outline: none;
-    transition: border-color 0.2s ease; margin-bottom: 32px;
+    transition: border-color 0.2s ease; margin-bottom: 14px;
   }
   .search-input::placeholder { color: var(--gray); font-weight: 300; }
   .search-input:focus { border-color: var(--white); }
 
   .filter-row {
     display: flex; align-items: baseline; gap: 24px;
-    margin-bottom: 16px; flex-wrap: wrap;
+    margin-bottom: 8px; flex-wrap: wrap;
   }
 
   .filter-label {
@@ -118,7 +118,7 @@
 
   .results-count {
     font-family: var(--font-mono); font-size: 12px; color: var(--gray);
-    letter-spacing: 0.02em; padding: 24px 0 0;
+    letter-spacing: 0.02em; padding: 10px 0 0;
   }
 
   /* Events */
@@ -201,7 +201,7 @@
     footer nav { flex-wrap: wrap; gap: 16px; }
     .filter-row { gap: 16px; }
     .sort-btn { margin-left: 0; }
-    .controls-section { margin-top: 48px; padding-top: 40px; }
+    .controls-section { margin-top: 16px; padding-top: 12px; }
   }
 </style>
 </head>
@@ -221,7 +221,7 @@
 
 <div class="page">
   <span class="section-label">NYC Crypto Events · 2026</span>
-  <h1>What's happening in New York</h1>
+  <h1>NYC Crypto Events</h1>
   <p class="page-intro">Conferences, meetups, and happy hours across the crypto ecosystem in NYC. Curated for founders, investors, and builders.</p>
   <p class="origin-info">Distances measured from 55 Water St, Brooklyn</p>
 
@@ -266,6 +266,11 @@
 <script>
 const ORIGIN = { lat: 40.7033, lng: -73.9862 };
 const EVENTS = [
+  { title: "CryptoMondays NYC", date: "2026-02-09", endDate: null, size: "meetup", price: "free", description: "Weekly crypto community meetup with fireside chat on the role of state AGs in crypto policy. Free drink ticket and POAP NFT for attendees.", venue: "La Diaspora, 91 Baxter St, Chinatown", lat: 40.7158, lng: -74.0003, url: "https://www.meetup.com/cryptomondaysnyc/" },
+  { title: "Where Is the Money At? Bitcoin, Stablecoin, RWA", date: "2026-02-13", endDate: null, size: "meetup", price: "paid", description: "Evening event at the Solana Skyline space covering Bitcoin market dynamics, stablecoin infrastructure, and real-world asset tokenization.", venue: "Solana Skyline, NYC", lat: 40.7425, lng: -73.9886, url: "https://allevents.in/new-york/where-is-the-money-at-bitcoin-stablecoin-rwa-solana-skyline/100001982073562381" },
+  { title: "NYC Blockchain Network Monthly Meetup", date: "2026-02-19", endDate: null, size: "meetup", price: "free", description: "Every-third-Thursday gathering of NYC's crypto and blockchain community. Name tags, speed intros, and four hours of open networking.", venue: "Trump Tower, Midtown", lat: 40.7624, lng: -73.9738, url: "https://www.eventbrite.com/e/nyc-blockchain-network-meetup-the-hugh-tickets-269861301417" },
+  { title: "CryptoMondays NYC", date: "2026-02-23", endDate: null, size: "meetup", price: "free", description: "Weekly crypto community meetup with fireside chats, free drink tickets, and POAP NFTs for attendees. Regular speakers from policy and industry.", venue: "La Diaspora, 91 Baxter St, Chinatown", lat: 40.7158, lng: -74.0003, url: "https://www.meetup.com/cryptomondaysnyc/" },
+  { title: "Integrating Blockchain and AI Workshop", date: "2026-02-26", endDate: null, size: "meetup", price: "paid", description: "Hands-on workshop exploring the intersection of blockchain infrastructure and AI systems. Use cases in decentralized compute, on-chain ML, and autonomous agents.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
   { title: "NYC Blockchain Network Monthly Meetup", date: "2026-03-19", endDate: null, size: "meetup", price: "free", description: "Monthly gathering of NYC's crypto and blockchain community. Casual networking, demo presentations, and discussions on DeFi, NFTs, and Web3.", venue: "Trump Tower, Midtown", lat: 40.7624, lng: -73.9738, url: "https://www.eventbrite.com/e/nyc-blockchain-network-meetup-the-hugh-tickets-269861301417" },
   { title: "CryptoMondays NYC", date: "2026-03-23", endDate: null, size: "meetup", price: "free", description: "Weekly crypto community meetup with fireside chats, free drink tickets, and POAP NFTs for attendees. Regular speakers from policy and industry.", venue: "La Diaspora, 91 Baxter St, Chinatown", lat: 40.7158, lng: -74.0003, url: "https://www.meetup.com/cryptomondaysnyc/" },
   { title: "Digital Asset Summit (DAS) 2026", date: "2026-03-24", endDate: "2026-03-26", size: "conference", price: "paid", description: "Blockworks' premier institutional crypto conference. Conversations between institutions and investors on digital assets, DeFi, and stablecoins. SEC and CFTC speakers.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://blockworks.co/event/digital-asset-summit-nyc-2026" },
