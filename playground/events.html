@@ -3,1032 +3,400 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYCΞVENTS — Finance & Crypto</title>
+<title>Events — Gravity Labs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #030303;
-    --bg-card: rgba(255,255,255,0.015);
-    --white: #c8c8c8;
-    --white-bright: #e8e8e8;
-    --green: #00ff88;
-    --green-mid: #00cc6a;
-    --green-dim: #00994f;
-    --green-mute: #2a6b4a;
-    --green-dark: #0a2e1a;
-    --green-bg: rgba(0,255,136,0.03);
-    --border: rgba(255,255,255,0.06);
-    --border-light: rgba(255,255,255,0.03);
-    --gray: #444;
-    --gray-light: #5a5a5a;
-    --mono: 'IBM Plex Mono', monospace;
-    --serif: 'Instrument Serif', serif;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #888888;
+    --gray-dark: #333333;
+    --gray-light: #cccccc;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'DM Mono', monospace;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
+    font-family: var(--font-sans);
+    background-color: var(--black);
     color: var(--white);
-    font-family: var(--mono);
-    min-height: 100vh;
-    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,136,0.006) 3px, rgba(0,255,136,0.006) 4px);
-    pointer-events: none;
-    z-index: 998;
-  }
+  ::selection { background: var(--white); color: var(--black); }
 
-  ::selection { background: var(--green); color: var(--bg); }
+  a { color: var(--white); text-decoration: none; transition: opacity 0.2s ease; }
+  a:hover { opacity: 0.6; }
 
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 48px 28px 100px;
-  }
-
-  /* ── Header ── */
+  /* Header */
   header {
-    padding-bottom: 36px;
-    margin-bottom: 36px;
-    border-bottom: 1px solid var(--border);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 24px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background-color: var(--black);
   }
+  .logo { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; }
+  header nav { display: flex; gap: 32px; }
+  header nav a { font-size: 14px; font-weight: 400; letter-spacing: 0.01em; }
+  header nav a.active { opacity: 0.6; }
 
-  .sys-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    font-size: 10px;
-    color: var(--gray);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
+  /* Page */
+  .page { padding: 120px 40px 80px; max-width: 960px; margin: 0 auto; }
 
-  .live-indicator {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    color: var(--green-dim);
-    font-size: 9px;
-    letter-spacing: 4px;
-  }
-
-  .live-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: glow 2.5s ease-in-out infinite;
-  }
-
-  @keyframes glow {
-    0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--green); }
-    50% { opacity: 0.3; box-shadow: 0 0 10px var(--green); }
+  .section-label {
+    font-family: var(--font-mono); font-size: 12px; color: var(--gray);
+    letter-spacing: 0.05em; margin-bottom: 24px; text-transform: uppercase;
   }
 
   h1 {
-    font-family: var(--serif);
-    font-size: clamp(34px, 6.5vw, 58px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -1px;
-    color: var(--white-bright);
+    font-size: clamp(40px, 8vw, 72px); font-weight: 300;
+    letter-spacing: -0.03em; line-height: 1.1; max-width: 900px; margin-bottom: 32px;
   }
 
-  h1 em { color: var(--green); font-style: italic; }
-
-  .tagline {
-    margin-top: 12px;
-    font-size: 11px;
-    color: var(--gray-light);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 300;
+  .page-intro {
+    font-size: 18px; line-height: 1.7; color: var(--gray-light);
+    max-width: 640px; margin-bottom: 24px;
   }
 
-  .origin-badge {
-    margin-top: 14px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    color: var(--green-dim);
-    letter-spacing: 1.5px;
-    padding: 5px 12px;
-    border: 1px solid var(--green-dark);
+  .origin-info {
+    font-family: var(--font-mono); font-size: 13px; color: var(--gray);
+    letter-spacing: 0.02em;
   }
 
-  .origin-badge svg {
-    width: 12px; height: 12px;
-    fill: none; stroke: var(--green-dim); stroke-width: 2;
-  }
-
-  /* ── Controls ── */
-  .search-wrap {
-    margin-bottom: 16px;
-    position: relative;
+  /* Controls */
+  .controls-section {
+    margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--gray-dark);
   }
 
   .search-input {
-    width: 100%;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-family: var(--mono);
-    font-size: 12px;
-    padding: 10px 14px 10px 32px;
-    letter-spacing: 1px;
-    outline: none;
-    transition: border-color 0.3s ease;
+    width: 100%; background: transparent;
+    border: none; border-bottom: 1px solid var(--gray-dark);
+    color: var(--white); font-family: var(--font-sans);
+    font-size: 18px; font-weight: 300; padding: 12px 0;
+    letter-spacing: -0.01em; outline: none;
+    transition: border-color 0.2s ease; margin-bottom: 32px;
+  }
+  .search-input::placeholder { color: var(--gray); font-weight: 300; }
+  .search-input:focus { border-color: var(--white); }
+
+  .filter-row {
+    display: flex; align-items: baseline; gap: 24px;
+    margin-bottom: 16px; flex-wrap: wrap;
   }
 
-  .search-input::placeholder {
-    color: var(--gray);
-    letter-spacing: 2px;
-    font-size: 10px;
-    text-transform: uppercase;
-  }
-
-  .search-input:focus { border-color: var(--green-dark); }
-
-  .search-icon {
-    position: absolute;
-    left: 11px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gray);
-    font-size: 12px;
-  }
-
-  .controls {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    align-items: center;
+  .filter-label {
+    font-family: var(--font-mono); font-size: 12px; color: var(--gray);
+    letter-spacing: 0.05em; text-transform: uppercase; min-width: 48px;
   }
 
   .filter-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--gray-light);
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 6px 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.25s ease;
+    background: none; border: none; color: var(--gray);
+    font-family: var(--font-sans); font-size: 14px; font-weight: 400;
+    letter-spacing: 0.01em; cursor: pointer; padding: 4px 0;
+    transition: color 0.2s ease;
   }
-
-  .filter-btn:hover { border-color: var(--green-dark); color: var(--green-mute); }
-
-  .filter-btn.active {
-    border-color: var(--green-dim);
-    color: var(--green);
-    background: var(--green-bg);
-  }
-
-  .spacer { flex: 1; }
+  .filter-btn:hover { color: var(--gray-light); }
+  .filter-btn.active { color: var(--white); }
 
   .sort-btn {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--gray-light);
-    font-family: var(--mono);
-    font-size: 10px;
-    padding: 6px 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.25s ease;
+    background: none; border: none; color: var(--gray);
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    cursor: pointer; padding: 4px 0; transition: color 0.2s ease;
+    margin-left: auto;
+  }
+  .sort-btn:hover { color: var(--white); }
+
+  .results-count {
+    font-family: var(--font-mono); font-size: 12px; color: var(--gray);
+    letter-spacing: 0.02em; padding: 24px 0 0;
   }
 
-  .sort-btn:hover { border-color: var(--green-dark); color: var(--green-mute); }
+  /* Events */
+  .events-list { margin-top: 8px; }
 
-  .results-info {
-    font-size: 10px;
-    color: var(--gray);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 10px 0 20px;
+  .month-divider {
+    padding: 48px 0 16px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--gray);
+    letter-spacing: 0.05em; text-transform: uppercase;
   }
-
-  /* ── Timeline ── */
-  .timeline { list-style: none; }
-
-  .month-header {
-    padding: 28px 0 14px;
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--green-mute);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .month-header::before { content: '//'; color: var(--green-dark); }
 
   .event-card {
-    padding: 22px 0;
-    border-bottom: 1px solid var(--border-light);
-    opacity: 0;
-    transform: translateY(8px);
-    animation: reveal 0.35s ease forwards;
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 18px;
-    transition: background 0.3s ease;
+    border-top: 1px solid var(--gray-dark); padding: 32px 0;
+    display: grid; grid-template-columns: 72px 1fr; gap: 32px;
+    opacity: 0; transform: translateY(6px);
+    animation: fadeIn 0.3s ease forwards;
   }
+  @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
 
-  .event-card:hover { background: linear-gradient(90deg, var(--green-bg), transparent 50%); }
+  .event-date { text-align: right; padding-top: 4px; }
+  .event-date-day { font-size: 28px; font-weight: 300; letter-spacing: -0.02em; line-height: 1; }
+  .event-date-month { font-family: var(--font-mono); font-size: 12px; color: var(--gray); letter-spacing: 0.02em; margin-top: 6px; }
 
-  @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+  .event-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+  .event-tag { font-family: var(--font-mono); font-size: 12px; color: var(--gray); letter-spacing: 0.02em; }
+  .event-tag::after { content: "·"; margin-left: 16px; color: var(--gray-dark); }
+  .event-tag:last-child::after { display: none; }
 
-  .event-date-col { text-align: right; padding-top: 2px; }
+  .event-title { font-size: 24px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 10px; line-height: 1.3; }
+  .event-desc { font-size: 15px; line-height: 1.7; color: var(--gray-light); max-width: 600px; margin-bottom: 16px; }
 
-  .event-day {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--white-bright);
-    line-height: 1;
+  .event-details { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .event-venue { font-size: 14px; color: var(--gray-light); }
+  .event-distance { font-family: var(--font-mono); font-size: 12px; color: var(--gray); letter-spacing: 0.02em; }
+
+  .event-links { display: flex; gap: 20px; margin-top: 16px; }
+  .event-links a,
+  .event-links button {
+    font-size: 14px; font-weight: 400; color: var(--white);
+    border-bottom: 1px solid var(--gray-dark); padding-bottom: 2px;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+    background: none; border-top: none; border-left: none; border-right: none;
+    cursor: pointer; font-family: var(--font-sans);
   }
+  .event-links a:hover,
+  .event-links button:hover { border-bottom-color: var(--white); opacity: 1; }
 
-  .event-month-sm {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-light);
-    margin-top: 3px;
-  }
+  .empty-state { padding: 80px 0; text-align: center; font-size: 18px; color: var(--gray); font-weight: 300; }
 
-  /* ── Tags Row ── */
-  .event-tags {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    margin-bottom: 7px;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    font-size: 8px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border: 1px solid var(--green-dark);
-    color: var(--green-dim);
-    font-family: var(--mono);
-  }
-
-  .tag-multi { color: var(--gray-light); border-color: var(--border); }
-
-  .tag-free {
-    color: var(--green);
-    border-color: var(--green-dark);
-    background: rgba(0,255,136,0.05);
-  }
-
-  .tag-paid {
-    color: var(--white);
-    border-color: var(--border);
-  }
-
-  /* ── Score ── */
-  .score-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    padding: 2px 8px;
-    border: 1px solid;
-    font-family: var(--mono);
-  }
-
-  .score-high {
-    color: var(--green);
-    border-color: var(--green-dark);
-  }
-
-  .score-med {
-    color: var(--green-dim);
-    border-color: var(--green-dark);
-  }
-
-  .score-low {
-    color: var(--gray-light);
-    border-color: var(--border);
-  }
-
-  .score-bar {
-    display: inline-block;
-    width: 28px;
-    height: 3px;
-    background: var(--border);
-    position: relative;
-    border-radius: 1px;
-    overflow: hidden;
-  }
-
-  .score-bar-fill {
-    position: absolute;
-    top: 0; left: 0;
-    height: 100%;
-    border-radius: 1px;
-    transition: width 0.4s ease;
-  }
-
-  .event-title {
-    font-family: var(--serif);
-    font-size: 19px;
-    font-weight: 400;
-    color: var(--white-bright);
-    line-height: 1.3;
-    margin-bottom: 5px;
-  }
-
-  .event-desc {
-    font-size: 12px;
-    color: var(--gray-light);
-    line-height: 1.6;
-    font-weight: 300;
-    max-width: 580px;
-  }
-
-  /* ── Distance ── */
-  .meta-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-  }
-
-  .distance-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--white);
-    padding: 3px 0;
-  }
-
-  .distance-badge .dist-val {
-    color: var(--green-mid);
-    font-weight: 500;
-  }
-
-  .distance-badge .dist-sep {
-    color: var(--gray);
-    margin: 0 2px;
-  }
-
-  .transit-time {
-    font-size: 10px;
-    color: var(--gray-light);
-    letter-spacing: 1px;
-  }
-
-  .transit-time span { color: var(--white); font-weight: 400; }
-
-  .directions-link {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--green-mute);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .directions-link:hover { color: var(--green); }
-
-  /* ── Footer Row ── */
-  .event-footer {
-    display: flex;
-    gap: 14px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .event-venue {
-    font-size: 10px;
-    color: var(--gray-light);
-    letter-spacing: 1px;
-  }
-
-  .event-link {
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--green-mute);
-    font-family: var(--mono);
-    transition: color 0.2s ease;
-  }
-
-  .event-link:hover { color: var(--green); }
-
-  .cal-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: none;
-    border: 1px solid var(--green-dark);
-    color: var(--green-mute);
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .cal-btn:hover {
-    border-color: var(--green-dim);
-    color: var(--green);
-    background: var(--green-bg);
-  }
-
-  .cal-btn svg {
-    width: 10px; height: 10px;
-    fill: none; stroke: currentColor; stroke-width: 2;
-  }
-
-  /* ── Toast ── */
+  /* Toast */
   .toast {
-    position: fixed;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--green);
-    color: var(--bg);
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 10px 24px;
-    opacity: 0;
-    transition: all 0.35s ease;
-    z-index: 1001;
-    pointer-events: none;
+    position: fixed; bottom: 40px; left: 50%;
+    transform: translateX(-50%) translateY(60px);
+    background: var(--white); color: var(--black);
+    font-family: var(--font-mono); font-size: 13px; font-weight: 500;
+    letter-spacing: 0.02em; padding: 12px 28px;
+    opacity: 0; transition: all 0.3s ease; z-index: 200; pointer-events: none;
   }
-
   .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-  /* ── Legend ── */
-  .legend {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-light);
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .legend-dot {
-    width: 6px; height: 6px;
-    border-radius: 1px;
-  }
-
-  .legend-score {
-    display: inline-block;
-    width: 20px; height: 3px;
-    border-radius: 1px;
-  }
-
-  /* ── Empty / Footer ── */
-  .empty-state {
-    padding: 60px 0;
-    text-align: center;
-    font-size: 11px;
-    color: var(--gray);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
+  /* Footer */
   footer {
-    margin-top: 56px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
+    padding: 40px; border-top: 1px solid var(--gray-dark);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px; max-width: 960px; margin: 80px auto 0;
   }
+  footer .copyright { font-size: 13px; color: var(--gray); }
+  footer nav { display: flex; gap: 24px; }
+  footer nav a { font-size: 13px; color: var(--gray); }
 
-  footer span {
-    font-size: 9px;
-    color: var(--gray);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-
-  footer .green { color: var(--green-dim); }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    .event-card { grid-template-columns: 1fr; gap: 6px; }
-    .event-date-col { text-align: left; display: flex; align-items: baseline; gap: 8px; }
-    footer { flex-direction: column; }
-    .legend { flex-direction: column; gap: 10px; }
+  /* Responsive */
+  @media (max-width: 768px) {
+    header { padding: 20px 24px; }
+    header nav { display: none; }
+    .page { padding: 100px 24px 60px; }
+    .event-card { grid-template-columns: 1fr; gap: 8px; }
+    .event-date { text-align: left; display: flex; align-items: baseline; gap: 10px; }
+    .event-date-month { margin-top: 0; }
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    footer nav { flex-wrap: wrap; gap: 16px; }
+    .filter-row { gap: 16px; }
+    .sort-btn { margin-left: 0; }
+    .controls-section { margin-top: 48px; padding-top: 40px; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <div class="sys-bar">
-      <span>SYS://NYC.EVENTS.2026</span>
-      <span class="live-indicator"><span class="live-dot"></span>CURATED FEED</span>
-    </div>
-    <h1>New York<br><em>Finance</em> &amp; Crypto</h1>
-    <p class="tagline">Upcoming events · Manhattan &amp; beyond</p>
-    <div class="origin-badge">
-      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      Distances from 55 Water St, Brooklyn
-    </div>
-  </header>
+<header>
+  <a href="https://gravity-labs.xyz/" class="logo">Gravity Labs</a>
+  <nav>
+    <a href="https://gravity-labs.xyz/about.html">About</a>
+    <a href="https://gravity-labs.xyz/people.html">People</a>
+    <a href="https://gravity-labs.xyz/portfolio.html">Portfolio</a>
+    <a href="https://gravity-labs.xyz/collaborate.html">Collaborate</a>
+    <a href="https://gravity-labs.xyz/writing.html">Resources</a>
+    <a href="#" class="active">Events</a>
+  </nav>
+</header>
 
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Legitimacy 80+</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--green-dim)"></div> Legitimacy 50–79</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--gray)"></div> Legitimacy &lt;50</div>
-    <div class="legend-item"><span style="color:var(--green);font-weight:600;">FREE</span> No cost</div>
-    <div class="legend-item"><span style="color:var(--white);">PAID</span> Ticketed</div>
-  </div>
+<div class="page">
+  <span class="section-label">NYC Crypto Events · 2026</span>
+  <h1>What's happening in New York</h1>
+  <p class="page-intro">Conferences, meetups, and happy hours across the crypto ecosystem in NYC. Curated for founders, investors, and builders.</p>
+  <p class="origin-info">Distances measured from 55 Water St, Brooklyn</p>
 
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
+  <div class="controls-section">
     <input type="text" class="search-input" id="search" placeholder="Search events...">
+
+    <div class="filter-row">
+      <span class="filter-label">Size</span>
+      <button class="filter-btn active" data-filter="size" data-val="all">All</button>
+      <button class="filter-btn" data-filter="size" data-val="conference">Conferences</button>
+      <button class="filter-btn" data-filter="size" data-val="meetup">Meetups</button>
+      <button class="filter-btn" data-filter="size" data-val="happy-hour">Happy Hours</button>
+    </div>
+
+    <div class="filter-row">
+      <span class="filter-label">Price</span>
+      <button class="filter-btn active" data-filter="price" data-val="all">All</button>
+      <button class="filter-btn" data-filter="price" data-val="free">Free</button>
+      <button class="filter-btn" data-filter="price" data-val="paid">Paid</button>
+      <span style="flex:1"></span>
+      <button class="sort-btn" id="sort-btn">↑ Soonest first</button>
+    </div>
+
+    <div class="results-count" id="results-count"></div>
   </div>
 
-  <div class="controls">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="finance">Finance</button>
-    <button class="filter-btn" data-filter="crypto">Crypto</button>
-    <button class="filter-btn" data-filter="both">Both</button>
-    <button class="filter-btn" data-filter="free">Free only</button>
-    <span class="spacer"></span>
-    <button class="sort-btn" id="sort-btn">↑ Date</button>
-  </div>
-
-  <div class="results-info" id="results-info"></div>
-
-  <ul class="timeline" id="timeline"></ul>
-
-  <div class="empty-state" id="empty" style="display:none;">// No events match your filters</div>
-
-  <footer>
-    <span>Data sourced from verified event listings</span>
-    <span class="green">Last curated · Feb 2026</span>
-  </footer>
+  <div class="events-list" id="events-list"></div>
+  <div class="empty-state" id="empty" style="display:none;">No events match your filters.</div>
 </div>
 
-<div class="toast" id="toast">✓ Calendar file downloaded</div>
+<footer>
+  <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+  <nav>
+    <a href="https://gravity-labs.xyz/about.html">About</a>
+    <a href="https://gravity-labs.xyz/collaborate.html">Collaborate</a>
+    <a href="https://gravity-labs.xyz/writing.html">Resources</a>
+  </nav>
+</footer>
+
+<div class="toast" id="toast">Added to calendar</div>
 
 <script>
 const ORIGIN = { lat: 40.7033, lng: -73.9862 };
-
 const EVENTS = [
-  {
-    title: "NYC Blockchain Network Monthly Meetup",
-    date: "2026-03-19", endDate: null,
-    category: "crypto", price: "free",
-    score: 62,
-    scoreNote: "Recurring community meetup, active since 2022 on Eventbrite. Informal, not corporate-backed.",
-    description: "Monthly gathering of NYC's crypto and blockchain community. Casual networking, demo presentations, and discussions on the latest in DeFi, NFTs, and Web3 infrastructure.",
-    venue: "Trump Tower, Midtown Manhattan",
-    lat: 40.7624, lng: -73.9738,
-    url: "https://www.eventbrite.com/e/nyc-blockchain-network-meetup-the-hugh-tickets-269861301417"
-  },
-  {
-    title: "Digital Asset Summit (DAS) 2026",
-    date: "2026-03-24", endDate: "2026-03-26",
-    category: "both", price: "paid",
-    score: 95,
-    scoreNote: "Organized by Blockworks, major institutional conference. SEC/CFTC speakers confirmed. 3rd annual.",
-    description: "Blockworks' premier institutional crypto conference. Features conversations between institutions and investors pushing the frontier of digital assets, DeFi, and stablecoins. Speakers include SEC and CFTC leadership.",
-    venue: "Midtown Manhattan",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://blockworks.co/event/digital-asset-summit-nyc-2026"
-  },
-  {
-    title: "Chainalysis Links NYC 2026",
-    date: "2026-03-31", endDate: "2026-04-01",
-    category: "crypto", price: "paid",
-    score: 92,
-    scoreNote: "Hosted by Chainalysis, a leading blockchain analytics firm. Major speakers from Kraken, Deutsche Bank, HSI.",
-    description: "Presentations, case studies, and keynotes from public and private sector crypto leaders. Experts from crypto-native firms, financial institutions, government agencies, and DeFi projects.",
-    venue: "New York City",
-    lat: 40.7484, lng: -73.9856,
-    url: "https://www.chainalysis.com/links-nyc/"
-  },
-  {
-    title: "ATSs and Off-Exchange Trading Summit",
-    date: "2026-04-08", endDate: null,
-    category: "finance", price: "paid",
-    score: 58,
-    scoreNote: "Listed on Eventbrite. Niche topic with limited public speaker info. Organizer details sparse.",
-    description: "Summit examining alternative trading systems, dark pools, and off-exchange trading dynamics. Covers regulatory challenges, market structure evolution, and opportunities.",
-    venue: "Financial District, Manhattan",
-    lat: 40.7074, lng: -74.0113,
-    url: "https://www.eventbrite.com/d/ny--new-york/fintech/"
-  },
-  {
-    title: "AI in Finance Summit NY",
-    date: "2026-04-15", endDate: "2026-04-16",
-    category: "finance", price: "paid",
-    score: 88,
-    scoreNote: "Organized by RE•WORK, an established AI event producer. Held annually at Convene. Named speakers and sponsors.",
-    description: "RE•WORK's summit on advances in AI and machine learning for financial services. Covers algorithmic trading, fraud detection, risk modeling, and AI-driven compliance tools.",
-    venue: "Convene One Liberty Plaza, Lower Manhattan",
-    lat: 40.7094, lng: -74.0127,
-    url: "https://ny-ai-finance.re-work.co/"
-  },
-  {
-    title: "Fintech Is Femme Leadership Summit",
-    date: "2026-04-23", endDate: null,
-    category: "finance", price: "paid",
-    score: 82,
-    scoreNote: "Part of NY FinTech Week. Organized by NYC FinTech Women, a known community. 500+ expected attendees.",
-    description: "500+ women leaders in fintech gather during NY FinTech Week. Expert panels, keynotes, and strategies for women shaping the future of financial technology.",
-    venue: "The Times Center, Midtown Manhattan",
-    lat: 40.7564, lng: -73.9901,
-    url: "https://empirestartups.com/events/new-york-fintech-week/"
-  },
-  {
-    title: "New York FinTech Week 2026",
-    date: "2026-04-27", endDate: "2026-05-01",
-    category: "finance", price: "free",
-    score: 90,
-    scoreNote: "Organized by Empire Startups, NYC's largest fintech community. Multi-year track record. Many free events.",
-    description: "A week of independently organized conferences, workshops, hackathons, meetups and parties across NYC. The city's largest annual fintech gathering featuring founders, VCs, and banking executives.",
-    venue: "Various venues across NYC",
-    lat: 40.7484, lng: -73.9856,
-    url: "https://empirestartups.com/events/new-york-fintech-week/"
-  },
-  {
-    title: "Certified DeFi Associate — NYC Cohort",
-    date: "2026-05-12", endDate: null,
-    category: "crypto", price: "paid",
-    score: 45,
-    scoreNote: "Certification workshop via Eventbrite. Issuing body not widely recognized. Limited independent reviews.",
-    description: "Professional certification workshop covering DeFi protocols, yield strategies, liquidity pools, smart contract auditing, and decentralized governance.",
-    venue: "Midtown Manhattan",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/"
-  },
-  {
-    title: "Women in FinTech NYC Meetup",
-    date: "2026-05-21", endDate: null,
-    category: "finance", price: "free",
-    score: 68,
-    scoreNote: "Community-driven networking event. Active group with regular meetups. Informal format, no major sponsors.",
-    description: "Three-hour in-person networking event celebrating gender diversity in financial technology. Build meaningful connections with female professionals across banking and payments.",
-    venue: "NYC — Venue TBA",
-    lat: 40.7484, lng: -73.9856,
-    url: "https://www.eventbrite.com/d/ny--new-york/fintech/"
-  },
-  {
-    title: "WAGMI-Connect: Macro/Micro Finance",
-    date: "2026-06-05", endDate: null,
-    category: "both", price: "free",
-    score: 42,
-    scoreNote: "Informal Eventbrite listing. Organizer track record unclear. \"WAGMI\" branding suggests crypto-native community event.",
-    description: "Networking event bridging traditional macro and micro economics with crypto markets. Discussions on monetary policy impact on digital assets and cross-market strategies.",
-    venue: "NYC — Venue TBA",
-    lat: 40.7484, lng: -73.9856,
-    url: "https://www.eventbrite.com/d/ny--new-york/fintech/"
-  },
-  {
-    title: "NFT.NYC 2026",
-    date: "2026-06-15", endDate: "2026-06-17",
-    category: "crypto", price: "paid",
-    score: 85,
-    scoreNote: "Established annual conference since 2019. Major brand in the Web3 space. Consistently large attendance.",
-    description: "The world's leading NFT conference returns to its home city. Covers digital collectibles, blockchain gaming, DeFi integration, metaverse development, and the Web3 creator economy.",
-    venue: "New York City",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://www.nft.nyc/"
-  },
-  {
-    title: "ETHConf New York 2026",
-    date: "2026-07-14", endDate: "2026-07-16",
-    category: "crypto", price: "paid",
-    score: 78,
-    scoreNote: "Ethereum-focused builder conference. 5,000+ expected. Less established than Devcon but growing reputation.",
-    description: "Three-day event for Ethereum founders, builders, and industry leaders. 5,000+ attendees exploring the future of building on Ethereum in the heart of global finance.",
-    venue: "New York City",
-    lat: 40.7484, lng: -73.9856,
-    url: "https://www.splunk.com/en_us/blog/learn/blockchain-conferences-events.html"
-  },
-  {
-    title: "Hudson River Network: AI in Fintech",
-    date: "2026-07-22", endDate: null,
-    category: "finance", price: "free",
-    score: 52,
-    scoreNote: "Eventbrite networking event. Niche community group. Limited online presence or past event documentation.",
-    description: "Networking event at the intersection of artificial intelligence and financial services. Covers AI-powered trading, automated compliance, and predictive analytics.",
-    venue: "Hudson Yards, Manhattan",
-    lat: 40.7537, lng: -74.0008,
-    url: "https://www.eventbrite.com/d/ny--new-york/fintech/"
-  },
-  {
-    title: "Tokenization of Real World Assets Workshop",
-    date: "2026-08-10", endDate: null,
-    category: "both", price: "paid",
-    score: 55,
-    scoreNote: "Eventbrite workshop on trending topic. Organizer credentials not independently verified. Niche but relevant.",
-    description: "Workshop on tokenizing real-world assets including real estate, commodities, and securities on blockchain. Covers regulatory frameworks and smart contract architectures.",
-    venue: "Midtown Manhattan",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/"
-  },
-  {
-    title: "FinovateFall 2026",
-    date: "2026-09-09", endDate: "2026-09-11",
-    category: "finance", price: "paid",
-    score: 96,
-    scoreNote: "15+ year track record. 2,000+ senior attendees, 70% C-suite. Informa-backed. Gold-standard fintech conference.",
-    description: "2,000+ senior decision-makers experience 7-minute live demos from 35+ fintech startups. Covers AI, embedded finance, open banking, and digital banking. 70% C-suite attendance.",
-    venue: "New York Marriott Marquis, Times Square",
-    lat: 40.7585, lng: -73.9857,
-    url: "https://informaconnect.com/finovatefall/"
-  },
-  {
-    title: "Fintech Talents North America",
-    date: "2026-09-16", endDate: "2026-09-17",
-    category: "finance", price: "paid",
-    score: 84,
-    scoreNote: "Established conference series by Fintech Talents. Co-located with multiple sub-events. Named institutional speakers.",
-    description: "Multi-stage conference co-located with Future Identity Finance, Embedded Finance, and Customer Alpha events. Panels on AI, payments, compliance, and blockchain.",
-    venue: "Midtown Manhattan",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://www.fintechtalents.com/events/north-america/"
-  },
-  {
-    title: "Women in Digital Assets Forum 2026",
-    date: "2026-09-25", endDate: null,
-    category: "crypto", price: "free",
-    score: 60,
-    scoreNote: "Listed on Eventbrite. Part of growing women-in-crypto movement. Community-driven, limited corporate backing.",
-    description: "Forum empowering women in digital assets, blockchain, and Web3. Panel discussions, fireside chats, and networking with female leaders across the crypto ecosystem.",
-    venue: "Midtown Manhattan",
-    lat: 40.7549, lng: -73.9840,
-    url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/"
-  },
-  {
-    title: "The Bridge 2026",
-    date: "2026-10-27", endDate: null,
-    category: "both", price: "paid",
-    score: 91,
-    scoreNote: "Organized by The Tie, a leading crypto data firm. 4th annual. Invitation-only at Convene Brookfield Place.",
-    description: "The Tie's fourth annual conference examining the convergence of institutional finance and digital assets. Private, invitation-only setting for senior executives.",
-    venue: "Convene Brookfield Place, Lower Manhattan",
-    lat: 40.7128, lng: -74.0152,
-    url: "https://bridge.thetie.io/"
-  },
-  {
-    title: "NYC RegTech Summit 2026",
-    date: "2026-11-19", endDate: null,
-    category: "finance", price: "paid",
-    score: 86,
-    scoreNote: "10th annual edition. North America's leading compliance fintech event. Known venue, established organizer.",
-    description: "North America's leading compliance-focused fintech event, now in its 10th year. Explores how AI transforms compliance and helps firms navigate regulatory pressures.",
-    venue: "Convene, West 46th St, Midtown",
-    lat: 40.7580, lng: -73.9855,
-    url: "https://withjoy.com/blog/17-must-attend-fintech-events-in-nyc-2026-calendar/"
-  }
+  { title: "NYC Blockchain Network Monthly Meetup", date: "2026-03-19", endDate: null, size: "meetup", price: "free", description: "Monthly gathering of NYC's crypto and blockchain community. Casual networking, demo presentations, and discussions on DeFi, NFTs, and Web3.", venue: "Trump Tower, Midtown", lat: 40.7624, lng: -73.9738, url: "https://www.eventbrite.com/e/nyc-blockchain-network-meetup-the-hugh-tickets-269861301417" },
+  { title: "CryptoMondays NYC", date: "2026-03-23", endDate: null, size: "meetup", price: "free", description: "Weekly crypto community meetup with fireside chats, free drink tickets, and POAP NFTs for attendees. Regular speakers from policy and industry.", venue: "La Diaspora, 91 Baxter St, Chinatown", lat: 40.7158, lng: -74.0003, url: "https://www.meetup.com/cryptomondaysnyc/" },
+  { title: "Digital Asset Summit (DAS) 2026", date: "2026-03-24", endDate: "2026-03-26", size: "conference", price: "paid", description: "Blockworks' premier institutional crypto conference. Conversations between institutions and investors on digital assets, DeFi, and stablecoins. SEC and CFTC speakers.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://blockworks.co/event/digital-asset-summit-nyc-2026" },
+  { title: "Chainalysis Links NYC 2026", date: "2026-03-31", endDate: "2026-04-01", size: "conference", price: "paid", description: "Presentations, case studies, and keynotes from public and private sector crypto leaders. Experts from financial institutions, government agencies, and DeFi.", venue: "New York City", lat: 40.7484, lng: -73.9856, url: "https://www.chainalysis.com/links-nyc/" },
+  { title: "Certified DeFi Associate — NYC Cohort", date: "2026-05-12", endDate: null, size: "meetup", price: "paid", description: "Certification workshop covering DeFi protocols, yield strategies, liquidity pools, smart contract auditing, and decentralized governance.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
+  { title: "Investment, Trade & Crypto Networking Happy Hour", date: "2026-05-20", endDate: null, size: "happy-hour", price: "paid", description: "Happy hour for investors, traders, and crypto enthusiasts. Tables organized by industry. Ticket includes a taco and drink.", venue: "NYC bar (rotating venues)", lat: 40.7484, lng: -73.9856, url: "https://www.meetup.com/dc-investo/events/qghwxgydclbnb/" },
+  { title: "WAGMI-Connect: Crypto & Macro Economics", date: "2026-06-05", endDate: null, size: "meetup", price: "free", description: "Networking event bridging macro economics with crypto markets. Monetary policy impact on digital assets, stablecoin economics, and cross-market strategies.", venue: "NYC — Venue TBA", lat: 40.7484, lng: -73.9856, url: "https://www.eventbrite.com/d/ny--new-york/fintech/" },
+  { title: "ETHGlobal New York 2026", date: "2026-06-12", endDate: "2026-06-14", size: "conference", price: "free", description: "Ethereum hackathon and builder event. Workshops, mentorship, happy hours, coworking spaces, and community meetups. For beginners and experienced devs.", venue: "New York City", lat: 40.7484, lng: -73.9856, url: "https://events.coinpedia.org/ethglobal-new-york-2026-7997/" },
+  { title: "NFT.NYC 2026", date: "2026-06-15", endDate: "2026-06-17", size: "conference", price: "paid", description: "The world's leading NFT conference. Digital collectibles, blockchain gaming, DeFi integration, metaverse, and the Web3 creator economy.", venue: "New York City", lat: 40.7549, lng: -73.9840, url: "https://www.nft.nyc/" },
+  { title: "ETHConf New York 2026", date: "2026-07-14", endDate: "2026-07-16", size: "conference", price: "paid", description: "Three-day event for Ethereum founders, builders, and industry leaders. 5,000+ attendees exploring the future of building on Ethereum.", venue: "New York City", lat: 40.7484, lng: -73.9856, url: "https://www.splunk.com/en_us/blog/learn/blockchain-conferences-events.html" },
+  { title: "DeFi & Drinks — Summer Edition", date: "2026-07-30", endDate: null, size: "happy-hour", price: "free", description: "Casual summer happy hour for DeFi builders, traders, and enthusiasts. No speakers — just drinks, conversations, and connecting with the NYC crypto community.", venue: "Rooftop bar, Lower East Side", lat: 40.7185, lng: -73.9879, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
+  { title: "Tokenization of Real World Assets Workshop", date: "2026-08-10", endDate: null, size: "meetup", price: "paid", description: "Workshop on tokenizing real estate, commodities, and securities on blockchain. Regulatory frameworks and smart contract architectures.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
+  { title: "Blockchain Builders After-Work Social", date: "2026-09-18", endDate: null, size: "happy-hour", price: "free", description: "After-work social for blockchain developers and enthusiasts. Timed to follow major fintech conferences. Casual drinks and networking.", venue: "Bar near Midtown venue (TBA)", lat: 40.7549, lng: -73.9840, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
+  { title: "Women in Digital Assets Forum 2026", date: "2026-09-25", endDate: null, size: "meetup", price: "free", description: "Forum empowering women in digital assets, blockchain, and Web3. Panels, fireside chats, and networking with female leaders.", venue: "Midtown Manhattan", lat: 40.7549, lng: -73.9840, url: "https://www.eventbrite.com/d/ny--new-york/cryptocurrency/" },
+  { title: "Stand With Crypto NYC — Community Happy Hour", date: "2026-10-15", endDate: null, size: "happy-hour", price: "free", description: "Community happy hour to connect local crypto advocates, discuss policy updates, and meet fellow builders. Part of the Stand With Crypto movement.", venue: "NYC bar (TBA)", lat: 40.7484, lng: -73.9856, url: "https://www.standwithcrypto.org/events" },
+  { title: "The Bridge 2026", date: "2026-10-27", endDate: null, size: "conference", price: "paid", description: "The Tie's fourth annual conference on the convergence of institutional finance and digital assets. Private, invitation-only for senior executives.", venue: "Convene Brookfield Place, FiDi", lat: 40.7128, lng: -74.0152, url: "https://bridge.thetie.io/" },
+  { title: "Empowering Finance Through DeFi — Workshop & Mixer", date: "2026-11-06", endDate: null, size: "meetup", price: "free", description: "Half-day workshop on DeFi applications in traditional finance, followed by an informal networking mixer. Beginner-friendly with hands-on demos.", venue: "NYC — Venue TBA", lat: 40.7484, lng: -73.9856, url: "https://www.eventbrite.com/d/ny--new-york/finance/" }
 ];
 
-// ── State ──
-let currentFilter = "all";
-let searchQuery = "";
-let sortAsc = true;
-
-const timeline = document.getElementById("timeline");
+let sizeFilter = "all", priceFilter = "all", searchQuery = "", sortAsc = true;
+const eventsList = document.getElementById("events-list");
 const emptyEl = document.getElementById("empty");
-const resultsInfo = document.getElementById("results-info");
+const resultsCount = document.getElementById("results-count");
 const searchInput = document.getElementById("search");
 const sortBtn = document.getElementById("sort-btn");
 const toast = document.getElementById("toast");
-
-const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-const monthsFull = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
+const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const monthShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 function parseDate(d) { return new Date(d + "T00:00:00"); }
-function formatDay(d) { return parseDate(d).getDate(); }
-function formatMonthShort(d) { return months[parseDate(d).getMonth()]; }
-function getMonthKey(d) { const dt = parseDate(d); return `${dt.getFullYear()}-${String(dt.getMonth()).padStart(2,'0')}`; }
-function getMonthLabel(d) { const dt = parseDate(d); return `${monthsFull[dt.getMonth()]} ${dt.getFullYear()}`; }
 
-// ── Distance (Haversine) ──
 function haversine(lat1, lng1, lat2, lng2) {
-  const R = 3958.8;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLng = (lng2 - lng1) * Math.PI / 180;
-  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const R = 3958.8, dLat = (lat2-lat1)*Math.PI/180, dLng = (lng2-lng1)*Math.PI/180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
-
 function getDistance(ev) { return haversine(ORIGIN.lat, ORIGIN.lng, ev.lat, ev.lng); }
+function estimateTransit(mi) { return mi < 0.5 ? "~5 min walk" : mi < 1.2 ? "~12 min walk" : `~${Math.round(mi*3+10)} min transit`; }
+function mapsUrl(ev) { return `https://www.google.com/maps/dir/${ORIGIN.lat},${ORIGIN.lng}/${ev.lat},${ev.lng}/@${ev.lat},${ev.lng},14z/data=!4m2!4m1!3e3`; }
 
-function estimateTransit(miles) {
-  if (miles < 0.5) return "~5 min walk";
-  if (miles < 1.2) return "~12 min walk";
-  return `~${Math.round(miles * 3 + 10)} min transit`;
-}
-
-function mapsUrl(ev) {
-  return `https://www.google.com/maps/dir/${ORIGIN.lat},${ORIGIN.lng}/${ev.lat},${ev.lng}/@${ev.lat},${ev.lng},14z/data=!4m2!4m1!3e3`;
-}
-
-// ── Score helpers ──
-function scoreClass(s) { return s >= 80 ? 'score-high' : s >= 50 ? 'score-med' : 'score-low'; }
-function scoreColor(s) { return s >= 80 ? 'var(--green)' : s >= 50 ? 'var(--green-dim)' : 'var(--gray-light)'; }
-
-// ── ICS Export ──
-function pad2(n) { return String(n).padStart(2, '0'); }
-function toICSDate(s) { return s.replace(/-/g, ''); }
-
+function pad2(n) { return String(n).padStart(2,'0'); }
 function generateICS(ev) {
-  const uid = `${ev.date}-${ev.title.replace(/\W+/g, '-').toLowerCase()}@nycevents`;
-  const dtStart = toICSDate(ev.date);
-  const endDate = parseDate(ev.endDate || ev.date);
-  endDate.setDate(endDate.getDate() + 1);
-  const dtEnd = `${endDate.getFullYear()}${pad2(endDate.getMonth()+1)}${pad2(endDate.getDate())}`;
+  const uid = `${ev.date}-${ev.title.replace(/\W+/g,'-').toLowerCase()}@gravitylabs`;
+  const dtStart = ev.date.replace(/-/g,'');
+  const end = parseDate(ev.endDate||ev.date); end.setDate(end.getDate()+1);
+  const dtEnd = `${end.getFullYear()}${pad2(end.getMonth()+1)}${pad2(end.getDate())}`;
   const now = new Date();
   const stamp = `${now.getFullYear()}${pad2(now.getMonth()+1)}${pad2(now.getDate())}T${pad2(now.getHours())}${pad2(now.getMinutes())}${pad2(now.getSeconds())}Z`;
-  const esc = s => s.replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\n/g, '\\n');
-  return [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//NYCEvents//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH',
-    'BEGIN:VEVENT',`UID:${uid}`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${dtStart}`,`DTEND;VALUE=DATE:${dtEnd}`,
-    `SUMMARY:${esc(ev.title)}`,`DESCRIPTION:${esc(ev.description)}\\n\\n${ev.url}`,
-    `LOCATION:${esc(ev.venue)}`,`URL:${ev.url}`,'STATUS:CONFIRMED','END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
+  const esc = s => s.replace(/,/g,'\\,').replace(/;/g,'\\;').replace(/\n/g,'\\n');
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GravityLabs//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',`UID:${uid}`,`DTSTAMP:${stamp}`,`DTSTART;VALUE=DATE:${dtStart}`,`DTEND;VALUE=DATE:${dtEnd}`,`SUMMARY:${esc(ev.title)}`,`DESCRIPTION:${esc(ev.description)}\\n\\n${ev.url}`,`LOCATION:${esc(ev.venue)}`,`URL:${ev.url}`,'STATUS:CONFIRMED','END:VEVENT','END:VCALENDAR'].join('\r\n');
 }
-
 function downloadICS(ev) {
-  const blob = new Blob([generateICS(ev)], { type: 'text/calendar;charset=utf-8' });
+  const blob = new Blob([generateICS(ev)],{type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a'); a.href = url;
-  a.download = `${ev.title.replace(/[^a-zA-Z0-9]/g, '_')}.ics`;
+  a.download = `${ev.title.replace(/[^a-zA-Z0-9]/g,'_')}.ics`;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-// ── Filter logic ──
 function getFiltered() {
   return EVENTS.filter(e => {
-    if (currentFilter === "free" && e.price !== "free") return false;
-    if (currentFilter !== "all" && currentFilter !== "free" && e.category !== currentFilter) return false;
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      return e.title.toLowerCase().includes(q) || e.description.toLowerCase().includes(q) || e.venue.toLowerCase().includes(q);
-    }
+    if (sizeFilter !== "all" && e.size !== sizeFilter) return false;
+    if (priceFilter !== "all" && e.price !== priceFilter) return false;
+    if (searchQuery) { const q = searchQuery.toLowerCase(); return e.title.toLowerCase().includes(q) || e.description.toLowerCase().includes(q) || e.venue.toLowerCase().includes(q); }
     return true;
-  }).sort((a, b) => {
-    const da = parseDate(a.date), db = parseDate(b.date);
-    return sortAsc ? da - db : db - da;
-  });
+  }).sort((a,b) => { const da = parseDate(a.date), db = parseDate(b.date); return sortAsc ? da-db : db-da; });
 }
 
-// ── Render ──
+const sizeLabels = { "conference": "Conference", "meetup": "Meetup", "happy-hour": "Happy Hour" };
+
 function render() {
-  timeline.innerHTML = "";
-  emptyEl.style.display = "none";
-
+  eventsList.innerHTML = ""; emptyEl.style.display = "none";
   const filtered = getFiltered();
-  resultsInfo.textContent = `${filtered.length} event${filtered.length !== 1 ? 's' : ''} found`;
-
+  resultsCount.textContent = `${filtered.length} event${filtered.length !== 1 ? 's' : ''}`;
   if (!filtered.length) { emptyEl.style.display = "block"; return; }
 
   let lastMonth = "";
   filtered.forEach((ev, idx) => {
-    const mk = getMonthKey(ev.date);
+    const dt = parseDate(ev.date);
+    const mk = `${dt.getFullYear()}-${dt.getMonth()}`;
     if (mk !== lastMonth) {
       lastMonth = mk;
-      const mh = document.createElement("li");
-      mh.className = "month-header";
-      mh.textContent = getMonthLabel(ev.date);
-      timeline.appendChild(mh);
+      const d = document.createElement("div"); d.className = "month-divider";
+      d.textContent = `${monthNames[dt.getMonth()]} ${dt.getFullYear()}`;
+      eventsList.appendChild(d);
     }
-
-    const li = document.createElement("li");
-    li.className = "event-card";
-    li.style.animationDelay = `${idx * 0.05}s`;
-
-    const isMulti = ev.endDate ? '<span class="tag tag-multi">Multi-Day</span>' : '';
-    const priceTag = ev.price === "free"
-      ? '<span class="tag tag-free">Free</span>'
-      : '<span class="tag tag-paid">Paid</span>';
-
-    const sc = ev.score;
-    const scCls = scoreClass(sc);
-    const scCol = scoreColor(sc);
-
+    const card = document.createElement("div"); card.className = "event-card";
+    card.style.animationDelay = `${Math.min(idx,12)*0.04}s`;
     const miles = getDistance(ev);
     const milesStr = miles < 0.1 ? "<0.1" : miles.toFixed(1);
-    const transit = estimateTransit(miles);
-    const dirUrl = mapsUrl(ev);
+    const tags = [sizeLabels[ev.size], ev.price === "free" ? "Free" : "Paid", ev.endDate ? "Multi-day" : null].filter(Boolean);
 
-    li.innerHTML = `
-      <div class="event-date-col">
-        <div class="event-day">${formatDay(ev.date)}</div>
-        <div class="event-month-sm">${formatMonthShort(ev.date)}</div>
+    card.innerHTML = `
+      <div class="event-date">
+        <div class="event-date-day">${dt.getDate()}</div>
+        <div class="event-date-month">${monthShort[dt.getMonth()]}</div>
       </div>
       <div class="event-body">
-        <div class="event-tags">
-          <span class="tag">${ev.category === "both" ? "Finance + Crypto" : ev.category.charAt(0).toUpperCase() + ev.category.slice(1)}</span>
-          ${isMulti}
-          ${priceTag}
-          <span class="score-pill ${scCls}" title="${ev.scoreNote}">
-            <span class="score-bar"><span class="score-bar-fill" style="width:${sc}%;background:${scCol}"></span></span>
-            ${sc}
-          </span>
-        </div>
+        <div class="event-meta">${tags.map(t => `<span class="event-tag">${t}</span>`).join('')}</div>
         <div class="event-title">${ev.title}</div>
         <div class="event-desc">${ev.description}</div>
-        <div class="meta-row">
-          <span class="distance-badge"><span class="dist-val">${milesStr} mi</span></span>
-          <span class="transit-time">🚇 <span>${transit}</span></span>
-          <a href="${dirUrl}" target="_blank" rel="noopener" class="directions-link">Directions →</a>
+        <div class="event-details">
+          <span class="event-venue">${ev.venue}</span>
+          <span class="event-distance">${milesStr} mi · ${estimateTransit(miles)}</span>
         </div>
-        <div class="event-footer">
-          <span class="event-venue">📍 ${ev.venue}</span>
-          <a href="${ev.url}" target="_blank" rel="noopener" class="event-link">Details →</a>
-          <button class="cal-btn" data-idx="${idx}">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Add to Cal
-          </button>
+        <div class="event-links">
+          <a href="${ev.url}" target="_blank" rel="noopener">Details</a>
+          <a href="${mapsUrl(ev)}" target="_blank" rel="noopener">Directions</a>
+          <button data-idx="${idx}">Add to Calendar</button>
         </div>
-      </div>
-    `;
-    timeline.appendChild(li);
+      </div>`;
+    eventsList.appendChild(card);
   });
 
-  document.querySelectorAll(".cal-btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-      e.stopPropagation();
-      const f = getFiltered();
-      const ev = f[parseInt(btn.dataset.idx)];
-      if (ev) downloadICS(ev);
-    });
+  document.querySelectorAll('.event-links button[data-idx]').forEach(btn => {
+    btn.addEventListener("click", e => { e.stopPropagation(); const f = getFiltered(); const ev = f[parseInt(btn.dataset.idx)]; if (ev) downloadICS(ev); });
   });
 }
 
-// ── Bindings ──
-document.querySelectorAll(".filter-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    currentFilter = btn.dataset.filter;
-    render();
-  });
+document.querySelectorAll('.filter-btn[data-filter="size"]').forEach(btn => {
+  btn.addEventListener("click", () => { document.querySelectorAll('.filter-btn[data-filter="size"]').forEach(b => b.classList.remove("active")); btn.classList.add("active"); sizeFilter = btn.dataset.val; render(); });
 });
-
+document.querySelectorAll('.filter-btn[data-filter="price"]').forEach(btn => {
+  btn.addEventListener("click", () => { document.querySelectorAll('.filter-btn[data-filter="price"]').forEach(b => b.classList.remove("active")); btn.classList.add("active"); priceFilter = btn.dataset.val; render(); });
+});
 let debounce;
-searchInput.addEventListener("input", e => {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => { searchQuery = e.target.value.trim(); render(); }, 200);
-});
-
-sortBtn.addEventListener("click", () => {
-  sortAsc = !sortAsc;
-  sortBtn.textContent = sortAsc ? "↑ Date" : "↓ Date";
-  render();
-});
-
+searchInput.addEventListener("input", e => { clearTimeout(debounce); debounce = setTimeout(() => { searchQuery = e.target.value.trim(); render(); }, 200); });
+sortBtn.addEventListener("click", () => { sortAsc = !sortAsc; sortBtn.textContent = sortAsc ? "↑ Soonest first" : "↓ Latest first"; render(); });
 render();
 </script>
-
 </body>
 </html>
