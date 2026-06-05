@@ -26,6 +26,7 @@
             <a href="about.html">About</a>
             <a href="people.html">People</a>
             <a href="portfolio.html">Portfolio</a>
+            <a href="jobs.html">Jobs</a>
             <a href="collaborate.html" class="active">Collaborate</a>
             <a href="research.html">Research</a>
         </nav>
@@ -41,6 +42,7 @@
         <a href="about.html">About</a>
         <a href="people.html">People</a>
         <a href="portfolio.html">Portfolio</a>
+        <a href="jobs.html">Jobs</a>
         <a href="collaborate.html">Collaborate</a>
         <a href="research.html">Research</a>
     </div>
@@ -136,7 +138,8 @@
     <footer>
         <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
     </footer>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         
@@ -158,4 +161,11 @@
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
-          
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

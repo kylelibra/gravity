@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs – Gravity Labs | Open Roles</title>
+    <meta name="description" content="Join Gravity Labs. We're hiring an Entrepreneur in Residence and a Principal, New Ventures to help build the next generation of fintech and blockchain companies.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gravity-labs.xyz/jobs.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gravity-labs.xyz/jobs.html">
+    <meta property="og:title" content="Jobs – Gravity Labs | Open Roles">
+    <meta property="og:description" content="Join Gravity Labs. We're hiring an Entrepreneur in Residence and a Principal, New Ventures.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jobs – Gravity Labs | Open Roles">
+    <meta name="twitter:description" content="Open roles at Gravity Labs — help build the next generation of financial technology companies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="jobs.html" class="active">Jobs</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="research.html">Research</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="research.html">Research</a>
+    </div>
+
+    <section id="jobs">
+        <span class="section-label">Jobs</span>
+        <h2>Open Roles</h2>
+        <p class="section-intro">We're a small team building companies from zero. If you want to work at the earliest possible stage — shaping theses, recruiting founders, and getting products into the market — we'd like to meet you.</p>
+
+        <div class="model-section">
+            <div class="model-grid">
+                <div class="model-item">
+                    <h4><a href="jobs-entrepreneur-in-residence.html">Entrepreneur in Residence</a></h4>
+                    <p class="article-meta" style="margin-bottom: 12px;">Contract, 6 months · Remote</p>
+                    <p>Source and validate new company ideas across crypto — and by month six, find the one you believe in enough to found yourself.</p>
+                    <p style="margin-top: 16px;"><a href="jobs-entrepreneur-in-residence.html" class="read-more">View role</a></p>
+                </div>
+                <div class="model-item">
+                    <h4><a href="jobs-principal-new-ventures.html">Principal, New Ventures</a></h4>
+                    <p class="article-meta" style="margin-bottom: 12px;">Full time · Remote</p>
+                    <p>Be a venture creation engine inside Gravity: spot the market gap, write the business case, pitch the investment committee, and recruit the founding team.</p>
+                    <p style="margin-top: 16px;"><a href="jobs-principal-new-ventures.html" class="read-more">View role</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

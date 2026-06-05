@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneur in Residence – Gravity Labs</title>
+    <meta name="description" content="Join Gravity Labs. Gravity Labs is hiring an Entrepreneur in Residence: a 6-month contract to source and validate new company ideas, with a path to founding one yourself.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gravity-labs.xyz/jobs-entrepreneur-in-residence.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gravity-labs.xyz/jobs-entrepreneur-in-residence.html">
+    <meta property="og:title" content="Entrepreneur in Residence – Gravity Labs">
+    <meta property="og:description" content="Join Gravity Labs. Gravity Labs is hiring an Entrepreneur in Residence: a 6-month contract to source and validate new company ideas, with a path to founding one yourself.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Entrepreneur in Residence – Gravity Labs">
+    <meta name="twitter:description" content="Gravity Labs is hiring an Entrepreneur in Residence: a 6-month contract to source and validate new company ideas, with a path to founding one yourself.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Gravity Labs</a>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="people.html">People</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="jobs.html" class="active">Jobs</a>
+            <a href="collaborate.html">Collaborate</a>
+            <a href="research.html">Research</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="people.html">People</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="jobs.html">Jobs</a>
+        <a href="collaborate.html">Collaborate</a>
+        <a href="research.html">Research</a>
+    </div>
+
+    <section id="job-detail">
+        <span class="section-label">Jobs</span>
+        <h2>Entrepreneur in Residence</h2>
+        <span class="article-meta">Contract, 6 months · Remote · Reports to CEO, Gravity Labs</span>
+        <p class="section-intro">Evaluate a range of potential startup ideas with an eye towards finding the one you'll ultimately go work on full-time as a Founder.</p>
+
+        <div class="model-section">
+            <h3>About Gravity Labs</h3>
+            <p class="model-intro">Gravity Labs is a crypto focused venture studio. We don't write checks and wait. We come up with initial ideas, pressure test those ideas, recruit the founding team, and write the first seed check ourselves. We're owned by defy.vc, which gives us institutional firepower and a network most studios don't have.</p>
+            <p class="model-intro">Today we have three live portfolio companies, a fourth launching in weeks, and an active pipeline of new hatches. We're small, fast, and unapologetically opinionated about what gets built.</p>
+        </div>
+
+        <div class="model-section">
+            <h3>What You'll Do</h3>
+            <div class="focus-category">
+                <ul>
+                    <li>Generate and source new hatches (our term for company ideas) across crypto, including DeFi, stablecoins, infra, prediction markets, and anything that looks like a real gap in the ecosystem.</li>
+                    <li>Take the best ideas from a few sentences to one pager to investment memo to IC pitch, following Gravity's hatch process.</li>
+                    <li>Use the Gravity team and advisor network as a sounding board, but drive the work yourself.</li>
+                    <li>Spend time with the existing team and portfolio without being deeply embedded in their day to day.</li>
+                    <li>By month six, have at least one idea that you believe in enough to become the Founder of.</li>
+                </ul>
+            </div>
+            <p class="model-intro" style="margin-top: 32px; margin-bottom: 0;">You choose what to work on. The CEO of Gravity and the Defy IC ultimately sign off on funding, but the agenda is yours.</p>
+        </div>
+
+        <div class="model-section">
+            <h3>Who We're Looking For</h3>
+            <div class="focus-category">
+                <ul>
+                    <li>You are a repeat founder, ideally with a crypto exit or a notable swing and miss. Or a senior operator from a strong crypto company, such as a product or engineering leader, GM, or first few employees type, who is ready to start something.</li>
+                    <li>Deep enough in crypto to have opinions about where the next decade goes. Generalist within crypto is fine; we're open across sub-sectors.</li>
+                    <li>Comfortable working in ambiguity and generating your own idea flow. Nobody is going to hand you ideas.</li>
+                    <li>Honest about what you don't know. Objectivity about what will work. Intellectual honesty is a core value.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="model-section">
+            <h3>How to Apply</h3>
+            <p class="model-intro"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfS978-oE_I1YR2_fB20cQpoVqFo1r1DsefR46DumluSejNRQ/viewform?usp=dialog" target="_blank" rel="noopener" class="read-more">Fill out our application →</a></p>
+            <p><a href="jobs.html" class="read-more">← Back to all roles</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.borderBottom = '1px solid #333';
+            } else {
+                header.style.borderBottom = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
