@@ -27,18 +27,21 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gravity.css">
     <style>
         .hero-visualization {
             position: relative;
             width: 100%;
             height: 100vh;
+            height: 100svh;
+            min-height: 520px;
             overflow: hidden;
-            background: #000;
+            background: var(--paper);
+            border-bottom: 1px solid var(--hairline);
+            touch-action: pan-y;
         }
-        
+
         .hero-visualization canvas {
             display: block;
             position: absolute;
@@ -46,65 +49,77 @@
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
         }
-        
+
         .gravity-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(48px, 12vw, 180px);
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.2em;
+            font-family: var(--font-display);
+            font-size: clamp(38px, 6.6vw, 92px);
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.34em;
+            padding-left: 0.34em;
+            line-height: 1;
             text-transform: uppercase;
             pointer-events: none;
-            z-index: 10;
+            z-index: 2;
             user-select: none;
+            -webkit-user-select: none;
             text-align: center;
-            text-shadow: 
-                0 0 30px rgba(255, 255, 255, 0.5),
-                0 0 60px rgba(100, 200, 255, 0.3),
-                0 0 100px rgba(100, 200, 255, 0.2);
+            animation: settle-in 1.8s ease 0.2s both;
         }
-        
+
+        @keyframes settle-in {
+            0% {
+                letter-spacing: 0.52em;
+                opacity: 0;
+            }
+            100% {
+                letter-spacing: 0.34em;
+                opacity: 1;
+            }
+        }
+
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 34px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 10;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            opacity: 0.6;
-            animation: bounce 2s infinite;
+            gap: 10px;
+            pointer-events: none;
+            animation: drift 2.8s ease-in-out infinite;
         }
-        
+
         .scroll-indicator span {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.1em;
+            font-family: var(--font-text);
+            font-size: 10px;
+            letter-spacing: 0.32em;
             text-transform: uppercase;
-            color: var(--white);
+            color: var(--ink-soft);
+            padding-left: 0.32em;
         }
-        
+
         .scroll-indicator svg {
-            width: 24px;
-            height: 24px;
-            stroke: #ffffff;
+            width: 18px;
+            height: 18px;
+            stroke: var(--ink-soft);
         }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+
+        @keyframes drift {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.85; }
+            50% { transform: translateX(-50%) translateY(6px); opacity: 0.5; }
         }
     </style>
 </head>
-<body>
+<body class="page-home">
     <header>
         <a href="index.html" class="logo">Gravity Labs</a>
         <nav>
@@ -133,10 +148,10 @@
     </div>
 
     <div class="hero-visualization" id="heroVisualization">
-        <div class="gravity-text">GRAVITY</div>
+        <div class="gravity-text">Gravity Labs</div>
         <div class="scroll-indicator">
             <span>Scroll</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 5v14M5 12l7 7 7-7"/>
             </svg>
         </div>
@@ -146,15 +161,15 @@
         <h1>Building with Founders From the Ground Up</h1>
         <p class="large">Gravity Labs is a venture studio incubating the next generation of financial technology companies. Fully backed by Defy, we give founders the capital, deep crypto and fintech expertise, and industry network they need to succeed. We support our talent from initial funding to market entry and beyond. Because great companies are built on solid ground.</p>
         <a href="collaborate.html" class="cta-button">Build with Gravity</a>
-        
+
         <div class="home-features">
             <div class="feature">
                 <h3>The Defy Promise</h3>
                 <p>Gravity Labs is Defy's blockchain-focused incubator, bringing its deep capital resources, institutional credibility, and network of operators and investors to the crypto space.</p>
                 <div class="stat-blocks">
                     <div class="stat-block">
-                        <span class="stat-value">$700M</span>
-                        <span class="stat-label">Assets Under Management</span>
+                        <span class="stat-value">$700M+</span>
+                        <span class="stat-label">Raised to Date</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-value">$300M</span>
@@ -169,16 +184,6 @@
             <div class="feature">
                 <h3>The Gravity Labs Ecosystem</h3>
                 <p>Your company immediately joins an expert community of strategic partners, advisors, and fellow founders—creating competitive advantages from day one.</p>
-                <div class="advisor-logos">
-                    <img src="img/advisor-logos/amazon.jpg" alt="Amazon">
-                    <img src="img/advisor-logos/deutsche.jpg" alt="Deutsche Bank">
-                    <img src="img/advisor-logos/goldman.jpg" alt="Goldman Sachs">
-                    <img src="img/advisor-logos/palantir.jpg" alt="Palantir">
-                    <img src="img/advisor-logos/paxos.jpg" alt="Paxos">
-                    <img src="img/advisor-logos/spotify.jpg" alt="Spotify">
-                    <img src="img/advisor-logos/stripe.jpg" alt="Stripe">
-                    <img src="img/advisor-logos/uchicago.jpg" alt="University of Chicago">
-                </div>
             </div>
         </div>
     </section>
@@ -187,328 +192,200 @@
         <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
     </footer>
 
+    <script src="script.js" defer></script>
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    /* Gravity hero — an engraved orbital system.
+       Hairline ellipses, small bodies on slow circuits. The whole plate
+       tilts a few degrees toward the pointer; a click sends out one
+       quiet ripple. Static for reduced motion. No dependencies. */
+    (function () {
+        'use strict';
+
+        var container = document.getElementById('heroVisualization');
+        if (!container) return;
+
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        var canvas = document.createElement('canvas');
+        container.insertBefore(canvas, container.firstChild);
+        var ctx = canvas.getContext('2d');
+
+        var CHARCOAL = '38, 36, 31';
+        var OXBLOOD = '#6E2A33';
+
+        var W = 0, H = 0, dpr = 1, cx = 0, cy = 0;
+        var orbits = [];
+        var bodies = [];
+        var ripples = [];
+        var pointer = { x: 0, y: 0, active: false };
+        var tilt = 0, tiltTarget = 0;
+        var ox = 0, oy = 0, oxTarget = 0, oyTarget = 0;
+        var running = false;
+        var rafId = null;
+
+        function resize() {
+            W = container.clientWidth;
+            H = container.clientHeight;
+            cx = W / 2;
+            cy = H / 2;
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(W * dpr);
+            canvas.height = Math.round(H * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            build();
+        }
+
+        function build() {
+            var b = Math.min(W, H) * 0.5;
+            orbits = [
+                { rx: b * 1.62, ry: b * 0.60, rot: -0.06, dash: false, alpha: 0.26 },
+                { rx: b * 1.18, ry: b * 0.92, rot: 0.42, dash: false, alpha: 0.20 },
+                { rx: b * 0.86, ry: b * 1.16, rot: -0.50, dash: false, alpha: 0.18 },
+                { rx: b * 0.58, ry: b * 0.30, rot: -0.16, dash: true, alpha: 0.30 }
+            ];
+            /* angle, speed (rad/s), orbit index, radius, color */
+            bodies = [
+                { o: 0, a: 0.6, s: 0.10, r: 4, ox: true },
+                { o: 0, a: 3.6, s: 0.10, r: 2.5, ox: false },
+                { o: 1, a: 1.8, s: -0.07, r: 3.2, ox: false },
+                { o: 2, a: 4.4, s: 0.055, r: 3, ox: false },
+                { o: 2, a: 1.2, s: 0.055, r: 2.2, ox: false },
+                { o: 3, a: 2.6, s: -0.16, r: 2.6, ox: false }
+            ];
+        }
+
+        function drawScene() {
+            ctx.clearRect(0, 0, W, H);
+            ctx.save();
+            ctx.translate(cx + ox, cy + oy);
+            ctx.rotate(tilt);
+
+            for (var i = 0; i < orbits.length; i++) {
+                var o = orbits[i];
+                ctx.beginPath();
+                if (o.dash) ctx.setLineDash([2, 7]);
+                ctx.ellipse(0, 0, o.rx, o.ry, o.rot, 0, Math.PI * 2);
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = 'rgba(' + CHARCOAL + ',' + o.alpha + ')';
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            /* Center node */
+            ctx.beginPath();
+            ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(' + CHARCOAL + ',0.55)';
+            ctx.fill();
+
+            for (var j = 0; j < bodies.length; j++) {
+                var p = bodies[j];
+                var o2 = orbits[p.o];
+                var lx = o2.rx * Math.cos(p.a);
+                var ly = o2.ry * Math.sin(p.a);
+                var x = lx * Math.cos(o2.rot) - ly * Math.sin(o2.rot);
+                var y = lx * Math.sin(o2.rot) + ly * Math.cos(o2.rot);
+                ctx.beginPath();
+                ctx.arc(x, y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.ox ? OXBLOOD : 'rgba(' + CHARCOAL + ',0.6)';
+                ctx.fill();
+            }
+
+            ctx.restore();
+
+            /* Ripples */
+            for (var k = ripples.length - 1; k >= 0; k--) {
+                var rp = ripples[k];
+                ctx.beginPath();
+                ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = 'rgba(' + CHARCOAL + ',' + rp.alpha + ')';
+                ctx.stroke();
+                if (rp.alpha < 0.02) ripples.splice(k, 1);
+            }
+        }
+
+        function step() {
+            /* Unhurried easing toward the pointer */
+            tilt += (tiltTarget - tilt) * 0.025;
+            ox += (oxTarget - ox) * 0.025;
+            oy += (oyTarget - oy) * 0.025;
+
+            for (var i = 0; i < bodies.length; i++) {
+                bodies[i].a += bodies[i].s * 0.016;
+            }
+
+            var maxR = Math.min(W, H) * 0.6;
+            for (var k = 0; k < ripples.length; k++) {
+                var rp = ripples[k];
+                rp.r += (maxR - rp.r) * 0.035;
+                rp.alpha *= 0.962;
+            }
+
+            drawScene();
+            rafId = window.requestAnimationFrame(step);
+        }
+
+        function start() {
+            if (running || reducedMotion) return;
+            running = true;
+            rafId = window.requestAnimationFrame(step);
+        }
+
+        function stop() {
+            running = false;
+            if (rafId) { window.cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        container.addEventListener('pointermove', function (e) {
+            var rect = container.getBoundingClientRect();
+            var px = e.clientX - rect.left;
+            var py = e.clientY - rect.top;
+            tiltTarget = ((px - cx) / W) * 0.1;
+            oxTarget = (px - cx) * 0.03;
+            oyTarget = (py - cy) * 0.03;
         });
 
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
+        container.addEventListener('pointerleave', function () {
+            tiltTarget = 0;
+            oxTarget = 0;
+            oyTarget = 0;
+        });
+
+        container.addEventListener('pointerdown', function (e) {
+            if (reducedMotion) return;
+            var rect = container.getBoundingClientRect();
+            ripples.push({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+                r: 6,
+                alpha: 0.4
             });
         });
 
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.style.borderBottom = '1px solid #333';
-            } else {
-                header.style.borderBottom = 'none';
-            }
-        });
-
-        // Three.js Particle Sphere Visualization
-        const heroContainer = document.getElementById('heroVisualization');
-        
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        heroContainer.insertBefore(renderer.domElement, heroContainer.firstChild);
-
-        camera.position.z = 5;
-
-        const particleCount = 3000;
-        const sphereRadius = 2;
-        const particleSize = 0.0008;
-
-        const particlesGeometry = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const originalPositions = new Float32Array(particleCount * 3);
-        const velocities = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
-
-        for (let i = 0; i < particleCount; i++) {
-            const phi = Math.acos(1 - 2 * (i + 0.5) / particleCount);
-            const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
-
-            const x = sphereRadius * Math.sin(phi) * Math.cos(theta);
-            const y = sphereRadius * Math.sin(phi) * Math.sin(theta);
-            const z = sphereRadius * Math.cos(phi);
-
-            positions[i * 3] = x;
-            positions[i * 3 + 1] = y;
-            positions[i * 3 + 2] = z;
-
-            originalPositions[i * 3] = x;
-            originalPositions[i * 3 + 1] = y;
-            originalPositions[i * 3 + 2] = z;
-
-            velocities[i * 3] = 0;
-            velocities[i * 3 + 1] = 0;
-            velocities[i * 3 + 2] = 0;
-
-            const hue = (Math.atan2(y, x) + Math.PI) / (2 * Math.PI);
-            const color = new THREE.Color().setHSL(hue * 0.3 + 0.5, 0.8, 0.6);
-            colors[i * 3] = color.r;
-            colors[i * 3 + 1] = color.g;
-            colors[i * 3 + 2] = color.b;
+        if ('IntersectionObserver' in window && !reducedMotion) {
+            new IntersectionObserver(function (entries) {
+                entries[0].isIntersecting ? start() : stop();
+            }, { threshold: 0.05 }).observe(container);
         }
 
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-        const particlesMaterial = new THREE.ShaderMaterial({
-            uniforms: {
-                pointSize: { value: particleSize * 100 },
-            },
-            vertexShader: `
-                attribute vec3 color;
-                varying vec3 vColor;
-                uniform float pointSize;
-                
-                void main() {
-                    vColor = color;
-                    vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                    gl_PointSize = pointSize * (300.0 / -mvPosition.z);
-                    gl_Position = projectionMatrix * mvPosition;
-                }
-            `,
-            fragmentShader: `
-                varying vec3 vColor;
-                
-                void main() {
-                    float dist = length(gl_PointCoord - vec2(0.5));
-                    if (dist > 0.5) discard;
-                    
-                    float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
-                    vec3 glow = vColor * (1.0 + 0.5 * (1.0 - dist * 2.0));
-                    gl_FragColor = vec4(glow, alpha);
-                }
-            `,
-            transparent: true,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false,
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) { stop(); }
+            else if (!reducedMotion) { start(); }
         });
 
-        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particles);
-
-        const attractorGeometry = new THREE.SphereGeometry(0.08, 32, 32);
-        const attractorMaterial = new THREE.ShaderMaterial({
-            uniforms: {
-                time: { value: 0 },
-                color1: { value: new THREE.Color(0xff6b6b) },
-                color2: { value: new THREE.Color(0xffd93d) },
-            },
-            vertexShader: `
-                varying vec3 vNormal;
-                varying vec3 vPosition;
-                
-                void main() {
-                    vNormal = normalize(normalMatrix * normal);
-                    vPosition = position;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                }
-            `,
-            fragmentShader: `
-                uniform float time;
-                uniform vec3 color1;
-                uniform vec3 color2;
-                varying vec3 vNormal;
-                varying vec3 vPosition;
-                
-                void main() {
-                    float fresnel = pow(1.0 - abs(dot(vNormal, vec3(0.0, 0.0, 1.0))), 2.0);
-                    vec3 color = mix(color1, color2, fresnel + sin(time * 3.0) * 0.2);
-                    float glow = fresnel * 0.8 + 0.4;
-                    gl_FragColor = vec4(color * glow, 0.9);
-                }
-            `,
-            transparent: true,
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                resize();
+                drawScene();
+            }, 150);
         });
 
-        const attractor = new THREE.Mesh(attractorGeometry, attractorMaterial);
-        attractor.position.set(10, 10, 0);
-        scene.add(attractor);
-
-        const glowGeometry = new THREE.SphereGeometry(0.14, 32, 32);
-        const glowMaterial = new THREE.ShaderMaterial({
-            uniforms: {
-                time: { value: 0 },
-            },
-            vertexShader: `
-                varying vec3 vNormal;
-                
-                void main() {
-                    vNormal = normalize(normalMatrix * normal);
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-                }
-            `,
-            fragmentShader: `
-                uniform float time;
-                varying vec3 vNormal;
-                
-                void main() {
-                    float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.0);
-                    vec3 color = vec3(1.0, 0.5, 0.3) * intensity * (0.8 + 0.2 * sin(time * 5.0));
-                    gl_FragColor = vec4(color, intensity * 0.6);
-                }
-            `,
-            transparent: true,
-            blending: THREE.AdditiveBlending,
-            side: THREE.BackSide,
-        });
-
-        const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-        attractor.add(glow);
-
-        const mouse = new THREE.Vector2();
-        const mouseWorld = new THREE.Vector3();
-        const raycaster = new THREE.Raycaster();
-        const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-        const intersectPoint = new THREE.Vector3();
-
-        document.addEventListener('mousemove', (event) => {
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-            raycaster.setFromCamera(mouse, camera);
-            raycaster.ray.intersectPlane(plane, intersectPoint);
-            mouseWorld.copy(intersectPoint);
-        });
-
-        document.addEventListener('touchmove', (event) => {
-            const touch = event.touches[0];
-            mouse.x = (touch.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(touch.clientY / window.innerHeight) * 2 + 1;
-
-            raycaster.setFromCamera(mouse, camera);
-            raycaster.ray.intersectPlane(plane, intersectPoint);
-            mouseWorld.copy(intersectPoint);
-        }, { passive: true });
-
-        const gravityStrength = 0.8;
-        const returnStrength = 0.02;
-        const damping = 0.92;
-        const maxDisplacement = 1.5;
-
-        let time = 0;
-        const tempVec = new THREE.Vector3();
-
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.016;
-
-            attractor.position.lerp(mouseWorld, 0.15);
-
-            attractorMaterial.uniforms.time.value = time;
-            glowMaterial.uniforms.time.value = time;
-
-            particles.rotation.y += 0.001;
-            particles.rotation.x += 0.0005;
-
-            const posArray = particlesGeometry.attributes.position.array;
-            const colorArray = particlesGeometry.attributes.color.array;
-
-            for (let i = 0; i < particleCount; i++) {
-                const i3 = i * 3;
-
-                const px = posArray[i3];
-                const py = posArray[i3 + 1];
-                const pz = posArray[i3 + 2];
-
-                const origX = originalPositions[i3];
-                const origY = originalPositions[i3 + 1];
-                const origZ = originalPositions[i3 + 2];
-
-                tempVec.copy(attractor.position);
-                particles.worldToLocal(tempVec);
-
-                const dx = tempVec.x - px;
-                const dy = tempVec.y - py;
-                const dz = tempVec.z - pz;
-                const distSq = dx * dx + dy * dy + dz * dz;
-                const dist = Math.sqrt(distSq);
-
-                if (dist > 0.1 && dist < 3) {
-                    const force = gravityStrength / (distSq + 0.5);
-                    velocities[i3] += (dx / dist) * force;
-                    velocities[i3 + 1] += (dy / dist) * force;
-                    velocities[i3 + 2] += (dz / dist) * force;
-                }
-
-                velocities[i3] += (origX - px) * returnStrength;
-                velocities[i3 + 1] += (origY - py) * returnStrength;
-                velocities[i3 + 2] += (origZ - pz) * returnStrength;
-
-                velocities[i3] *= damping;
-                velocities[i3 + 1] *= damping;
-                velocities[i3 + 2] *= damping;
-
-                let newX = px + velocities[i3];
-                let newY = py + velocities[i3 + 1];
-                let newZ = pz + velocities[i3 + 2];
-
-                const dispX = newX - origX;
-                const dispY = newY - origY;
-                const dispZ = newZ - origZ;
-                const dispDist = Math.sqrt(dispX * dispX + dispY * dispY + dispZ * dispZ);
-
-                if (dispDist > maxDisplacement) {
-                    const scale = maxDisplacement / dispDist;
-                    newX = origX + dispX * scale;
-                    newY = origY + dispY * scale;
-                    newZ = origZ + dispZ * scale;
-                }
-
-                posArray[i3] = newX;
-                posArray[i3 + 1] = newY;
-                posArray[i3 + 2] = newZ;
-
-                const speed = Math.sqrt(
-                    velocities[i3] * velocities[i3] +
-                    velocities[i3 + 1] * velocities[i3 + 1] +
-                    velocities[i3 + 2] * velocities[i3 + 2]
-                );
-                
-                const hue = (Math.atan2(origY, origX) + Math.PI) / (2 * Math.PI);
-                const brightness = Math.min(0.6 + speed * 5, 1.0);
-                const saturation = 0.8 + speed * 2;
-                
-                const color = new THREE.Color().setHSL(
-                    (hue * 0.3 + 0.5 + speed * 0.5) % 1,
-                    Math.min(saturation, 1.0),
-                    brightness
-                );
-                
-                colorArray[i3] = color.r;
-                colorArray[i3 + 1] = color.g;
-                colorArray[i3 + 2] = color.b;
-            }
-
-            particlesGeometry.attributes.position.needsUpdate = true;
-            particlesGeometry.attributes.color.needsUpdate = true;
-
-            renderer.render(scene, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        animate();
+        resize();
+        drawScene();
+        if (!reducedMotion) start();
+    })();
     </script>
 </body>
 </html>

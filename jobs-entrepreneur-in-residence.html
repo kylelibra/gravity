@@ -16,10 +16,10 @@
     <meta name="twitter:description" content="Gravity Labs is hiring an Entrepreneur in Residence: a 6-month contract to source and validate new company ideas, with a path to founding one yourself.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gravity.css">
 </head>
-<body>
+<body class="page-jobs">
     <header>
         <a href="index.html" class="logo">Gravity Labs</a>
         <nav>
@@ -96,33 +96,6 @@
         <span class="copyright">© 2026 Gravity Labs. All rights reserved.</span>
     </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-        });
-
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                header.style.borderBottom = '1px solid #333';
-            } else {
-                header.style.borderBottom = 'none';
-            }
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
