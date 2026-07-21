@@ -73,6 +73,17 @@ a {
     border-bottom-color: var(--oxblood);
 }
 
+.text-link {
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 1px;
+}
+
+.text-link:hover {
+    color: var(--oxblood);
+    border-bottom-color: var(--oxblood);
+}
+
 header {
     position: fixed;
     top: 0;
@@ -223,6 +234,7 @@ nav a.active {
 .mobile-menu.active a:nth-child(5) { transition-delay: 0.26s; }
 .mobile-menu.active a:nth-child(6) { transition-delay: 0.31s; }
 .mobile-menu.active a:nth-child(7) { transition-delay: 0.36s; }
+.mobile-menu.active a:nth-child(8) { transition-delay: 0.41s; }
 
 .mobile-menu a:hover {
     color: var(--oxblood);
@@ -258,6 +270,8 @@ section::before {
 #job-detail::before{ transform: rotate(10deg); opacity: 0.6; }
 #collaborate::before { transform: rotate(-14deg); }
 #writing::before   { transform: rotate(6deg); }
+#news::before      { transform: rotate(12deg); }
+#news-article::before { transform: rotate(-8deg); opacity: 0.6; }
 #home::before      { display: none; }
 
 .section-label {
@@ -877,15 +891,49 @@ p.large {
     margin-top: clamp(96px, 12vh, 150px);
 }
 
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 72px clamp(48px, 6vw, 88px);
+.portfolio-list {
+    margin-top: clamp(96px, 12vh, 150px);
 }
 
-.portfolio-item {
+.portfolio-line {
+    display: grid;
+    grid-template-columns: minmax(200px, 300px) 1fr;
+    gap: clamp(24px, 4vw, 64px);
+    align-items: baseline;
+    width: 100%;
+    padding: 30px 0;
     border-top: 1px solid var(--hairline-strong);
-    padding-top: 32px;
+}
+
+.portfolio-line:last-child {
+    border-bottom: 1px solid var(--hairline-strong);
+}
+
+.portfolio-line h4 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.4vw, 32px);
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.portfolio-line h4 a:hover {
+    color: var(--oxblood);
+}
+
+.portfolio-line p {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 0;
+}
+
+.portfolio-acquired {
+    font-family: var(--font-text);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-left: 12px;
+    white-space: nowrap;
 }
 
 .portfolio-header {
@@ -1243,6 +1291,11 @@ p.large {
     margin-bottom: 0;
 }
 
+.news-list {
+    margin-top: clamp(48px, 6vh, 80px);
+    border-top: 1px solid var(--hairline-strong);
+}
+
 .tool-link {
     display: flex;
     justify-content: space-between;
@@ -1365,7 +1418,6 @@ footer nav a {
 }
 
 @media (max-width: 960px) {
-    .portfolio-grid,
     .team-bios,
     .research-nav,
     .collab-grid {
@@ -1388,6 +1440,11 @@ footer nav a {
 @media (max-width: 768px) {
     header {
         padding: 16px 24px;
+    }
+
+    .portfolio-line {
+        grid-template-columns: 1fr;
+        gap: 8px;
     }
 
     header nav {

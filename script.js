@@ -1,12 +1,9 @@
-/* Gravity Labs — shared behavior
-   Mobile menu · gentle scroll fades */
 
 (function () {
     'use strict';
 
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ----- Mobile menu ----- */
     var hamburger = document.getElementById('hamburger');
     var mobileMenu = document.getElementById('mobileMenu');
 
@@ -26,7 +23,6 @@
         });
     }
 
-    /* ----- Soft scroll fades ----- */
     var revealSelector = [
         'h2',
         '.section-intro',
@@ -54,7 +50,6 @@
     var targets = Array.prototype.slice.call(document.querySelectorAll(revealSelector));
 
     if (!reducedMotion && 'IntersectionObserver' in window && targets.length) {
-        /* A whisper of stagger between siblings */
         var byParent = new Map();
         targets.forEach(function (el) {
             var list = byParent.get(el.parentElement) || [];

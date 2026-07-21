@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="gravitystyle.css">
+    <link rel="stylesheet" href="what-is-gravity.css">
     <style>
         .hero-visualization {
             position: relative;
@@ -196,10 +196,6 @@
 
     <script src="script.js" defer></script>
     <script>
-    /* Gravity hero — an engraved orbital system.
-       Hairline ellipses, small bodies on slow circuits. The whole plate
-       tilts a few degrees toward the pointer; a click sends out one
-       quiet ripple. Static for reduced motion. No dependencies. */
     (function () {
         'use strict';
 
@@ -245,7 +241,6 @@
                 { rx: b * 0.86, ry: b * 1.16, rot: -0.50, dash: false, alpha: 0.18 },
                 { rx: b * 0.58, ry: b * 0.30, rot: -0.16, dash: true, alpha: 0.30 }
             ];
-            /* angle, speed (rad/s), orbit index, radius, color */
             bodies = [
                 { o: 0, a: 0.6, s: 0.10, r: 4, ox: true },
                 { o: 0, a: 3.6, s: 0.10, r: 2.5, ox: false },
@@ -273,7 +268,6 @@
                 ctx.setLineDash([]);
             }
 
-            /* Center node */
             ctx.beginPath();
             ctx.arc(0, 0, 3.5, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(' + CHARCOAL + ',0.55)';
@@ -294,7 +288,6 @@
 
             ctx.restore();
 
-            /* Ripples */
             for (var k = ripples.length - 1; k >= 0; k--) {
                 var rp = ripples[k];
                 ctx.beginPath();
@@ -307,7 +300,6 @@
         }
 
         function step() {
-            /* Unhurried easing toward the pointer */
             tilt += (tiltTarget - tilt) * 0.025;
             ox += (oxTarget - ox) * 0.025;
             oy += (oyTarget - oy) * 0.025;

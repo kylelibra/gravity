@@ -1,10 +1,3 @@
-/* ============================================================
-   GRAVITY LABS — design system, second cut
-   Heritage finance meets the celestial atlas.
-   Ivory paper · warm charcoal · one oxblood accent
-   Type: Libre Caslon Display & Text throughout
-   Marks: hairline orbital engravings
-   ============================================================ */
 
 * {
     margin: 0;
@@ -64,7 +57,6 @@ a {
     outline-offset: 3px;
 }
 
-/* Prose links — hairline underline, warming to oxblood */
 .writing-entry p a,
 .portfolio-content a,
 .bio-content p a,
@@ -81,9 +73,6 @@ a {
     border-bottom-color: var(--oxblood);
 }
 
-/* ============================================================
-   Header & navigation
-   ============================================================ */
 header {
     position: fixed;
     top: 0;
@@ -110,7 +99,6 @@ header {
     gap: 12px;
 }
 
-/* The small orbit: one ring, one node */
 .logo::before {
     content: '';
     width: 15px;
@@ -149,7 +137,6 @@ nav a.active {
     border-bottom-color: var(--oxblood);
 }
 
-/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -181,7 +168,6 @@ nav a.active {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile menu — ivory, serif, unhurried */
 .mobile-menu {
     display: none;
     position: fixed;
@@ -243,9 +229,6 @@ nav a.active {
     font-style: italic;
 }
 
-/* ============================================================
-   Sections & the engraved watermark
-   ============================================================ */
 section {
     position: relative;
     isolation: isolate;
@@ -255,7 +238,6 @@ section {
     margin: 0 auto;
 }
 
-/* One orbital plate per page, drifting in the upper margin */
 section::before {
     content: '';
     position: absolute;
@@ -278,9 +260,6 @@ section::before {
 #writing::before   { transform: rotate(6deg); }
 #home::before      { display: none; }
 
-/* ============================================================
-   Type scale — engraved, not shouted
-   ============================================================ */
 .section-label {
     display: inline-flex;
     align-items: center;
@@ -363,9 +342,6 @@ p.large {
     margin-bottom: 30px;
 }
 
-/* ============================================================
-   Motion — soft fades only
-   ============================================================ */
 .reveal {
     opacity: 0;
     transform: translateY(16px);
@@ -383,9 +359,6 @@ p.large {
     50% { opacity: 0.35; }
 }
 
-/* ============================================================
-   Buttons
-   ============================================================ */
 .cta-button,
 .contact-link {
     display: inline-block;
@@ -423,9 +396,6 @@ p.large {
     border-bottom-color: var(--oxblood);
 }
 
-/* ============================================================
-   Home
-   ============================================================ */
 #home {
     padding-top: clamp(100px, 14vh, 170px);
 }
@@ -487,7 +457,6 @@ p.large {
     color: var(--ink-soft);
 }
 
-/* Advisor logos — JPGs cut for a dark ground, mounted on a charcoal plate */
 .advisor-logos {
     display: flex;
     flex-wrap: wrap;
@@ -518,9 +487,6 @@ p.large {
     height: 28px;
 }
 
-/* ============================================================
-   About — values & model
-   ============================================================ */
 .values-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -554,7 +520,6 @@ p.large {
     margin-bottom: 0;
 }
 
-/* Shared sub-section blocks (about, jobs, job detail) */
 .model-section {
     margin-top: clamp(96px, 12vh, 150px);
 }
@@ -617,9 +582,6 @@ p.large {
     margin-bottom: 14px;
 }
 
-/* ============================================================
-   People — bios, studio team, agents, advisors
-   ============================================================ */
 .team-bios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -639,7 +601,6 @@ p.large {
     margin-bottom: 28px;
 }
 
-/* Mounted-plate portrait: keyline, mat, archival grayscale */
 .bio-photo {
     width: 108px;
     height: 108px;
@@ -791,7 +752,6 @@ p.large {
     fill: currentColor;
 }
 
-/* AI agents */
 .staff-member.agent .staff-name {
     display: flex;
     align-items: center;
@@ -832,7 +792,6 @@ p.large {
     animation: soft-pulse 2.6s ease-in-out infinite;
 }
 
-/* Info tip */
 .info-tip {
     position: relative;
     display: inline-flex;
@@ -905,9 +864,6 @@ p.large {
     max-width: 720px;
 }
 
-/* ============================================================
-   Portfolio
-   ============================================================ */
 .focus-areas {
     margin-top: 80px;
     max-width: 760px;
@@ -999,7 +955,6 @@ p.large {
     margin-bottom: 0;
 }
 
-/* Legacy portfolio status bits */
 .portfolio-status {
     margin-top: 16px;
 }
@@ -1019,9 +974,6 @@ p.large {
     margin-left: 10px;
 }
 
-/* ============================================================
-   Jobs & job detail
-   ============================================================ */
 #job-detail h2 {
     max-width: none;
 }
@@ -1068,7 +1020,6 @@ p.large {
     margin-bottom: 16px;
 }
 
-/* Orbital node as list marker */
 .focus-category li::before {
     content: '';
     position: absolute;
@@ -1085,9 +1036,6 @@ p.large {
     font-weight: 700;
 }
 
-/* ============================================================
-   Collaborate
-   ============================================================ */
 .collab-section {
     margin-top: clamp(96px, 12vh, 150px);
 }
@@ -1155,9 +1103,6 @@ p.large {
     margin-bottom: 0;
 }
 
-/* ============================================================
-   Research
-   ============================================================ */
 .research-nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1298,7 +1243,6 @@ p.large {
     margin-bottom: 0;
 }
 
-/* Legacy tool-link list styling */
 .tool-link {
     display: flex;
     justify-content: space-between;
@@ -1338,7 +1282,6 @@ p.large {
     margin-left: 24px;
 }
 
-/* Legacy generic grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -1360,9 +1303,6 @@ p.large {
     color: var(--ink-soft);
 }
 
-/* ============================================================
-   Footer — certificate rule, small orbit, centered colophon
-   ============================================================ */
 footer {
     position: relative;
     border-top: 1px solid var(--hairline-strong);
@@ -1374,7 +1314,6 @@ footer {
     text-align: center;
 }
 
-/* The second line of the double rule */
 footer::after {
     content: '';
     position: absolute;
@@ -1410,9 +1349,6 @@ footer nav a {
     font-size: 11px;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
 @media (max-width: 1024px) {
     .home-features {
         grid-template-columns: 1fr;
@@ -1543,9 +1479,6 @@ footer nav a {
     }
 }
 
-/* ============================================================
-   Reduced motion — the page simply is
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
